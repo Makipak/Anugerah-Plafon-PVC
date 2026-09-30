@@ -1,0 +1,65 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { navItems, site, waMessages } from "@/lib/site";
+import { WhatsAppButton } from "./whatsapp-button";
+
+export function Header() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-40 border-b border-line bg-background/95">
+      <div className="container-page flex h-16 items-center justify-between gap-4">
+        {/* Teks sebagai wordmark sementara; ganti dengan LOGO-01 saat logo diterima. */}
+        <Link href="/" className="font-display text-lg font-bold leading-none text-ink" onClick={() => setOpen(false)}>
+          {site.name}
+        </Link>
+
+        <nav aria-label="Navigasi utama" className="hidden items-center gap-6 lg:flex">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href} className="py-2 text-base text-ink hover:text-primary">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <WhatsAppButton message={waMessages.umum} location="header" label="Chat WhatsApp" className="min-h-11 max-sm:hidden" />
+          <button
+            type="button"
+            className="inline-flex size-11 items-center justify-center rounded-control border border-line-strong lg:hidden"
+            aria-expanded={open}
+            aria-controls="menu-mobile"
+            aria-label={open ? "Tutup menu" : "Buka menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X aria-hidden="true" className="size-5" /> : <Menu aria-hidden="true" className="size-5" />}
+          </button>
+        </div>
+      </div>
+
+      {open ? (
+        <nav id="menu-mobile" aria-label="Navigasi utama" className="border-t border-line bg-background lg:hidden">
+          <ul className="container-page py-2">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="flex min-h-12 items-center border-b border-line text-base text-ink"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <li className="py-4">
+              <WhatsAppButton message={waMessages.umum} location="menu-mobile" className="w-full" />
+            </li>
+          </ul>
+        </nav>
+      ) : null}
+    </header>
+  );
+}
