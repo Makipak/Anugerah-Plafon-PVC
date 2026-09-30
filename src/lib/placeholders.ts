@@ -10,7 +10,13 @@ export function findPlaceholders(value: unknown, path = "$"): string[] {
   return [];
 }
 
-export const isProduction = process.env.VERCEL_ENV === "production";
+/**
+ * True hanya untuk rilis produksi yang sebenarnya. SITE_STAGING=1 memaksa perilaku preview
+ * (noindex, robots disallow, tanpa gerbang data) walau Vercel menandai deploy sebagai Production,
+ * mis. saat memamerkan situs dengan data dummy dari branch main. Hapus variabel itu saat rilis.
+ */
+export const isProduction =
+  process.env.VERCEL_ENV === "production" && process.env.SITE_STAGING !== "1";
 
 /**
  * Data contoh (DUMMY) sedang dipakai untuk harga, kontak, proyek, dan teks.

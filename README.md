@@ -25,6 +25,7 @@ Sebelum commit: jalankan checklist di AGENTS.md bagian 8.
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Ya di produksi | URL kanonik, tanpa slash akhir |
 | `NEXT_PUBLIC_GA_ID` | Tidak | ID GA4; event `whatsapp_click`, `phone_click`, `map_click` |
+| `SITE_STAGING` | Tidak | `1` = perilaku preview di deploy Production (lihat Deploy) |
 
 ## Mengisi data klien
 
@@ -43,6 +44,9 @@ Saat ini semua harga, kontak, motif, proyek, dan teks adalah **data dummy**, dit
 Setelah semua diganti, set `DATA_DUMMY = false` di `src/lib/placeholders.ts`. **Build dengan `VERCEL_ENV=production` sengaja gagal** selama `DATA_DUMMY` true, ada `[ISI]`, atau ada aset tanpa `src`/`alt`. Di dev dan preview, aset kosong tampil sebagai placeholder berlabel dan meta robots `noindex`.
 
 ## Deploy
+
+**Deploy sementara dengan data dummy:** di Vercel (Settings, Environment Variables) set `SITE_STAGING=1` dan `NEXT_PUBLIC_SITE_URL` ke URL `*.vercel.app`. Situs akan `noindex`, robots `Disallow: /`, dan gerbang data tidak aktif, walau deploy berasal dari `main`. **Hapus `SITE_STAGING` saat rilis sungguhan**; setelah itu build produksi menuntut `DATA_DUMMY = false` dan semua data serta aset terisi.
+
 
 1. Import repo di Vercel, set `NEXT_PUBLIC_SITE_URL`.
 2. Preview otomatis `noindex`. Produksi hanya lolos build bila semua `[ISI]` terisi.
