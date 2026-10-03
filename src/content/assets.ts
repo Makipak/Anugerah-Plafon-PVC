@@ -12,7 +12,7 @@ export type AssetSpec = {
 };
 
 export const assets = {
-  "LOGO-01": { ratio: "4/1", minWidth: 800, minHeight: 200, brief: "Logo horizontal (SVG)", src: "/assets/logo-01.svg", alt: "Logo Anugerah Plavon PVC", bare: true },
+  "LOGO-01": { ratio: "4/1", minWidth: 800, minHeight: 200, brief: "Logo horizontal (SVG)", src: "/assets/logo-01.png", alt: "Logo Anugerah Plavon PVC", bare: true },
   "LOGO-02": { ratio: "1/1", minWidth: 512, minHeight: 512, brief: "Logo ringkas untuk favicon (SVG + PNG)", src: "/assets/logo-02.svg", alt: "Logo ringkas", bare: true },
   "OG-DEFAULT": { ratio: "1200/630", minWidth: 1200, minHeight: 630, brief: "Gambar berbagi tautan: nama usaha dan produk" },
   "HERO-01": { ratio: "4/3", minWidth: 1600, minHeight: 1200, brief: "Ruangan dengan plafon PVC terpasang terlihat jelas, cahaya alami", src: "/assets/hero/hero-01.png", alt: "Ruangan dengan plafon PVC terpasang", bare: true },
