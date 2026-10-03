@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { localBusinessLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
+import { site, waLink } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Kontak Toko Plafon PVC Serang: Alamat, Jam, dan WhatsApp",
@@ -16,10 +17,6 @@ const MAPS_LINK = "https://maps.app.goo.gl/GpR5Cb22pDKahc697";
 // Ganti dengan src dari Google Maps > Bagikan > Sematkan peta
 const MAPS_EMBED_SRC =
   "https://www.google.com/maps?q=Anugerah+Plavon+PVC+Serang+Banten&output=embed";
-
-// DUMMY: sebaiknya diambil dari lib/site
-const WA_NUMBER = "6281200000000";
-const WA_TEXT = encodeURIComponent("Halo, saya mau tanya harga plafon PVC.");
 
 export default function KontakPage() {
   return (
@@ -37,15 +34,15 @@ export default function KontakPage() {
             <dl className="space-y-5">
               <div>
                 <dt className="font-medium">Alamat</dt>
-                <dd>Serang, Banten</dd> {/* DUMMY: isi alamat lengkap */}
+                <dd>{`${site.address.street}, ${site.address.locality}, ${site.address.region} ${site.address.postalCode}`}</dd>
               </div>
               <div>
                 <dt className="font-medium">Jam operasional</dt>
-                <dd>Senin–Sabtu, 08.00–17.00</dd> {/* DUMMY */}
+                <dd>{site.hours.text}</dd>
               </div>
               <div>
                 <dt className="font-medium">WhatsApp</dt>
-                <dd>0812-0000-0000</dd> {/* DUMMY */}
+                <dd>{site.phoneDisplay}</dd>
               </div>
               <div>
                 <dt className="font-medium">Area layanan</dt>
@@ -54,7 +51,7 @@ export default function KontakPage() {
             </dl>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={`https://wa.me/${WA_NUMBER}?text=${WA_TEXT}`}
+                href={waLink("Halo, saya mau tanya harga plafon PVC.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 font-medium text-white"

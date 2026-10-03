@@ -32,7 +32,7 @@ export function Footer() {
             </p>
             <p className="mt-2">
               <TrackedLink href={`tel:${site.phone}`} event="phone_click" location="footer" className="text-primary underline underline-offset-4">
-                {site.phone}
+                {site.phoneDisplay}
               </TrackedLink>
             </p>
             <p className="mt-2">Jam operasional: {site.hours.text}</p>

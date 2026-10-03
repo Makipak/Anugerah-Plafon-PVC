@@ -17,7 +17,7 @@ export function ContactBlock({ location }: { location: string }) {
           <p className="mt-4">
             Telepon:{" "}
             <TrackedLink href={`tel:${site.phone}`} event="phone_click" location={location} className="text-primary underline underline-offset-4">
-              {site.phone}
+              {site.phoneDisplay}
             </TrackedLink>
           </p>
           <p>Email: {site.email}</p>

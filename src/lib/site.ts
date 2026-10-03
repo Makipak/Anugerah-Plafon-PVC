@@ -5,14 +5,15 @@ export const site = {
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
   locale: "id_ID",
   tagline: "Toko dan jasa pasang plafon PVC di Serang, Banten",
-  phone: "+628120000000", // DUMMY, format +62...
-  whatsapp: "628120000000", // DUMMY, 62..., tanpa + dan tanpa spasi
+  phone: "+6287887980777",
+  phoneDisplay: "087887980777",
+  whatsapp: "6287887980777",
   email: "halo@example.com", // DUMMY
   address: {
-    street: "Jl. Contoh Raya No. 12, Kec. Cipocok Jaya", // DUMMY
-    locality: "Serang",
+    street: "Jl. Ayip Usman, Unyur",
+    locality: "Kec. Serang, Kota Serang",
     region: "Banten",
-    postalCode: "42121", // DUMMY
+    postalCode: "42111",
     country: "ID",
   },
   geo: { lat: -6.1201, lng: 106.1503 }, // DUMMY, titik kasar Serang; ganti dengan koordinat toko sebenarnya
@@ -21,7 +22,7 @@ export const site = {
   // Sementara memakai pencarian berdasarkan nama usaha; hasilnya bisa meleset dari titik toko.
   mapsEmbedUrl: "https://www.google.com/maps?q=Anugerah+Plavon+PVC+Serang+Banten&output=embed",
   hours: {
-    text: "Senin - Sabtu, 08.00 - 17.00 WIB", // DUMMY
+    text: "Senin–Sabtu, 08.00–17.00",
     schema: "Mo-Sa 08:00-17:00", // DUMMY
   },
   sameAs: [] as string[],
