@@ -31,7 +31,7 @@ export default async function BlogPage() {
               <Link href={`/blog/${p.slug}`} className="group block">
                 <Asset id={p.coverAssetId as AssetId} sizes="(min-width: 1024px) 384px, (min-width: 768px) 50vw, 100vw" className="rounded-card" />
                 <p className="text-label mt-4 text-accent">Diperbarui {formatTanggal(p.updated)}</p>
-                <h2 className="text-title mt-1 group-hover:text-primary">{p.title}</h2>
+                <h2 className="text-title mt-1 text-primary group-hover:text-primary-hover">{p.title}</h2>
                 <p className="mt-2 text-ink-muted">{p.description}</p>
               </Link>
             </li>

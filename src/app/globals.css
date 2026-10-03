@@ -9,11 +9,11 @@
   --color-ink-muted: #5c5950;
   --color-line: #d8d2c4;
   --color-line-strong: #7a7568;
-  --color-primary: #1f4a3f;
-  --color-primary-hover: #163a31;
-  --color-primary-tint: #e3ece8;
+  --color-primary: #5c4033;
+  --color-primary-hover: #3e2b23;
+  --color-primary-tint: #eee8e3;
   --color-accent: #8a4b12;
-  --color-whatsapp: #0e7c3a;
+  --color-whatsapp: #16a34a;
   --color-danger: #a32a1f;
 
   --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
@@ -40,6 +40,9 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     color: var(--color-ink);
+  }
+  a {
+    color: var(--color-primary);
   }
   :focus-visible {
     outline: 2px solid var(--color-primary);

@@ -1,15 +1,30 @@
 import Link from "next/link";
+import { Orbitron } from "next/font/google";
+import { Asset } from "@/components/asset";
 import { navItems, site } from "@/lib/site";
 import { areaList } from "@/content/area";
 import { TrackedLink } from "./tracked-link";
+
+const logoFont = Orbitron({ subsets: ["latin"], weight: "900", display: "swap" });
 
 export function Footer() {
   return (
     <footer className="mt-0 border-t border-line bg-panel">
       <div className="container-page grid gap-10 py-14 md:grid-cols-3">
         <div>
-          <p className="font-display text-lg font-bold">{site.name}</p>
-          <p className="mt-2 text-ink-muted">{site.tagline}</p>
+          <Link href="/" className="-ml-8 flex items-center gap-3">
+            <span className="block w-44 shrink-0">
+              <Asset id="LOGO-01" sizes="176px" />
+            </span>
+            <span className="-ml-8 min-w-0">
+              <span
+                className={`${logoFont.className} block -skew-x-12 whitespace-nowrap text-sm uppercase tracking-wide text-ink min-[400px]:text-base`}
+              >
+                Anugrah Plafon PVC
+              </span>
+              <span className="block text-sm leading-tight text-ink-muted">Pusat Plafon PVC</span>
+            </span>
+          </Link>
           <address className="mt-5 not-italic text-ink-muted">
             <p>{site.address.street}</p>
             <p>

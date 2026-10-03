@@ -11,9 +11,9 @@ colors:
   text-secondary: "#5C5950"
   border: "#D8D2C4"
   border-strong: "#7A7568"
-  primary: "#1F4A3F"
-  primary-hover: "#163A31"
-  primary-tint: "#E3ECE8"
+  primary: "#5C4033"
+  primary-hover: "#3E2B23"
+  primary-tint: "#EEE8E3"
   accent: "#8A4B12"
   whatsapp: "#0E7C3A"
   error: "#A32A1F"
@@ -128,9 +128,9 @@ Satu-satunya motif dekoratif adalah **garis sambungan panel** plafon PVC: garis 
 | text-secondary | `#5C5950` | Teks pendukung |
 | border | `#D8D2C4` | Garis dekoratif dan pembatas kartu |
 | border-strong | `#7A7568` | Batas input dan kontrol interaktif |
-| primary | `#1F4A3F` | Tombol utama, tautan, fokus |
-| primary-hover | `#163A31` | Hover tombol utama |
-| primary-tint | `#E3ECE8` | Latar ringan untuk info/penanda |
+| primary | `#5C4033` | Tombol utama, tautan, fokus |
+| primary-hover | `#3E2B23` | Hover tombol utama |
+| primary-tint | `#EEE8E3` | Latar ringan untuk info/penanda |
 | accent | `#8A4B12` | Label kecil dan penekanan teks (bukan latar besar) |
 | whatsapp | `#0E7C3A` | Hanya tombol WhatsApp |
 | error | `#A32A1F` | Pesan galat |
@@ -144,9 +144,10 @@ Warna `primary` dan `accent` bersifat sementara. Setelah logo diterima, turunkan
 | text-primary di background | 15,70 | AA dan AAA |
 | text-secondary di background | 6,32 | AA |
 | text-secondary di surface | 7,00 | AA |
-| putih di primary | 9,95 | AA dan AAA |
+| putih di primary | 9,39 | AA dan AAA |
 | putih di whatsapp | 5,30 | AA |
-| primary di background (teks/tautan) | 8,98 | AA dan AAA |
+| primary di background (teks/tautan) | 8,47 | AA dan AAA |
+| primary di primary-tint (teks/tombol) | 7,73 | AA dan AAA |
 | accent di background (teks) | 6,12 | AA |
 | error di background | 6,52 | AA |
 | border-strong di surface (batas input) | 4,59 | Lulus 3:1 untuk komponen UI |
@@ -196,7 +197,7 @@ Aturan:
 |---|---|
 | Tombol utama | Latar `primary`, teks putih, tinggi minimal 48 px, radius `control`; hover `primary-hover`; fokus cincin 2 px `primary` dengan offset 2 px |
 | Tombol WhatsApp | Latar `whatsapp`, teks putih, label teks jelas ("Chat WhatsApp"); ikon boleh menyertai, bukan menggantikan |
-| Tombol sekunder | Transparan, batas 1 px `text-primary`, teks `text-primary` |
+| Tombol sekunder | Transparan, batas 1 px `primary`, teks `primary` |
 | Kartu | Latar `surface`, batas 1 px `border`, radius `card`, tanpa bayangan; padding 20-24 px |
 | Input | Latar `surface`, batas 1 px `border-strong`, label selalu terlihat, pesan galat memakai `error` dan teks, bukan warna saja |
 | Tabel harga | Header `panel`, baris dipisah garis `border`, kolom angka rata kanan; di mobile berubah menjadi daftar per baris |
@@ -293,9 +294,9 @@ Tailwind 4 mendefinisikan token di CSS lewat `@theme` (diverifikasi di tailwindc
   --color-ink-muted: #5C5950;
   --color-line: #D8D2C4;
   --color-line-strong: #7A7568;
-  --color-primary: #1F4A3F;
-  --color-primary-hover: #163A31;
-  --color-primary-tint: #E3ECE8;
+  --color-primary: #5C4033;
+  --color-primary-hover: #3E2B23;
+  --color-primary-tint: #EEE8E3;
   --color-accent: #8A4B12;
   --color-whatsapp: #0E7C3A;
   --color-danger: #A32A1F;

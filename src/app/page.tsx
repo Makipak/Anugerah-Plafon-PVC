@@ -32,7 +32,7 @@ export default function HomePage() {
       <JsonLd data={localBusinessLd()} />
       <JsonLd data={faqLd(faqUmum)} />
 
-      <section aria-labelledby="judul-hero" className="relative overflow-hidden border-b border-line bg-background">
+      <section aria-labelledby="judul-hero" className="relative overflow-hidden bg-background">
         <SeamLines />
         <div className="container-page relative grid items-center gap-10 py-14 md:py-20 lg:grid-cols-2">
           <div className="space-y-6">
@@ -51,8 +51,13 @@ export default function HomePage() {
               </div>
             </HeroCopy>
           </div>
-          {/* Foto hero adalah kandidat LCP: tanpa animasi yang menundanya. */}
-          <Asset id="HERO-01" priority sizes="(min-width: 1024px) 600px, 100vw" className="rounded-card lg:-mr-[max(20px,calc((100vw-1200px)/2))] lg:rounded-r-none" />
+          {/* Foto hero adalah kandidat LCP: tanpa animasi yang menundanya. Tanpa frame: bentuk asli gambar. */}
+          <Asset
+            id="HERO-01"
+            priority
+            sizes="(min-width: 1024px) 600px, 100vw"
+            className="-mx-5 lg:mx-0 lg:-mr-[max(20px,calc((100vw-1160px)/2))]"
+          />
         </div>
       </section>
 

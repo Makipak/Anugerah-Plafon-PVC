@@ -3,8 +3,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { navItems, site, waMessages } from "@/lib/site";
+import { Orbitron } from "next/font/google";
+import { Asset } from "@/components/asset";
+import { navItems, waMessages } from "@/lib/site";
 import { WhatsAppButton } from "./whatsapp-button";
+
+const logoFont = Orbitron({ subsets: ["latin"], weight: "900", display: "swap" });
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -12,14 +16,20 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-background/95">
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        {/* Teks sebagai wordmark sementara; ganti dengan LOGO-01 saat logo diterima. */}
-        <Link href="/" className="font-display text-lg font-bold leading-none text-ink" onClick={() => setOpen(false)}>
-          {site.name}
+        <Link href="/" className="-ml-4 flex min-w-0 shrink-0 items-center gap-2" onClick={() => setOpen(false)}>
+          <span className="block w-24 sm:w-28">
+            <Asset id="LOGO-01" sizes="(min-width: 640px) 112px, 96px" />
+          </span>
+          <span
+            className={`${logoFont.className} -ml-6 block -skew-x-12 whitespace-nowrap text-xs uppercase tracking-wide text-ink min-[400px]:text-sm sm:text-base`}
+          >
+            Anugrah Plafon PVC
+          </span>
         </Link>
 
         <nav aria-label="Navigasi utama" className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="py-2 text-base text-ink hover:text-primary">
+            <Link key={item.href} href={item.href} className="py-2 text-base text-ink hover:text-ink">
               {item.label}
             </Link>
           ))}

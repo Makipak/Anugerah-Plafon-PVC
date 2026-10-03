@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   description:
     "Toko dan jasa pasang plafon PVC di Serang, Banten. Lihat motif, kisaran harga, dan contoh proyek, lalu tanya langsung lewat WhatsApp.",
   alternates: { canonical: "/" },
+  icons: { icon: "/assets/logo-02.svg" },
   openGraph: { type: "website", locale: site.locale, siteName: site.name },
   // Preview dan dev tidak boleh terindeks (docs/07 bagian 3); robots.ts memblokir di level crawler.
   robots: isProduction ? { index: true, follow: true } : { index: false, follow: false },

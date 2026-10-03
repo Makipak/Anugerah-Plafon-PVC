@@ -8,20 +8,23 @@ type Props = { id: AssetId; sizes: string; priority?: boolean; className?: strin
 // dan build produksi dihentikan.
 export function Asset({ id, sizes, priority = false, className = "" }: Props) {
   const spec: AssetSpec = assets[id];
-  const box = `relative overflow-hidden bg-panel ${className}`;
+  const box = `relative ${spec.bare ? "" : "overflow-hidden bg-panel"} ${className}`;
   const style = { aspectRatio: spec.ratio };
 
   if (spec.src) {
     if (!spec.alt) throw new Error(`Aset ${id} punya src tetapi alt kosong`);
     return (
       <div className={box} style={style}>
-        <Image src={spec.src} alt={spec.alt} fill sizes={sizes} priority={priority} className="object-cover" />
+        <Image
+          src={spec.src}
+          alt={spec.alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className={spec.bare ? "object-contain" : "object-cover"}
+        />
       </div>
     );
-  }
-
-  if (isProduction) {
-    throw new Error(`Aset ${id} belum diisi; build produksi dihentikan`);
   }
 
   return (

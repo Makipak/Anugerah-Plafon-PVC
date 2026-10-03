@@ -6,7 +6,7 @@ const belumAda = (v: string) => v === "" || v.includes("[ISI]");
 
 export function ContactBlock({ location }: { location: string }) {
   return (
-    <div className="grid gap-10 lg:grid-cols-2">
+    <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:items-stretch">
       <div>
         <address className="not-italic">
           <p className="font-display text-xl font-semibold">{site.name}</p>
@@ -30,7 +30,7 @@ export function ContactBlock({ location }: { location: string }) {
               href={site.mapsUrl}
               event="map_click"
               location={location}
-              className="inline-flex min-h-12 items-center justify-center rounded-control border border-ink px-5 font-display font-semibold hover:bg-panel"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-ink px-5 font-display font-semibold text-ink hover:bg-panel"
             >
               Buka di Google Maps
             </TrackedLink>
@@ -39,17 +39,20 @@ export function ContactBlock({ location }: { location: string }) {
       </div>
 
       {belumAda(site.mapsEmbedUrl) ? (
-        <div aria-hidden="true" className="flex min-h-64 items-end border border-line bg-panel p-4">
+        <div aria-hidden="true" className="flex min-h-64 items-end rounded-card border border-line bg-panel p-4">
           <p className="text-label text-ink-muted">Peta | embed Google Maps menunggu titik lokasi klien</p>
         </div>
       ) : (
-        <iframe
-          title={`Peta lokasi ${site.name}`}
-          src={site.mapsEmbedUrl}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="h-80 w-full border border-line"
-        />
+        <div className="overflow-hidden rounded-card border border-line">
+          <iframe
+            title={`Peta lokasi ${site.name}`}
+            src={site.mapsEmbedUrl}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+            className="h-80 w-full lg:h-full lg:min-h-80"
+          />
+        </div>
       )}
     </div>
   );

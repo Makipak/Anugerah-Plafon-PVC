@@ -15,9 +15,11 @@ export const site = {
     postalCode: "42121", // DUMMY
     country: "ID",
   },
-  geo: { lat: -6.1201, lng: 106.1503 }, // DUMMY, titik kasar Serang
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Serang%2C+Banten", // DUMMY
-  mapsEmbedUrl: "", // DUMMY, isi URL embed Google Maps; kosong = kotak placeholder
+  geo: { lat: -6.1201, lng: 106.1503 }, // DUMMY, titik kasar Serang; ganti dengan koordinat toko sebenarnya
+  mapsUrl: "https://maps.app.goo.gl/GpR5Cb22pDKahc697",
+  // Ganti dengan src dari Google Maps > Bagikan > Sematkan peta (hanya isi src, tanpa tag iframe).
+  // Sementara memakai pencarian berdasarkan nama usaha; hasilnya bisa meleset dari titik toko.
+  mapsEmbedUrl: "https://www.google.com/maps?q=Anugerah+Plavon+PVC+Serang+Banten&output=embed",
   hours: {
     text: "Senin - Sabtu, 08.00 - 17.00 WIB", // DUMMY
     schema: "Mo-Sa 08:00-17:00", // DUMMY

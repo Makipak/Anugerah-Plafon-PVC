@@ -50,7 +50,7 @@ export function Gallery({ items }: { items: readonly Proyek[] }) {
               aria-pressed={filter === j}
               onClick={() => setFilter(j)}
               className={`min-h-11 rounded-full border px-4 font-display text-sm font-medium ${
-                filter === j ? "border-primary bg-primary text-white" : "border-line-strong bg-surface text-ink"
+                filter === j ? "border-primary bg-primary text-white" : "border-line-strong bg-surface text-primary"
               }`}
             >
               {j === "semua" ? "Semua" : labelRuang[j]}

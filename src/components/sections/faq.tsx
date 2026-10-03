@@ -25,7 +25,7 @@ export function Faq({ items }: { items: readonly FaqItem[] }) {
                 aria-expanded={open}
                 aria-controls={panelId}
                 onClick={() => setOpenIndex(open ? null : i)}
-                className="flex min-h-14 w-full items-center justify-between gap-4 py-4 text-left font-display text-lg font-semibold text-ink"
+                className="flex min-h-14 w-full items-center justify-between gap-4 py-4 text-left font-display text-lg font-semibold text-primary"
               >
                 <span>{item.q}</span>
                 {open ? <Minus aria-hidden="true" className="size-5 shrink-0" /> : <Plus aria-hidden="true" className="size-5 shrink-0" />}

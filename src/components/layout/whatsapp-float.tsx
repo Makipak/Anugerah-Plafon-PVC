@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { track } from "@/lib/analytics";
 import { waLink, waMessages } from "@/lib/site";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 
 function messageFor(pathname: string): string {
   if (pathname.startsWith("/produk")) return waMessages.produk("[nama motif]");
@@ -34,12 +35,13 @@ export function WhatsAppFloat() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => track("whatsapp_click", { location: "floating" })}
-          className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-40 inline-flex min-h-12 items-center rounded-full bg-whatsapp px-5 font-display text-base font-semibold text-white shadow-floating md:hidden"
+          className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-40 inline-flex min-h-12 items-center gap-2 rounded-full bg-whatsapp px-5 font-display text-base font-semibold text-white shadow-floating md:hidden"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 12 }}
           transition={{ duration: 0.2 }}
         >
+          <WhatsAppIcon />
           Chat WhatsApp
         </motion.a>
       ) : null}
