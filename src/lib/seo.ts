@@ -29,7 +29,7 @@ export function shareImages(assetId?: AssetId) {
   return undefined;
 }
 
-// Title memakai template "%s | Anugrah Plafon PVC" dari layout, jadi jangan menambah brand di sini.
+// Title memakai template "%s | Anugerah Plafon PVC" dari layout, jadi jangan menambah brand di sini.
 // Batas praktis: judul halaman maksimal sekitar 38 karakter agar total dengan template tidak melewati ~60.
 // Next.js menggabungkan metadata secara dangkal, jadi openGraph dan twitter harus lengkap di sini.
 export function buildMetadata({

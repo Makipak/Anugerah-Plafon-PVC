@@ -20,7 +20,7 @@ export function Footer() {
               <span
                 className={`${logoFont.className} block -skew-x-12 whitespace-nowrap text-sm uppercase tracking-wide text-ink min-[400px]:text-base`}
               >
-                Anugrah Plafon PVC
+                Anugerah Plafon PVC
               </span>
               <span className="block text-sm leading-tight text-ink-muted">Pusat Plafon PVC</span>
             </span>

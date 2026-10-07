@@ -13,8 +13,8 @@ export type AssetSpec = {
 };
 
 export const assets = {
-  "LOGO-01": { ratio: "4/1", minWidth: 800, minHeight: 200, brief: "Logo horizontal (SVG)", src: "/assets/logo-01.webp", alt: "Logo Anugrah Plafon PVC", bare: true },
-  "LOGO-02": { ratio: "1/1", minWidth: 512, minHeight: 512, brief: "Logo ringkas untuk favicon (SVG + PNG)", src: "/assets/logo-02.svg", alt: "Logo Anugrah Plafon PVC", bare: true },
+  "LOGO-01": { ratio: "4/1", minWidth: 800, minHeight: 200, brief: "Logo horizontal (SVG)", src: "/assets/logo-01.webp", alt: "Logo Anugerah Plafon PVC", bare: true },
+  "LOGO-02": { ratio: "1/1", minWidth: 512, minHeight: 512, brief: "Logo ringkas untuk favicon (SVG + PNG)", src: "/assets/logo-02.svg", alt: "Logo Anugerah Plafon PVC", bare: true },
   "OG-DEFAULT": { ratio: "1200/630", minWidth: 1200, minHeight: 630, brief: "Gambar berbagi tautan: nama usaha dan produk", optional: true },
   "HERO-01": { ratio: "4/3", minWidth: 1600, minHeight: 1200, brief: "Ruangan dengan plafon PVC terpasang terlihat jelas, cahaya alami", src: "/assets/hero/hero-01.webp", alt: "Tumpukan panel plafon PVC motif marmer, kayu, abu-abu, dan putih", bare: true },
   "MOTIF-01": { ratio: "1/1", minWidth: 800, minHeight: 800, brief: "Close-up motif 01, pencahayaan sama untuk semua motif", src: "/assets/motif/motif-01.webp", alt: "Close-up motif 01", },
@@ -37,7 +37,7 @@ export const assets = {
   "PROSES-02": { ratio: "3/2", minWidth: 1200, minHeight: 800, brief: "Pengukuran", src: "/assets/proses/proses-02.webp", alt: "Pengukuran ruangan untuk plafon PVC", },
   "PROSES-03": { ratio: "3/2", minWidth: 1200, minHeight: 800, brief: "Pemasangan", src: "/assets/proses/proses-03.webp", alt: "Pemasangan panel plafon PVC", },
   "PROSES-04": { ratio: "3/2", minWidth: 1200, minHeight: 800, brief: "Finishing", src: "/assets/proses/proses-04.webp", alt: "Finishing pemasangan plafon PVC", },
-  "TOKO-01": { ratio: "3/2", minWidth: 1600, minHeight: 1067, brief: "Tampak depan toko atau gudang", src: "/assets/tentang/toko-01.webp", alt: "Tampak depan usaha Anugrah Plafon PVC di Serang", },
+  "TOKO-01": { ratio: "3/2", minWidth: 1600, minHeight: 1067, brief: "Tampak depan toko atau gudang", src: "/assets/tentang/toko-01.webp", alt: "Tampak depan usaha Anugerah Plafon PVC di Serang", },
   "TIM-01": { ratio: "3/2", minWidth: 1600, minHeight: 1067, brief: "Tim di lokasi kerja", src: "/assets/tentang/tim-01.webp", alt: "Dua pekerja memasang papan plafon pada rangka besi", },
   "AREA-serang-01": { ratio: "3/2", minWidth: 1200, minHeight: 800, brief: "Proyek nyata di wilayah Serang", optional: true },
   "BLOG-01": { ratio: "16/9", minWidth: 1600, minHeight: 900, brief: "Sampul artikel 01", optional: true },

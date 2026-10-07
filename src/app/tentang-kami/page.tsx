@@ -8,7 +8,7 @@ import { waMessages } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Tentang Kami: Toko Plafon PVC Serang",
-  description: "Profil Anugrah Plafon PVC di Serang, Banten: usaha, tim, pengalaman, dan cara kami mengerjakan pemasangan plafon PVC untuk rumah, ruko, dan bangunan publik.",
+  description: "Profil Anugerah Plafon PVC di Serang, Banten: usaha, tim, pengalaman, dan cara kami mengerjakan pemasangan plafon PVC untuk rumah, ruko, dan bangunan publik.",
   path: "/tentang-kami",
 });
 
@@ -18,7 +18,7 @@ export default function TentangPage() {
       <PageIntro
         trail={[{ name: "Tentang Kami", path: "/tentang-kami" }]}
         label="Tentang"
-        title="Tentang Anugrah Plafon PVC"
+        title="Tentang Anugerah Plafon PVC"
         lead="Toko dan jasa pasang plafon PVC di Serang, Banten."
       />
       <Section tone="surface" labelledBy="judul-cerita">
@@ -28,7 +28,7 @@ export default function TentangPage() {
               Usaha kami
             </SectionHeading>
             <div className="space-y-4">
-              <p>Anugrah Plafon PVC menjual material plafon PVC dan mengerjakan pemasangannya untuk rumah, ruko, dan bangunan publik di sekitar Serang.</p>
+              <p>Anugerah Plafon PVC menjual material plafon PVC dan mengerjakan pemasangannya untuk rumah, ruko, dan bangunan publik di sekitar Serang.</p>
               <p>Berdiri sejak 2020 dan telah mengerjakan puluhan proyek pemasangan.</p>
               <p>Legalitas usaha: NIB tersedia atas permintaan.</p>
             </div>

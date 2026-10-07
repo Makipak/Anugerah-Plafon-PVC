@@ -2,7 +2,7 @@
 
 | Item | Isi |
 |---|---|
-| Produk | Website company profile Anugrah Plafon PVC |
+| Produk | Website company profile Anugerah Plafon PVC |
 | Versi | 0.1 (draf) |
 | Tanggal | 1 Oktober 2026 |
 | Penulis | Hans |
@@ -10,7 +10,7 @@
 
 ## 1. Latar belakang
 
-Anugrah Plafon PVC adalah usaha plafon PVC di Serang, Banten, yang belum memiliki jejak digital yang dapat ditemukan (pencarian nama usaha tidak menemukan web, profil bisnis, maupun sosmed pada 1 Oktober 2026). Riset SERP menunjukkan halaman 1 untuk keyword lokal didominasi Facebook, Instagram, TikTok, OLX, dan direktori, sedangkan website kompetitor lemah secara teknis (konten tipis, tanpa schema LocalBusiness, alt text minim, tanpa harga). Peluang: website yang cepat, terstruktur, dan transparan soal harga.
+Anugerah Plafon PVC adalah usaha plafon PVC di Serang, Banten, yang belum memiliki jejak digital yang dapat ditemukan (pencarian nama usaha tidak menemukan web, profil bisnis, maupun sosmed pada 1 Oktober 2026). Riset SERP menunjukkan halaman 1 untuk keyword lokal didominasi Facebook, Instagram, TikTok, OLX, dan direktori, sedangkan website kompetitor lemah secara teknis (konten tipis, tanpa schema LocalBusiness, alt text minim, tanpa harga). Peluang: website yang cepat, terstruktur, dan transparan soal harga.
 
 ## 2. Tujuan dan metrik keberhasilan
 

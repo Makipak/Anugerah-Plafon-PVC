@@ -9,14 +9,14 @@ import { site, waLink } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Kontak Toko Plafon PVC Serang",
-  description: "Alamat, jam operasional, peta, dan WhatsApp Anugrah Plafon PVC, toko dan jasa pasang plafon PVC di Serang, Banten. Hubungi kami untuk tanya motif dan harga.",
+  description: "Alamat, jam operasional, peta, dan WhatsApp Anugerah Plafon PVC, toko dan jasa pasang plafon PVC di Serang, Banten. Hubungi kami untuk tanya motif dan harga.",
   path: "/kontak",
 });
 
 const MAPS_LINK = "https://maps.app.goo.gl/GpR5Cb22pDKahc697";
 // Ganti dengan src dari Google Maps > Bagikan > Sematkan peta
 const MAPS_EMBED_SRC =
-  "https://www.google.com/maps?q=Anugrah+Plafon+PVC+Serang+Banten&output=embed";
+  "https://www.google.com/maps?q=Anugerah+Plafon+PVC+Serang+Banten&output=embed";
 
 export default function KontakPage() {
   return (
@@ -72,7 +72,7 @@ export default function KontakPage() {
           <div className="overflow-hidden rounded-card border border-black/10">
             <iframe
               src={MAPS_EMBED_SRC}
-              title="Peta lokasi Anugrah Plafon PVC di Serang"
+              title="Peta lokasi Anugerah Plafon PVC di Serang"
               className="aspect-[4/3] h-full min-h-72 w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

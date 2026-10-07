@@ -1,6 +1,6 @@
-# Dokumentasi Proyek: Web Company Profile Anugrah Plafon PVC
+# Dokumentasi Proyek: Web Company Profile Anugerah Plafon PVC
 
-Dokumen perencanaan untuk website company profile Anugrah Plafon PVC (Serang, Banten) dengan fokus SEO, hosting sementara di Vercel.
+Dokumen perencanaan untuk website company profile Anugerah Plafon PVC (Serang, Banten) dengan fokus SEO, hosting sementara di Vercel.
 
 Status: **perencanaan**. Bagian bertanda `[ISI]` menunggu data dari klien.
 

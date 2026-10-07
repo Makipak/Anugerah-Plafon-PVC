@@ -1,4 +1,4 @@
-# Anugrah Plafon PVC
+# Anugerah Plafon PVC
 
 Website company profile toko dan jasa pasang plafon PVC di Serang, Banten. Next.js 16 (App Router), Tailwind CSS 4, statis (SSG), tanpa backend. Perencanaan lengkap ada di [docs/](docs/README.md); aturan kode di [AGENTS.md](AGENTS.md); sistem desain di [DESIGN.md](DESIGN.md).
 

@@ -4,7 +4,7 @@
 
 | Item | Isi |
 |---|---|
-| Klien | Anugrah Plafon PVC, Serang, Banten |
+| Klien | Anugerah Plafon PVC, Serang, Banten |
 | Jenis | Website company profile |
 | Prioritas | SEO (lokal + nasional), konversi lewat WhatsApp |
 | Hosting | Vercel (sementara) |

@@ -1,4 +1,4 @@
-# AGENTS.md: Aturan Kode Proyek Anugrah Plafon PVC
+# AGENTS.md: Aturan Kode Proyek Anugerah Plafon PVC
 
 File ini dibaca oleh developer dan agent AI sebelum menulis kode. Aturan di sini mengikat.
 
