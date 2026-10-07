@@ -25,7 +25,7 @@ export function assertProductionReady(): void {
     ...findPlaceholders(hargaJasa, "hargaJasa"),
   ];
   const assetsKosong = Object.entries(assets)
-    .filter(([, spec]) => !("src" in spec) || !spec.src)
+    .filter(([, spec]) => (!("src" in spec) || !spec.src) && !("optional" in spec && spec.optional))
     .map(([id]) => `asset:${id}`);
 
   const all = [...pending, ...assetsKosong];

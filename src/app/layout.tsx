@@ -7,6 +7,7 @@ import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { Providers } from "@/components/motion/providers";
 import { assertProductionReady } from "@/lib/content-check";
 import { isProduction } from "@/lib/placeholders";
+import { shareImages } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -15,17 +16,20 @@ const publicSans = Public_Sans({ subsets: ["latin"], weight: ["400", "600"], var
 
 assertProductionReady();
 
+const ogImages = shareImages();
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Plafon PVC Serang Banten - Toko & Jasa Pasang | Anugerah Plavon PVC",
-    template: "%s | Anugerah Plavon PVC",
+    default: "Plafon PVC Serang - Toko & Jasa Pasang | Anugrah Plafon PVC",
+    template: "%s | Anugrah Plafon PVC",
   },
   description:
-    "Toko dan jasa pasang plafon PVC di Serang, Banten. Lihat motif, kisaran harga, dan contoh proyek, lalu tanya langsung lewat WhatsApp.",
+    "Anugrah Plafon PVC, toko dan jasa pasang plafon PVC di Serang, Banten. Lihat motif, kisaran harga, dan contoh proyek, lalu tanya langsung lewat WhatsApp.",
   alternates: { canonical: "/" },
   icons: { icon: "/assets/logo-02.svg" },
-  openGraph: { type: "website", locale: site.locale, siteName: site.name },
+  openGraph: { type: "website", locale: site.locale, siteName: site.name, ...(ogImages ? { images: ogImages } : {}) },
+  twitter: { card: ogImages ? "summary_large_image" : "summary", ...(ogImages ? { images: ogImages } : {}) },
   // Preview dan dev tidak boleh terindeks (docs/07 bagian 3); robots.ts memblokir di level crawler.
   robots: isProduction ? { index: true, follow: true } : { index: false, follow: false },
 };

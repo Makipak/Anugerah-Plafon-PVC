@@ -8,8 +8,8 @@ import { buildMetadata } from "@/lib/seo";
 import { waMessages } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Galeri Proyek Plafon PVC di Serang dan Sekitarnya",
-  description: "Foto proyek pemasangan plafon PVC di Serang: lokasi, jenis ruang, bahan, dan tahun pengerjaan. Filter berdasarkan jenis ruang.",
+  title: "Galeri Proyek Plafon PVC Serang",
+  description: "Foto proyek pemasangan plafon PVC di Serang: lokasi, jenis ruang, bahan, dan tahun pengerjaan. Filter berdasarkan jenis ruang untuk mencari contoh yang mirip.",
   path: "/galeri",
 });
 

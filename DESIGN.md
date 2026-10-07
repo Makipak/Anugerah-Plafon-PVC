@@ -1,6 +1,6 @@
 ---
 version: "0.1-provisional"
-name: "Anugerah Plavon PVC"
+name: "Anugrah Plafon PVC"
 description: "Sistem desain website company profile toko dan jasa plafon PVC di Serang. Gaya katalog material yang jujur, berbasis foto proyek nyata, tanpa efek dekoratif."
 status: "Warna primer dan aksen bersifat sementara sampai logo klien diterima."
 colors:
@@ -46,7 +46,7 @@ assets:
   rule: "Semua gambar dan video memakai placeholder sampai aset final dibuat pemilik proyek. Daftar dan spesifikasi ada di docs/16."
 ---
 
-# DESIGN.md: Anugerah Plavon PVC
+# DESIGN.md: Anugrah Plafon PVC
 
 Format mengikuti pola DESIGN.md (frontmatter token, lalu panduan naratif) yang dipakai pustaka DESIGN.md di aura.build. Nilai di frontmatter adalah sumber kebenaran untuk token `@theme` Tailwind.
 
@@ -73,7 +73,7 @@ Catatan jujur: situs Javafon tidak bisa dibuka lewat browser saat riset, dan tam
 
 ### Aturan memakai referensi: inspirasi, bukan salinan
 
-Referensi di atas hanya menunjukkan **prinsip** (struktur dokumen, konvensi komponen, pola industri). Hasil akhir harus terlihat sebagai identitas Anugerah Plavon PVC, bukan turunan situs lain.
+Referensi di atas hanya menunjukkan **prinsip** (struktur dokumen, konvensi komponen, pola industri). Hasil akhir harus terlihat sebagai identitas Anugrah Plafon PVC, bukan turunan situs lain.
 
 - Dilarang meniru tata letak, komposisi, palet, tipografi, teks, atau urutan bagian dari satu situs tertentu.
 - Ambil satu prinsip dari tiap referensi, lalu terapkan dengan token dan motif milik proyek ini (palet hangat, Archivo + Public Sans, garis sambungan panel).

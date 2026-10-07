@@ -2,22 +2,24 @@ import Image from "next/image";
 import { assets, type AssetId, type AssetSpec } from "@/content/assets";
 import { isProduction } from "@/lib/placeholders";
 
-type Props = { id: AssetId; sizes: string; priority?: boolean; className?: string };
+// alt menimpa alt dari manifest, untuk gambar yang deskripsinya bergantung pada data konten (lib/alt.ts).
+type Props = { id: AssetId; sizes: string; priority?: boolean; className?: string; alt?: string };
 
 // Semua gambar lewat komponen ini (AGENTS.md 6b). Tanpa src: placeholder berlabel di dev/preview,
 // dan build produksi dihentikan.
-export function Asset({ id, sizes, priority = false, className = "" }: Props) {
+export function Asset({ id, sizes, priority = false, className = "", alt }: Props) {
   const spec: AssetSpec = assets[id];
   const box = `relative ${spec.bare ? "" : "overflow-hidden bg-panel"} ${className}`;
   const style = { aspectRatio: spec.ratio };
 
   if (spec.src) {
-    if (!spec.alt) throw new Error(`Aset ${id} punya src tetapi alt kosong`);
+    const text = alt ?? spec.alt;
+    if (!text) throw new Error(`Aset ${id} punya src tetapi alt kosong`);
     return (
       <div className={box} style={style}>
         <Image
           src={spec.src}
-          alt={spec.alt}
+          alt={text}
           fill
           sizes={sizes}
           priority={priority}
@@ -26,6 +28,9 @@ export function Asset({ id, sizes, priority = false, className = "" }: Props) {
       </div>
     );
   }
+
+  // Slot opsional yang belum diisi tidak boleh tampil sebagai kotak placeholder di situs produksi.
+  if (spec.optional && isProduction) return null;
 
   return (
     <div

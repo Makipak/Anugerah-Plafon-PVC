@@ -1,0 +1,2 @@
+# Seragamkan line ending agar diff tidak berisi perubahan CRLF/LF saja.
+* text=auto eol=lf

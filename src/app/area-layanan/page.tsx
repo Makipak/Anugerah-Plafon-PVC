@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Area Layanan Jasa Plafon PVC di Banten",
-  description: "Wilayah yang dilayani untuk pemasangan plafon PVC di Banten, lengkap dengan proyek dan informasi tiap wilayah.",
+  description: "Wilayah layanan pemasangan plafon PVC Anugrah Plafon PVC di Banten, lengkap dengan proyek dan informasi tiap wilayah. Kirim alamat lewat WhatsApp.",
   path: "/area-layanan",
 });
 

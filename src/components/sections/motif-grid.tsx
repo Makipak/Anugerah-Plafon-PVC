@@ -1,4 +1,5 @@
 import { Asset } from "@/components/asset";
+import { altVarian } from "@/lib/alt";
 import type { AssetId } from "@/content/assets";
 import type { Produk } from "@/content/schemas";
 
@@ -11,6 +12,7 @@ export function MotifGrid({ varian }: { varian: Produk["varian"] }) {
           <div className="overflow-hidden rounded-card">
             <Asset
               id={v.assetId as AssetId}
+              alt={altVarian(v)}
               sizes="(min-width: 1024px) 280px, (min-width: 640px) 33vw, 50vw"
               className="transition-transform duration-200 group-hover:scale-[1.03]"
             />

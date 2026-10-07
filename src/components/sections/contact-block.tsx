@@ -20,7 +20,7 @@ export function ContactBlock({ location }: { location: string }) {
               {site.phoneDisplay}
             </TrackedLink>
           </p>
-          <p>Email: {site.email}</p>
+          {site.email ? <p>Email: {site.email}</p> : null}
           <p className="mt-4">Jam operasional: {site.hours.text}</p>
         </address>
         <div className="mt-6 flex flex-wrap gap-3">
