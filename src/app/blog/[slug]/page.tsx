@@ -30,6 +30,8 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): P
     type: "article",
     publishedTime: post.date,
     modifiedTime: post.updated,
+    imageAssetId: post.coverAssetId as AssetId,
+    omitBrand: true,
   });
 }
 

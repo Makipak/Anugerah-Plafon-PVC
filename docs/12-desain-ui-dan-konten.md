@@ -95,7 +95,7 @@ flowchart TD
 
 | Halaman | Pesan |
 |---|---|
-| Umum | `Halo Anugerah Plavon PVC, saya ingin tanya plafon PVC.` |
+| Umum | `Halo Anugerah Plafon PVC, saya ingin tanya plafon PVC.` |
 | Produk | `Halo, saya tertarik dengan plafon PVC motif [nama]. Boleh tahu harga dan ketersediaannya?` |
 | Jasa | `Halo, saya ingin minta estimasi biaya pasang plafon PVC di [lokasi], luas sekitar [m²].` |
 

@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Asset } from "@/components/asset";
 import type { AssetId } from "@/content/assets";
 import type { Proyek } from "@/content/schemas";
+import { altProyek } from "@/lib/alt";
 
 const labelRuang: Record<Proyek["jenisRuang"], string> = {
   rumah: "Rumah",
@@ -79,7 +80,7 @@ export function Gallery({ items }: { items: readonly Proyek[] }) {
                   setActive(p);
                 }}
               >
-                <Asset id={p.assetId as AssetId} sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw" className="rounded-card" />
+                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw" className="rounded-card" />
                 <span className="mt-3 block">
                   <span className="text-label text-accent">
                     {p.lokasi.kecamatan}, {p.tahun}
@@ -129,7 +130,7 @@ export function Gallery({ items }: { items: readonly Proyek[] }) {
                   Tutup
                 </button>
               </div>
-              <Asset id={active.assetId as AssetId} sizes="(min-width: 1024px) 896px, 100vw" className="rounded-card" />
+              <Asset id={active.assetId as AssetId} alt={altProyek(active)} sizes="(min-width: 1024px) 896px, 100vw" className="rounded-card" />
               <p className="mt-3 text-white">
                 {active.judul} | {active.lokasi.kecamatan}, {active.lokasi.kota} | {active.tahun}
               </p>

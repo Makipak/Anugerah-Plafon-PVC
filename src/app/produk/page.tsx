@@ -10,8 +10,8 @@ import { buildMetadata } from "@/lib/seo";
 import { waMessages } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Plafon PVC Serang Banten: Produk dan Motif",
-  description: "Daftar produk plafon PVC di Serang, Banten: motif, ukuran, dan cara memesan. Tanya ketersediaan dan harga langsung lewat WhatsApp.",
+  title: "Produk Plafon PVC Serang Banten",
+  description: "Daftar produk plafon PVC di Serang, Banten: motif, ukuran, ketebalan, dan cara memesan. Tanya ketersediaan dan harga langsung lewat WhatsApp.",
   path: "/produk",
 });
 

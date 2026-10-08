@@ -9,8 +9,8 @@ import { formatTanggal } from "@/lib/format";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Blog Plafon PVC: Harga, Perbandingan, dan Panduan",
-  description: "Artikel tentang plafon PVC: cara menghitung biaya, perbandingan dengan gypsum, dan panduan memilih untuk rumah di Serang dan sekitarnya.",
+  title: "Blog Plafon PVC: Harga dan Panduan",
+  description: "Artikel tentang plafon PVC: cara menghitung biaya, perbandingan dengan gypsum, dan panduan memilih untuk rumah di Serang dan sekitarnya. Baca sebelum memesan.",
   path: "/blog",
 });
 

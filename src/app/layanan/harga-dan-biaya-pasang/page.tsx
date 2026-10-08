@@ -15,8 +15,8 @@ import { waMessages } from "@/lib/site";
 const path = "/layanan/harga-dan-biaya-pasang";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Harga Plafon PVC Serang per Meter dan Biaya Pasang",
-  description: "Kisaran harga material dan biaya jasa pasang plafon PVC di Serang, faktor yang memengaruhi harga, dan contoh hitungan ruangan 3x3 meter.",
+  title: "Harga Jasa Pasang Plafon PVC per Meter",
+  description: "Kisaran harga material dan biaya jasa pasang plafon PVC di Serang, faktor penentu harga, dan contoh hitungan ruangan 3x3 meter. Minta penawaran lewat WhatsApp.",
   path,
 });
 

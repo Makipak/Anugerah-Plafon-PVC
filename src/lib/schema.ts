@@ -1,9 +1,39 @@
+import { assets, type AssetId, type AssetSpec } from "@/content/assets";
 import { site } from "@/lib/site";
 import type { Produk, Faq } from "@/content/schemas";
 
 const abs = (path: string) => `${site.url}${path}`;
 
+// Hanya aset yang sudah diisi pemilik (punya src) yang boleh masuk schema; placeholder tidak.
+const srcOf = (id: AssetId): string | undefined => {
+  const spec: AssetSpec = assets[id];
+  return spec.src ? abs(spec.src) : undefined;
+};
+const imagesOf = (ids: readonly AssetId[]): string[] =>
+  ids.map(srcOf).filter((u): u is string => Boolean(u));
+
+// Tiap halaman diurai Google sendiri-sendiri, jadi rujukan ke usaha memuat nama dan url,
+// bukan hanya @id yang entitasnya ada di halaman lain.
+const businessRef = { "@type": "HomeAndConstructionBusiness", "@id": abs("/#business"), name: site.name, url: site.url };
+
+// Sinyal nama situs untuk Google (baris kecil di atas judul hasil pencarian).
+// Dipasang di beranda saja; url harus persis URL beranda.
+export function websiteLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": abs("/#website"),
+    name: site.name,
+    alternateName: ["Anugerah Plafon", "Anugerah Plafon PVC Serang"],
+    url: abs("/"),
+    inLanguage: "id-ID",
+    publisher: { "@id": abs("/#business") },
+  };
+}
+
 export function localBusinessLd() {
+  const logo = srcOf("LOGO-01");
+  const image = imagesOf(["TOKO-01", "HERO-01"]);
   return {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
@@ -19,21 +49,26 @@ export function localBusinessLd() {
       postalCode: site.address.postalCode,
       addressCountry: site.address.country,
     },
-    geo: { "@type": "GeoCoordinates", latitude: site.geo.lat, longitude: site.geo.lng },
+    ...(site.geo ? { geo: { "@type": "GeoCoordinates", latitude: site.geo.lat, longitude: site.geo.lng } } : {}),
     openingHours: site.hours.schema,
     areaServed: site.areaServed,
-    sameAs: site.sameAs,
+    ...(logo ? { logo } : {}),
+    ...(image.length > 0 ? { image } : {}),
+    ...(site.priceRange ? { priceRange: site.priceRange } : {}),
+    ...(site.sameAs.length > 0 ? { sameAs: site.sameAs } : {}),
   };
 }
 
 export function productLd(p: Produk, path: string) {
   const pakaiHarga = typeof p.hargaMulai === "number" && typeof p.hargaSampai === "number";
+  const image = imagesOf(p.varian.map((v) => v.assetId as AssetId));
   return {
     "@context": "https://schema.org",
     "@type": "Product",
     name: p.nama,
     description: p.ringkasan,
     url: abs(path),
+    ...(image.length > 0 ? { image } : {}),
     // Offer hanya jika harga benar-benar tampil di halaman.
     ...(pakaiHarga
       ? {
@@ -55,7 +90,7 @@ export function serviceLd(name: string, description: string, path: string) {
     name,
     description,
     url: abs(path),
-    provider: { "@id": abs("/#business") },
+    provider: businessRef,
     areaServed: site.areaServed,
   };
 }
@@ -96,6 +131,6 @@ export function articleLd(post: { title: string; description: string; date: stri
     dateModified: post.updated,
     mainEntityOfPage: abs(`/blog/${post.slug}`),
     author: { "@type": "Organization", name: site.name },
-    publisher: { "@id": abs("/#business") },
+    publisher: businessRef,
   };
 }

@@ -23,7 +23,7 @@ export function Header() {
           <span
             className={`${logoFont.className} -ml-6 block -skew-x-12 whitespace-nowrap text-xs uppercase tracking-wide text-ink min-[400px]:text-sm sm:text-base`}
           >
-            Anugrah Plafon PVC
+            Anugerah Plafon PVC
           </span>
         </Link>
 

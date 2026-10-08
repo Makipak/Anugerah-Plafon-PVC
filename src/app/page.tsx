@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Asset } from "@/components/asset";
+import { altProyek } from "@/lib/alt";
 import { JsonLd } from "@/components/seo/json-ld";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { HeroCopy } from "@/components/motion/hero-copy";
@@ -21,7 +22,7 @@ import { proyekList } from "@/content/proyek";
 import { testimoniList } from "@/content/testimoni";
 import type { AssetId } from "@/content/assets";
 import { formatTanggal } from "@/lib/format";
-import { faqLd, localBusinessLd } from "@/lib/schema";
+import { faqLd, localBusinessLd, websiteLd } from "@/lib/schema";
 import { waMessages } from "@/lib/site";
 
 export default function HomePage() {
@@ -29,6 +30,7 @@ export default function HomePage() {
 
   return (
     <>
+      <JsonLd data={websiteLd()} />
       <JsonLd data={localBusinessLd()} />
       <JsonLd data={faqLd(faqUmum)} />
 
@@ -83,7 +85,7 @@ export default function HomePage() {
           <ul className="grid gap-x-5 gap-y-8 md:grid-cols-3">
             {proyekTerbaru.map((p) => (
               <li key={p.slug}>
-                <Asset id={p.assetId as AssetId} sizes="(min-width: 768px) 384px, 100vw" className="rounded-card" />
+                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 100vw" className="rounded-card" />
                 <p className="text-label mt-3 text-accent">
                   {p.lokasi.kecamatan}, {p.tahun}
                 </p>

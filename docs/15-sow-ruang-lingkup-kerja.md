@@ -6,7 +6,7 @@
 
 | Pihak | Keterangan |
 |---|---|
-| Klien | Anugerah Plavon PVC, Serang, Banten. Perwakilan: `[ISI]` |
+| Klien | Anugerah Plafon PVC, Serang, Banten. Perwakilan: `[ISI]` |
 | Penyedia | Muhamad Farhan Qolbi (Hans) |
 | Tanggal | `[ISI]` |
 

@@ -8,6 +8,7 @@ import { CtaBand } from "@/components/sections/cta-band";
 import { Faq } from "@/components/sections/faq";
 import { Steps } from "@/components/sections/steps";
 import { Asset } from "@/components/asset";
+import { altProyek } from "@/lib/alt";
 import { proyekList } from "@/content/proyek";
 import type { AssetId } from "@/content/assets";
 import type { Faq as FaqItem } from "@/content/schemas";
@@ -18,15 +19,15 @@ import { waMessages } from "@/lib/site";
 const path = "/layanan/pasang-plafon-pvc";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Jasa Pasang Plafon PVC Serang: Proses Kerja dan Cara Order",
-  description: "Jasa pasang plafon PVC di Serang: proses survei, pengukuran, pemasangan, dan finishing. Minta estimasi biaya lewat WhatsApp.",
+  title: "Jasa Pasang Plafon PVC Serang",
+  description: "Jasa pasang plafon PVC di Serang: proses survei, pengukuran, pemasangan, dan finishing. Minta estimasi biaya lewat WhatsApp, kirim lokasi dan luas ruangan.",
   path,
 });
 
 const faq: FaqItem[] = [
-  { q: "Apakah ada garansi pemasangan?", a: "Garansi pemasangan berlaku untuk pekerjaan rangka dan sambungan panel; syarat dan lamanya dijelaskan saat penawaran." }, // DUMMY
-  { q: "Bagaimana cara memesan jasa pasang?", a: "Hubungi lewat WhatsApp, kirim lokasi dan luas ruangan, lalu jadwalkan survei. Pembayaran disepakati saat penawaran." }, // DUMMY
-  { q: "Apa yang tidak dikerjakan?", a: "Pekerjaan di luar plafon, seperti perbaikan atap bocor atau instalasi listrik, tidak termasuk." }, // DUMMY
+  { q: "Apakah ada garansi pemasangan?", a: "Garansi pemasangan berlaku untuk pekerjaan rangka dan sambungan panel; syarat dan lamanya dijelaskan saat penawaran." },
+  { q: "Bagaimana cara memesan jasa pasang?", a: "Hubungi lewat WhatsApp, kirim lokasi dan luas ruangan, lalu jadwalkan survei. Pembayaran disepakati saat penawaran." },
+  { q: "Apa yang tidak dikerjakan?", a: "Pekerjaan di luar plafon, seperti perbaikan atap bocor atau instalasi listrik, tidak termasuk." },
 ];
 
 export default function JasaPasangPage() {
@@ -57,7 +58,7 @@ export default function JasaPasangPage() {
         <ul className="grid gap-x-5 gap-y-8 md:grid-cols-3">
           {proyekList.slice(0, 3).map((p) => (
             <li key={p.slug}>
-              <Asset id={p.assetId as AssetId} sizes="(min-width: 768px) 384px, 100vw" className="rounded-card" />
+              <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 100vw" className="rounded-card" />
               <p className="text-label mt-3 text-accent">
                 {p.lokasi.kecamatan}, {p.tahun}
               </p>

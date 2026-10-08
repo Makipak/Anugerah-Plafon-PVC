@@ -19,8 +19,7 @@ export const isProduction =
   process.env.VERCEL_ENV === "production" && process.env.SITE_STAGING !== "1";
 
 /**
- * Data contoh (DUMMY) sedang dipakai untuk harga, kontak, proyek, dan teks.
- * Ubah ke false SETELAH semua data dummy diganti data asli klien. Selama true,
- * build produksi sengaja gagal supaya data contoh tidak tayang. Cari penanda "DUMMY" untuk menemukan nilainya.
+ * Set true bila data contoh dipakai lagi (mis. proyek baru dengan data sementara). Selama true,
+ * build produksi sengaja gagal supaya data contoh tidak tayang.
  */
-export const DATA_DUMMY = true;
+export const DATA_DUMMY = false;

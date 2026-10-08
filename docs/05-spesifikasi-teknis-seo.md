@@ -8,7 +8,7 @@ Contoh kode ditulis untuk Next.js 16 (versi terbaru saat diverifikasi: 16.3.8 pa
 
 ```ts
 export const site = {
-  name: "Anugerah Plavon PVC",
+  name: "Anugerah Plafon PVC",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com", // [ISI] domain final
   locale: "id_ID",
   phone: "[ISI]",            // format +62...
@@ -41,8 +41,8 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Plafon PVC Serang Banten - Toko & Jasa Pasang | Anugerah Plavon PVC",
-    template: "%s | Anugerah Plavon PVC",
+    default: "Plafon PVC Serang Banten - Toko & Jasa Pasang | Anugerah Plafon PVC",
+    template: "%s | Anugerah Plafon PVC",
   },
   description: "[ISI 140-160 karakter: produk, wilayah, CTA]",
   alternates: { canonical: "/" },

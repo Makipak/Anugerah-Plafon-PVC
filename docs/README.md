@@ -1,6 +1,6 @@
-# Dokumentasi Proyek: Web Company Profile Anugerah Plavon PVC
+# Dokumentasi Proyek: Web Company Profile Anugerah Plafon PVC
 
-Dokumen perencanaan untuk website company profile Anugerah Plavon PVC (Serang, Banten) dengan fokus SEO, hosting sementara di Vercel.
+Dokumen perencanaan untuk website company profile Anugerah Plafon PVC (Serang, Banten) dengan fokus SEO, hosting sementara di Vercel.
 
 Status: **perencanaan**. Bagian bertanda `[ISI]` menunggu data dari klien.
 
@@ -24,6 +24,7 @@ Status: **perencanaan**. Bagian bertanda `[ISI]` menunggu data dari klien.
 | 14 | [14-roadmap-dan-task-breakdown.md](14-roadmap-dan-task-breakdown.md) | Milestone, Gantt, daftar task, dependensi |
 | 15 | [15-sow-ruang-lingkup-kerja.md](15-sow-ruang-lingkup-kerja.md) | Draf SOW untuk klien: deliverables, revisi, biaya, ekspektasi SEO |
 | 16 | [16-daftar-aset-placeholder.md](16-daftar-aset-placeholder.md) | Daftar slot aset, spesifikasi, sistem placeholder, kode komponen `Asset` |
+| 17 | [17-peta-data-dummy.md](17-peta-data-dummy.md) | Peta data contoh ke berkas dan sumbernya, langkah rilis |
 
 ## File aturan di root proyek
 

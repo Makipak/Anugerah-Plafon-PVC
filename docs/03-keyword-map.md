@@ -49,7 +49,7 @@
 
 | Elemen | Aturan |
 |---|---|
-| Title | Keyword utama + kota + brand, maks ~60 karakter |
+| Title | Keyword utama + kota + brand, maks ~60 karakter total. Template menambah 22 karakter (" \| Anugerah Plafon PVC"), jadi judul halaman maks ~38 karakter. Artikel blog memakai judul tanpa template |
 | Meta description | 140-160 karakter, ada manfaat + CTA |
 | H1 | Satu per halaman, memuat keyword utama secara natural |
 | H2/H3 | Variasi dan pertanyaan terkait |
@@ -60,10 +60,10 @@
 
 | Halaman | Contoh |
 |---|---|
-| Home | `Plafon PVC Serang Banten - Toko & Jasa Pasang \| Anugerah Plavon PVC` |
-| Layanan | `Jasa Pasang Plafon PVC Serang - Rapi & Bergaransi \| Anugerah Plavon PVC` |
-| Harga | `Harga Plafon PVC Serang per Meter (Update 2026) \| Anugerah Plavon PVC` |
-| Area | `Jasa Plafon PVC Cilegon \| Anugerah Plavon PVC` |
+| Home | `Plafon PVC Serang - Toko & Jasa Pasang \| Anugerah Plafon PVC` |
+| Layanan | `Jasa Pasang Plafon PVC Serang \| Anugerah Plafon PVC` |
+| Harga | `Harga Jasa Pasang Plafon PVC per Meter \| Anugerah Plafon PVC` |
+| Area | `Jasa Plafon PVC Cilegon \| Anugerah Plafon PVC` |
 
 Jangan menulis "garansi" atau "termurah" di halaman kecuali benar dan dapat dibuktikan.
 

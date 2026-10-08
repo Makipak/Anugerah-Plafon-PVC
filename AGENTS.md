@@ -1,4 +1,4 @@
-# AGENTS.md: Aturan Kode Proyek Anugerah Plavon PVC
+# AGENTS.md: Aturan Kode Proyek Anugerah Plafon PVC
 
 File ini dibaca oleh developer dan agent AI sebelum menulis kode. Aturan di sini mengikat.
 
@@ -112,7 +112,7 @@ Sumber: motion.dev/docs/react, halaman instalasi dan Accessibility (dibaca 1 Okt
 
 - **Aset dibuat pemilik proyek.** Jangan membuat, mengunduh, atau menempel gambar, foto, ilustrasi, atau video. Pakai `<Asset id="..." />` dengan ID dari [docs/16-daftar-aset-placeholder.md](docs/16-daftar-aset-placeholder.md).
 - ID aset baru dicatat di docs/16 dan manifest pada commit yang sama.
-- Build produksi harus gagal jika ada aset tanpa `src` atau tanpa `alt`.
+- Build produksi harus gagal jika ada aset tanpa `src` atau tanpa `alt`. Pengecualian: aset bertanda `optional: true` di manifest boleh kosong; slotnya tidak dirender di produksi.
 - Referensi desain (Aura, 21st.dev, Armstrong, dst.) hanya inspirasi. Dilarang meniru tata letak, komposisi, teks, atau aset satu situs tertentu. Ikuti bagian 2 DESIGN.md.
 
 ## 7. Aturan dokumentasi

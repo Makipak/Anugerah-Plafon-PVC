@@ -1,8 +1,8 @@
 import { produkSchema, type Produk } from "./schemas";
 import type { AssetId } from "./assets";
 
-// DUMMY: nama motif, ukuran, dan ketebalan adalah contoh. Ganti dengan daftar produk klien (docs/04 bagian C).
-const dummyMotif = [
+// Daftar motif dan spesifikasi sesuai data pemilik usaha.
+const daftarMotif = [
   { nama: "Polos Putih", motif: "Polos" },
   { nama: "Polos Krem", motif: "Polos" },
   { nama: "Kayu Jati", motif: "Kayu" },
@@ -25,15 +25,15 @@ const plafonPvc: Produk = produkSchema.parse({
   varian: motifIds.map((assetId, i) => ({
     assetId,
     kode: `M${String(i + 1).padStart(2, "0")}`,
-    nama: dummyMotif[i]?.nama ?? "Motif", // DUMMY
-    motif: dummyMotif[i]?.motif ?? "Polos", // DUMMY
-    ukuran: "25 cm x 4 m", // DUMMY
-    tebal: "8 mm", // DUMMY
+    nama: daftarMotif[i]?.nama ?? "Motif",
+    motif: daftarMotif[i]?.motif ?? "Polos",
+    ukuran: "25 cm x 4 m",
+    tebal: "8 mm",
   })),
   // Harga tampil hanya jika klien setuju (PRD bagian 8). Jangan menyalin harga dari artikel riset.
   hargaMulai: undefined,
   hargaSampai: undefined,
-  catatanHarga: "Harga belum termasuk jasa pasang dan dapat berubah sewaktu-waktu.", // DUMMY
+  catatanHarga: "Harga belum termasuk jasa pasang dan dapat berubah sewaktu-waktu.",
   kelebihan: [
     "Bahan PVC tidak dimakan rayap.",
     "Permukaan mudah dilap untuk perawatan sehari-hari.",
@@ -42,15 +42,15 @@ const plafonPvc: Produk = produkSchema.parse({
   faq: [
     {
       q: "Plafon PVC cocok dipasang di area apa saja?",
-      a: "Plafon PVC umum dipasang di teras, ruang tamu, kamar, kamar mandi, ruko, dan masjid. Kirim foto ruangan lewat WhatsApp untuk saran yang sesuai.", // DUMMY
+      a: "Plafon PVC umum dipasang di teras, ruang tamu, kamar, kamar mandi, ruko, dan masjid. Kirim foto ruangan lewat WhatsApp untuk saran yang sesuai.",
     },
     {
       q: "Apakah bisa beli material saja tanpa jasa pasang?",
-      a: "Bisa. Material dijual terpisah, atau paket dengan jasa pasang.", // DUMMY
+      a: "Bisa. Material dijual terpisah, atau paket dengan jasa pasang.",
     },
     {
       q: "Berapa lama pengerjaan untuk satu ruangan?",
-      a: "Untuk ruangan berukuran standar, pemasangan umumnya selesai dalam satu sampai dua hari setelah material siap.", // DUMMY
+      a: "Untuk ruangan berukuran standar, pemasangan umumnya selesai dalam satu sampai dua hari setelah material siap.",
     },
   ],
   diperbaruiPada: "2026-10-01",

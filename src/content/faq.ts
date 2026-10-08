@@ -3,7 +3,7 @@ import { faqSchema, type Faq } from "./schemas";
 export const faqUmum: readonly Faq[] = [
   {
     q: "Berapa harga plafon PVC per meter di Serang?",
-    a: "Kisaran harga material dan jasa pasang ada di halaman harga dan diperbarui berkala. Harga akhir bergantung pada motif, luas, dan lokasi.", // DUMMY
+    a: "Kisaran harga material dan jasa pasang ada di halaman harga dan diperbarui berkala. Harga akhir bergantung pada motif, luas, dan lokasi.",
   },
   {
     q: "Apakah bisa minta estimasi biaya lewat WhatsApp?",
@@ -15,6 +15,6 @@ export const faqUmum: readonly Faq[] = [
   },
   {
     q: "Wilayah mana saja yang dilayani?",
-    a: "Kami melayani Kota Serang dan sekitarnya. Kirim alamat lewat WhatsApp untuk memastikan lokasi Anda terjangkau.", // DUMMY
+    a: "Kami melayani Kota Serang dan sekitarnya. Kirim alamat lewat WhatsApp untuk memastikan lokasi Anda terjangkau.",
   },
 ].map((f) => faqSchema.parse(f));

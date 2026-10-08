@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Asset } from "@/components/asset";
+import { altProyek } from "@/lib/alt";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { PageIntro } from "@/components/ui/page-intro";
@@ -87,7 +88,7 @@ export default async function AreaPage({ params }: PageProps<"/area-layanan/[kot
           <ul className="grid gap-x-5 gap-y-8 md:grid-cols-3">
             {proyek.map((p) => (
               <li key={p.slug}>
-                <Asset id={p.assetId as AssetId} sizes="(min-width: 768px) 384px, 100vw" className="rounded-card" />
+                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 100vw" className="rounded-card" />
                 <p className="text-label mt-3 text-accent">
                   {p.lokasi.kecamatan}, {p.tahun}
                 </p>

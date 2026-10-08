@@ -17,8 +17,8 @@ import { waMessages } from "@/lib/site";
 const path = "/produk/plafon-pvc";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Harga Plafon PVC Serang: Motif, Ukuran, dan Spesifikasi",
-  description: "Spesifikasi plafon PVC di Serang: varian motif, ukuran, ketebalan, kelebihan, dan FAQ. Tanya harga terbaru lewat WhatsApp.",
+  title: "Harga Plafon PVC Serang dan Motif",
+  description: "Spesifikasi plafon PVC di Serang: varian motif, ukuran, ketebalan, kelebihan, dan FAQ. Tanya harga terbaru dan ketersediaan stok lewat WhatsApp.",
   path,
 });
 

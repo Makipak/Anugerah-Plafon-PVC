@@ -1,14 +1,13 @@
-// Sumber tunggal data usaha. Semua nilai bertanda DUMMY adalah data contoh; ganti dengan data klien (docs/04).
-// Build produksi gagal selama DATA_DUMMY true (lihat lib/placeholders.ts).
+// Sumber tunggal data usaha (docs/04). Email dan geo opsional: baru ditampilkan atau ditulis ke schema setelah diisi.
 export const site = {
-  name: "Anugerah Plavon PVC",
+  name: "Anugerah Plafon PVC",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
   locale: "id_ID",
   tagline: "Toko dan jasa pasang plafon PVC di Serang, Banten",
   phone: "+6287887980777",
   phoneDisplay: "087887980777",
   whatsapp: "6287887980777",
-  email: "halo@example.com", // DUMMY
+  email: undefined as string | undefined, // Tampil di halaman Kontak hanya jika diisi
   address: {
     street: "Jl. Ayip Usman, Unyur",
     locality: "Kec. Serang, Kota Serang",
@@ -16,15 +15,19 @@ export const site = {
     postalCode: "42111",
     country: "ID",
   },
-  geo: { lat: -6.1201, lng: 106.1503 }, // DUMMY, titik kasar Serang; ganti dengan koordinat toko sebenarnya
+  
+  geo: undefined as { lat: number; lng: number } | undefined,
   mapsUrl: "https://maps.app.goo.gl/WbiuLPGSYRZpXuNr8",
+
   // Ganti dengan src dari Google Maps > Bagikan > Sematkan peta (hanya isi src, tanpa tag iframe).
   // Sementara memakai pencarian berdasarkan nama usaha; hasilnya bisa meleset dari titik toko.
-  mapsEmbedUrl: "https://www.google.com/maps?q=Anugerah+Plavon+PVC+Serang+Banten&output=embed",
+  mapsEmbedUrl: "https://www.google.com/maps?q=Anugerah+Plafon+PVC+Serang+Banten&output=embed",
   hours: {
     text: "Senin–Sabtu, 08.00–17.00",
-    schema: "Mo-Sa 08:00-17:00", // DUMMY
+    schema: "Mo-Sa 08:00-17:00",
   },
+  // Opsional; isi dari harga asli klien, mis. "Rp50.000 - Rp100.000". Kosong berarti tidak ditulis ke schema.
+  priceRange: undefined as string | undefined,
   sameAs: [] as string[],
   // Hanya wilayah yang benar-benar dilayani (ADR-4).
   areaServed: ["Serang"],
@@ -45,7 +48,7 @@ export function waLink(text: string): string {
 }
 
 export const waMessages = {
-  umum: "Halo Anugerah Plavon PVC, saya ingin tanya plafon PVC.",
+  umum: "Halo Anugerah Plafon PVC, saya ingin tanya plafon PVC.",
   produk: (motif: string) =>
     `Halo, saya tertarik dengan plafon PVC motif ${motif}. Boleh tahu harga dan ketersediaannya?`,
   jasa: "Halo, saya ingin minta estimasi biaya pasang plafon PVC di [lokasi], luas sekitar [m2].",
