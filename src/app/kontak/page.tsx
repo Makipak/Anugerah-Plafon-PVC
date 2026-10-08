@@ -13,7 +13,6 @@ export const metadata: Metadata = buildMetadata({
   path: "/kontak",
 });
 
-const MAPS_LINK = "https://maps.app.goo.gl/GpR5Cb22pDKahc697";
 // Ganti dengan src dari Google Maps > Bagikan > Sematkan peta
 const MAPS_EMBED_SRC =
   "https://www.google.com/maps?q=Anugerah+Plavon+PVC+Serang+Banten&output=embed";
@@ -60,7 +59,7 @@ export default function KontakPage() {
                 Chat WhatsApp
               </a>
               <a
-                href={MAPS_LINK}
+                href={site.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block rounded-full border border-black/20 px-6 py-3 font-medium"

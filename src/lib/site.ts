@@ -17,7 +17,7 @@ export const site = {
     country: "ID",
   },
   geo: { lat: -6.1201, lng: 106.1503 }, // DUMMY, titik kasar Serang; ganti dengan koordinat toko sebenarnya
-  mapsUrl: "https://maps.app.goo.gl/GpR5Cb22pDKahc697",
+  mapsUrl: "https://maps.app.goo.gl/WbiuLPGSYRZpXuNr8",
   // Ganti dengan src dari Google Maps > Bagikan > Sematkan peta (hanya isi src, tanpa tag iframe).
   // Sementara memakai pencarian berdasarkan nama usaha; hasilnya bisa meleset dari titik toko.
   mapsEmbedUrl: "https://www.google.com/maps?q=Anugerah+Plavon+PVC+Serang+Banten&output=embed",
