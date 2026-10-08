@@ -16,6 +16,21 @@ const imagesOf = (ids: readonly AssetId[]): string[] =>
 // bukan hanya @id yang entitasnya ada di halaman lain.
 const businessRef = { "@type": "HomeAndConstructionBusiness", "@id": abs("/#business"), name: site.name, url: site.url };
 
+// Sinyal nama situs untuk Google (baris kecil di atas judul hasil pencarian).
+// Dipasang di beranda saja; url harus persis URL beranda.
+export function websiteLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": abs("/#website"),
+    name: site.name,
+    alternateName: ["Anugerah Plafon", "Anugerah Plafon PVC Serang"],
+    url: abs("/"),
+    inLanguage: "id-ID",
+    publisher: { "@id": abs("/#business") },
+  };
+}
+
 export function localBusinessLd() {
   const logo = srcOf("LOGO-01");
   const image = imagesOf(["TOKO-01", "HERO-01"]);

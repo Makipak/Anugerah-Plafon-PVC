@@ -22,7 +22,7 @@ import { proyekList } from "@/content/proyek";
 import { testimoniList } from "@/content/testimoni";
 import type { AssetId } from "@/content/assets";
 import { formatTanggal } from "@/lib/format";
-import { faqLd, localBusinessLd } from "@/lib/schema";
+import { faqLd, localBusinessLd, websiteLd } from "@/lib/schema";
 import { waMessages } from "@/lib/site";
 
 export default function HomePage() {
@@ -30,6 +30,7 @@ export default function HomePage() {
 
   return (
     <>
+      <JsonLd data={websiteLd()} />
       <JsonLd data={localBusinessLd()} />
       <JsonLd data={faqLd(faqUmum)} />
 
