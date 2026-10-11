@@ -1,6 +1,6 @@
 // Sumber tunggal data usaha (docs/04). Email dan geo opsional: baru ditampilkan atau ditulis ke schema setelah diisi.
 export const site = {
-  name: "Anugerah Plafon PVC",
+  name: "Anugrah Plafon PVC",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
   locale: "id_ID",
   tagline: "Toko dan jasa pasang plafon PVC di Serang, Banten",
@@ -16,21 +16,29 @@ export const site = {
     country: "ID",
   },
   
-  geo: undefined as { lat: number; lng: number } | undefined,
+  // Titik pin listing Google Maps (dari mapsUrl).
+  geo: { lat: -6.1034139, lng: 106.1647794 } as { lat: number; lng: number } | undefined,
   mapsUrl: "https://maps.app.goo.gl/WbiuLPGSYRZpXuNr8",
 
-  // Ganti dengan src dari Google Maps > Bagikan > Sematkan peta (hanya isi src, tanpa tag iframe).
-  // Sementara memakai pencarian berdasarkan nama usaha; hasilnya bisa meleset dari titik toko.
-  mapsEmbedUrl: "https://www.google.com/maps?q=Anugerah+Plafon+PVC+Serang+Banten&output=embed",
+  // Embed memakai koordinat pin listing agar tepat di titik toko. Bisa diganti dengan src dari
+  // Google Maps > Bagikan > Sematkan peta (hanya isi src, tanpa tag iframe).
+  mapsEmbedUrl: "https://www.google.com/maps?q=-6.1034139,106.1647794&output=embed",
   hours: {
     text: "Senin–Sabtu, 08.00–17.00",
     schema: "Mo-Sa 08:00-17:00",
   },
   // Opsional; isi dari harga asli klien, mis. "Rp50.000 - Rp100.000". Kosong berarti tidak ditulis ke schema.
-  priceRange: undefined as string | undefined,
-  sameAs: [] as string[],
-  // Hanya wilayah yang benar-benar dilayani (ADR-4).
-  areaServed: ["Serang"],
+  // Diturunkan dari content/harga.ts: jasa pasang termurah (Rp35.000/m2) sampai material termahal (Rp100.000/m2).
+  priceRange: "Rp35.000 - Rp100.000" as string | undefined,
+  // Profil resmi yang sudah dikonfirmasi pemilik. Facebook masih profil mode profesional (bukan Page);
+  // ganti dengan URL Page bila nanti dibuat.
+  sameAs: [
+    "https://www.instagram.com/anugrah_plafon_pvc/",
+    "https://www.tiktok.com/@anugrahplafonpvc",
+    "https://www.facebook.com/anugrah.plafon.pvc.serang",
+  ] as string[],
+  // Hanya wilayah yang benar-benar dilayani (ADR-4). Cilegon, Merak, dan Ciruas tercantum di bio Instagram pemilik.
+  areaServed: ["Serang", "Cilegon", "Merak", "Ciruas"],
 } as const;
 
 export const navItems = [
@@ -48,7 +56,7 @@ export function waLink(text: string): string {
 }
 
 export const waMessages = {
-  umum: "Halo Anugerah Plafon PVC, saya ingin tanya plafon PVC.",
+  umum: "Halo Anugrah Plafon PVC, saya ingin tanya plafon PVC.",
   produk: (motif: string) =>
     `Halo, saya tertarik dengan plafon PVC motif ${motif}. Boleh tahu harga dan ketersediaannya?`,
   jasa: "Halo, saya ingin minta estimasi biaya pasang plafon PVC di [lokasi], luas sekitar [m2].",

@@ -9,13 +9,18 @@ import { site, waLink } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Kontak Toko Plafon PVC Serang",
-  description: "Alamat, jam operasional, peta, dan WhatsApp Anugerah Plafon PVC, toko dan jasa pasang plafon PVC di Serang, Banten. Hubungi kami untuk tanya motif dan harga.",
+  description: "Alamat, jam operasional, peta, dan WhatsApp Anugrah Plafon PVC, toko dan jasa pasang plafon PVC di Serang, Banten. Hubungi kami untuk tanya motif dan harga.",
   path: "/kontak",
 });
 
-// Ganti dengan src dari Google Maps > Bagikan > Sematkan peta
-const MAPS_EMBED_SRC =
-  "https://www.google.com/maps?q=Anugerah+Plafon+PVC+Serang+Banten&output=embed";
+// Label ramah dari hostname; URL lain jatuh ke hostname apa adanya.
+function sosmedLabel(url: string): string {
+  const host = new URL(url).hostname;
+  if (host.includes("instagram")) return "Instagram";
+  if (host.includes("tiktok")) return "TikTok";
+  if (host.includes("facebook")) return "Facebook";
+  return host.replace("www.", "");
+}
 
 export default function KontakPage() {
   return (
@@ -45,8 +50,26 @@ export default function KontakPage() {
               </div>
               <div>
                 <dt className="font-medium">Area layanan</dt>
-                <dd>Kota Serang, Kabupaten Serang, Cilegon, dan sekitarnya</dd>
+                <dd>Kota Serang, Kabupaten Serang (termasuk Ciruas), Cilegon, Merak, dan sekitarnya</dd>
               </div>
+              {site.sameAs.length > 0 ? (
+                <div>
+                  <dt className="font-medium">Media sosial</dt>
+                  <dd className="flex flex-wrap gap-x-5">
+                    {site.sameAs.map((url) => (
+                      <a
+                        key={url}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-11 items-center text-primary underline underline-offset-4"
+                      >
+                        {sosmedLabel(url)}
+                      </a>
+                    ))}
+                  </dd>
+                </div>
+              ) : null}
             </dl>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -70,8 +93,8 @@ export default function KontakPage() {
           </div>
           <div className="overflow-hidden rounded-card border border-black/10">
             <iframe
-              src={MAPS_EMBED_SRC}
-              title="Peta lokasi Anugerah Plafon PVC di Serang"
+              src={site.mapsEmbedUrl}
+              title="Peta lokasi Anugrah Plafon PVC di Serang"
               className="aspect-[4/3] h-full min-h-72 w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
