@@ -12,7 +12,7 @@ Status: `[ ]` belum, `[x]` sudah diterima.
 - [ ] Nomor telepon lain (jika ada)
 - [ ] Email bisnis
 - [ ] Jam operasional
-- [ ] Link Instagram, Facebook, TikTok, Tokopedia (jika ada)
+- [x] Link Instagram, Facebook, TikTok (Facebook masih profil mode profesional; Tokopedia belum ada)
 - [ ] Titik lokasi Google Maps
 - [ ] Tahun berdiri dan legalitas (NIB/CV/PT jika ada dan boleh ditampilkan)
 

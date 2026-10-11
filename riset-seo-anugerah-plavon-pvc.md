@@ -1,4 +1,4 @@
-# Riset SEO: Anugerah Plavon PVC Serang
+# Riset SEO: Anugrah Plavon PVC Serang
 
 Tanggal riset: 1 Oktober 2026
 
@@ -7,7 +7,7 @@ Tanggal riset: 1 Oktober 2026
 - Saya **tidak punya akses data volume pencarian** (Google Keyword Planner, Ahrefs, Semrush). Semua keyword di bawah adalah hasil analisis intent dan pola SERP, **bukan angka volume**. Validasi dengan tool di bagian 7.
 - Tool search saya berbasis US, jadi hasil SERP lokal Indonesia tidak sepenuhnya mewakili apa yang dilihat orang di Serang. Cek ulang manual dengan mode incognito dan lokasi Serang.
 - **Update (browser):** ANDA Plafon PVC Serang dan Creative Mandiri Serang sudah dianalisis langsung lewat browser (bagian 8), begitu juga 2 halaman SERP Google (dengan `gl=id`). Javafon belum dibuka karena brand nasional dan kurang relevan untuk keyword lokal. Hasil SERP bisa berbeda tergantung lokasi dan personalisasi, jadi tetap cek ulang dari Serang.
-- Pencarian "Anugerah Plavon PVC Serang" **tidak menemukan web, GBP, maupun sosmed** milik klien. Artinya brand ini hampir tidak punya jejak digital. Ini peluang sekaligus risiko (mulai dari nol).
+- Pencarian "Anugrah Plavon PVC Serang" **tidak menemukan web, GBP, maupun sosmed** milik klien. Artinya brand ini hampir tidak punya jejak digital. Ini peluang sekaligus risiko (mulai dari nol).
 
 ## 1. Kompetitor lokal yang teridentifikasi
 
@@ -90,7 +90,7 @@ Pola SERP nasional untuk keyword informasional didominasi media besar (detik, Ti
 
 1. **Google Business Profile adalah prioritas nomor 1.** Buat dan verifikasi GBP (kategori utama: pemasok/penjual plafon atau kontraktor, sesuaikan usaha klien). Upload foto asli, isi jam, WA, area layanan, dan kumpulkan review dari pelanggan nyata. Untuk pencarian lokal, GBP biasanya muncul di atas hasil organik.
 2. **NAP konsisten** di web, GBP, sosmed, dan direktori. Tulis alamat sebagai teks, jangan hanya embed map (kelemahan Bintang Plafon).
-3. **Title formula:** `[Keyword utama] [Kota] | Anugerah Plavon PVC` (maks ~60 karakter). Contoh Home: `Plafon PVC Serang Banten - Jasa Pasang & Toko | Anugerah Plavon PVC`.
+3. **Title formula:** `[Keyword utama] [Kota] | Anugrah Plavon PVC` (maks ~60 karakter). Contoh Home: `Plafon PVC Serang Banten - Jasa Pasang & Toko | Anugrah Plavon PVC`.
 4. **Diferensiasi:** harga transparan (rentang), galeri before/after asli, FAQ, testimoni, dan CTA WA spesifik per produk.
 5. **Area layanan:** hanya buat halaman untuk wilayah yang benar-benar dilayani, dengan isi unik (proyek nyata di wilayah itu, waktu tempuh, pertanyaan lokal). Halaman template beda nama kota saja berisiko dianggap doorway.
 6. **Schema:** LocalBusiness (atau HomeAndConstructionBusiness), Product/Offer di halaman produk, FAQPage, BreadcrumbList, Article di blog.
