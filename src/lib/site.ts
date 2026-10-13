@@ -28,12 +28,11 @@ export const site = {
     text: "Senin–Sabtu, 08.00–17.00",
     schema: "Mo-Sa 08:00-17:00",
   },
-  // Profil resmi yang sudah dikonfirmasi pemilik. Facebook masih profil mode profesional (bukan Page);
-  // ganti dengan URL Page bila nanti dibuat.
+  // Profil yang dikonfirmasi pemilik: Instagram, Facebook, lalu TikTok.
   sameAs: [
     "https://www.instagram.com/anugrah_plafon_pvc/",
-    "https://www.tiktok.com/@anugrahplafonpvc",
     "https://www.facebook.com/anugrah.plafon.pvc.serang",
+    "https://www.tiktok.com/@anugrahplafonpvc",
   ] as string[],
   // Hanya wilayah yang benar-benar dilayani (ADR-4). Cilegon, Merak, dan Ciruas tercantum di bio Instagram pemilik.
   areaServed: ["Serang", "Cilegon", "Merak", "Ciruas"],
