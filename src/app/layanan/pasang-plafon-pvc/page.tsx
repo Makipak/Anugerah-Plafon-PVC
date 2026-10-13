@@ -20,28 +20,28 @@ const path = "/layanan/pasang-plafon-pvc";
 
 export const metadata: Metadata = buildMetadata({
   title: "Jasa Pasang Plafon PVC Serang",
-  description: "Jasa pasang plafon PVC di Serang: proses survei, pengukuran, pemasangan, dan finishing. Minta estimasi biaya lewat WhatsApp, kirim lokasi dan luas ruangan.",
+  description: "Lihat proses jasa pasang plafon PVC di Serang dan contoh hasil pekerjaan. Siapkan lokasi, ukuran ruangan, dan motif pilihan untuk berkonsultasi.",
   path,
 });
 
 const faq: FaqItem[] = [
-  { q: "Apakah ada garansi pemasangan?", a: "Garansi pemasangan berlaku untuk pekerjaan rangka dan sambungan panel; syarat dan lamanya dijelaskan saat penawaran." },
-  { q: "Bagaimana cara memesan jasa pasang?", a: "Hubungi lewat WhatsApp, kirim lokasi dan luas ruangan, lalu jadwalkan survei. Pembayaran disepakati saat penawaran." },
-  { q: "Apa yang tidak dikerjakan?", a: "Pekerjaan di luar plafon, seperti perbaikan atap bocor atau instalasi listrik, tidak termasuk." },
+  { q: "Apakah jasa pasang dilengkapi garansi?", a: "Hubungi kami untuk memastikan ketersediaan garansi, syarat, dan masa berlakunya." },
+  { q: "Bagaimana cara memesan jasa pasang?", a: "Chat kami melalui WhatsApp. Sertakan lokasi dan ukuran ruangan untuk membahas langkah berikutnya." },
+  { q: "Pekerjaan apa yang termasuk jasa pasang?", a: "Jasa pasang mencakup pekerjaan plafon PVC. Perbaikan atap bocor dan instalasi listrik tidak termasuk." },
 ];
 
 export default function JasaPasangPage() {
   return (
     <>
-      <JsonLd data={serviceLd("Jasa pasang plafon PVC", "Jasa survei, pengukuran, dan pemasangan plafon PVC di Serang, Banten.", path)} />
+      <JsonLd data={serviceLd("Jasa pasang plafon PVC", "Survei, pengukuran, dan pemasangan plafon PVC di Serang, Banten.", path)} />
       <JsonLd data={faqLd(faq)} />
       <PageIntro
         trail={[{ name: "Jasa Pasang Plafon PVC", path }]}
         label="Layanan"
         title="Jasa pasang plafon PVC di Serang"
-        lead="Dari survei ruangan sampai pekerjaan dirapikan. Kirim lokasi dan perkiraan luas untuk mendapat estimasi biaya."
+        lead="Kirim lokasi dan ukuran ruangan melalui WhatsApp untuk membahas kebutuhan pemasangan dan jadwal survei."
       >
-        <WhatsAppButton message={waMessages.jasa} location="jasa" label="Minta estimasi via WhatsApp" />
+        <WhatsAppButton message={waMessages.jasa} location="jasa" label="Konsultasi jasa pasang" />
       </PageIntro>
 
       <Section tone="surface" labelledBy="judul-proses">
@@ -55,25 +55,18 @@ export default function JasaPasangPage() {
         <SectionHeading id="judul-contoh" label="Contoh pekerjaan">
           Hasil pemasangan
         </SectionHeading>
-        <ul className="grid gap-x-5 gap-y-8 md:grid-cols-3">
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-7 sm:gap-x-5 sm:gap-y-8 md:grid-cols-3">
           {proyekList.slice(0, 3).map((p) => (
             <li key={p.slug}>
-              <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 100vw" className="rounded-card" />
-              <p className="text-label mt-3 text-accent">
-                {p.lokasi.kecamatan}, {p.tahun}
-              </p>
+              <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 50vw" className="rounded-card" />
               <p className="font-display text-lg font-semibold">{p.judul}</p>
             </li>
           ))}
         </ul>
         <p className="mt-8">
-          Semua proyek ada di{" "}
-          <Link href="/galeri" className="text-primary underline underline-offset-4">
+          Lihat semua proyek di{" "}
+          <Link href="/galeri" className="text-ink underline underline-offset-4">
             galeri
-          </Link>
-          . Biaya dijelaskan di{" "}
-          <Link href="/layanan/harga-dan-biaya-pasang" className="text-primary underline underline-offset-4">
-            halaman harga dan biaya pasang
           </Link>
           .
         </p>

@@ -1,11 +1,9 @@
-import type { Produk, Proyek } from "@/content/schemas";
+import type { Proyek } from "@/content/schemas";
+import { labelInterior } from "@/lib/interior-label";
 
 // Alt text dibentuk dari data konten, bukan ditulis ulang di tiap komponen,
 // sehingga tetap akurat saat data contoh diganti data klien.
+// Contoh: "Plafon PVC motif kayu di ruang tamu", "Kamar set multiplek HPL di kamar tidur".
 export function altProyek(p: Proyek): string {
-  return `Plafon ${p.bahan} di ${p.ruang.toLowerCase()}, ${p.lokasi.kecamatan}, ${p.lokasi.kota}`;
-}
-
-export function altVarian(v: Produk["varian"][number]): string {
-  return `Plafon PVC ${v.nama}, motif ${v.motif.toLowerCase()}`;
+  return `${labelInterior[p.interior]} ${p.bahan} di ${p.ruang.toLowerCase()}`;
 }

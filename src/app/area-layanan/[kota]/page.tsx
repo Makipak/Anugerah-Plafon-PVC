@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: PageProps<"/area-layanan/[kot
   const area = areaList.find((a) => a.slug === kota);
   if (!area) return {};
   return buildMetadata({
-    title: `Jasa Plafon PVC ${area.nama}`,
-    description: `Jasa pasang plafon PVC di ${area.nama}, Banten: proyek yang sudah dikerjakan, informasi wilayah, dan cara meminta estimasi lewat WhatsApp.`,
+    title: `Jasa Pasang Plafon PVC ${area.nama}`,
+    description: `Informasi jasa pasang plafon PVC di ${area.nama}, Banten. Lihat contoh pekerjaan dan hubungi kami melalui WhatsApp untuk membahas kebutuhan Anda.`,
     path: `/area-layanan/${area.slug}`,
   });
 }
@@ -57,7 +57,7 @@ export default async function AreaPage({ params }: PageProps<"/area-layanan/[kot
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <SectionHeading id="judul-fakta" label="Tentang wilayah ini">
-              Yang perlu Anda tahu
+              Informasi layanan
             </SectionHeading>
             <ul className="list-disc space-y-3 pl-5">
               {area.fakta.map((f) => (
@@ -65,12 +65,12 @@ export default async function AreaPage({ params }: PageProps<"/area-layanan/[kot
               ))}
             </ul>
             <p className="mt-6">
-              Proses dan biaya dijelaskan di{" "}
-              <Link href="/layanan/pasang-plafon-pvc" className="text-primary underline underline-offset-4">
+              Pelajari proses jasa pasang dan lihat contoh pekerjaan di{" "}
+              <Link href="/layanan/pasang-plafon-pvc" className="text-ink underline underline-offset-4">
                 halaman jasa pasang
               </Link>{" "}
-              dan contoh hasil di{" "}
-              <Link href="/galeri" className="text-primary underline underline-offset-4">
+              serta{" "}
+              <Link href="/galeri" className="text-ink underline underline-offset-4">
                 galeri
               </Link>
               .
@@ -83,15 +83,12 @@ export default async function AreaPage({ params }: PageProps<"/area-layanan/[kot
       {proyek.length > 0 ? (
         <Section labelledBy="judul-proyek-area">
           <SectionHeading id="judul-proyek-area" label="Proyek">
-            Pekerjaan di {area.nama}
+            Contoh pekerjaan di {area.nama}
           </SectionHeading>
-          <ul className="grid gap-x-5 gap-y-8 md:grid-cols-3">
+          <ul className="grid grid-cols-2 gap-x-4 gap-y-7 sm:gap-x-5 sm:gap-y-8 md:grid-cols-3">
             {proyek.map((p) => (
               <li key={p.slug}>
-                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 100vw" className="rounded-card" />
-                <p className="text-label mt-3 text-accent">
-                  {p.lokasi.kecamatan}, {p.tahun}
-                </p>
+                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 50vw" className="rounded-card" />
                 <p className="font-display text-lg font-semibold">{p.judul}</p>
               </li>
             ))}

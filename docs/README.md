@@ -34,7 +34,7 @@ Status: **perencanaan**. Bagian bertanda `[ISI]` menunggu data dari klien.
 | [../CLAUDE.md](../CLAUDE.md) | Mengimpor AGENTS.md untuk Claude Code |
 | [../DESIGN.md](../DESIGN.md) | Sistem desain: token, referensi, aturan anti AI slop, komponen, implementasi |
 
-Laporan riset awal: [../riset-seo-anugerah-plavon-pvc.md](../riset-seo-anugerah-plavon-pvc.md)
+Laporan riset awal: [../riset-seo-anugrah-plafon-pvc.md](../riset-seo-anugrah-plafon-pvc.md)
 
 ## Urutan pengerjaan
 

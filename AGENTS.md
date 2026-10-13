@@ -144,3 +144,13 @@ Sumber: motion.dev/docs/react, halaman instalasi dan Accessibility (dibaca 1 Okt
 ## 10. Batasan hosting
 
 Paket Hobby Vercel dibatasi untuk penggunaan non-komersial pribadi (vercel.com/docs/plans/hobby, dibaca 1 Oktober 2026). Website bisnis klien adalah penggunaan komersial. Hosting Hobby hanya untuk tahap pengembangan dan pratinjau internal. Sebelum tayang untuk klien yang membayar, gunakan paket Pro atau platform lain yang mengizinkan penggunaan komersial. Lihat [docs/07-deploy-vercel-dan-domain.md](docs/07-deploy-vercel-dan-domain.md).
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

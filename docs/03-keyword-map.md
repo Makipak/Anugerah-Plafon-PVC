@@ -16,7 +16,7 @@
 | plafon pvc serang | Beli/jasa | `/` | [ISI] | - |
 | plafon pvc serang banten | Beli/jasa | `/produk` | [ISI] | - |
 | jasa pasang plafon pvc serang | Jasa | `/layanan/pasang-plafon-pvc` | [ISI] | - |
-| harga plafon pvc serang | Harga | `/produk/plafon-pvc` | [ISI] | - |
+| motif plafon pvc serang | Produk | `/produk/plafon-pvc` | [ISI] | - |
 | toko plafon pvc serang | Lokasi toko | `/kontak` | [ISI] | - |
 | kontraktor plafon pvc serang | Jasa | `/layanan/pasang-plafon-pvc` | [ISI] | - |
 
@@ -24,7 +24,7 @@
 
 | Keyword | Halaman | Catatan |
 |---|---|---|
-| harga jasa pasang plafon pvc per meter | `/layanan/harga-dan-biaya-pasang` | Muncul di People Also Ask |
+| konsultasi plafon pvc serang | `/layanan/harga-dan-biaya-pasang` | Pengunjung diarahkan meminta penawaran melalui WhatsApp |
 | plafon pvc motif kayu / marmer / polos | Bagian di `/produk/plafon-pvc` atau halaman motif | Buat halaman motif hanya jika ada stok nyata |
 | plafon pvc untuk teras / kamar mandi / ruko / masjid | Bagian solusi per ruang | Gunakan proyek asli sebagai bukti |
 | jasa plafon pvc cilegon | `/area-layanan/cilegon` | Hanya jika dilayani |
@@ -36,8 +36,8 @@
 
 | Keyword | Format | Sumber ide |
 |---|---|---|
-| berapa harga plafon pvc per meter | Artikel harga + kalkulator hitungan | People Also Ask |
-| 1 dus plafon pvc 3/4 meter harga berapa | FAQ dan tabel | People Also Ask |
+| cara meminta penawaran plafon pvc | Artikel panduan konsultasi | People Also Ask |
+| cara mengukur kebutuhan plafon pvc | Panduan pengukuran ruangan | People Also Ask |
 | biaya pasang plafon pvc 3x3 meter | Contoh hitungan | People Also Ask |
 | cara menghitung borongan plafon pvc | Panduan | People Also Ask |
 | plafon pvc vs gypsum | Perbandingan | Riset SERP |
@@ -54,7 +54,7 @@
 | H1 | Satu per halaman, memuat keyword utama secara natural |
 | H2/H3 | Variasi dan pertanyaan terkait |
 | URL | Slug pendek berisi keyword |
-| Alt gambar | Deskripsi nyata (jenis plafon, ruang, lokasi) |
+| Alt gambar | Deskripsi nyata (jenis plafon dan ruang), tanpa nama lokasi proyek |
 
 ## Template title
 

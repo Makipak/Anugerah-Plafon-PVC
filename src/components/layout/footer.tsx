@@ -22,7 +22,7 @@ export function Footer() {
               >
                 Anugrah Plafon PVC
               </span>
-              <span className="block text-sm leading-tight text-ink-muted">Pusat Plafon PVC</span>
+              <span className="block text-sm leading-tight text-ink-muted">Toko plafon PVC</span>
             </span>
           </Link>
           <address className="mt-5 not-italic text-ink-muted">
@@ -30,8 +30,9 @@ export function Footer() {
             <p>
               {site.address.locality}, {site.address.region} {site.address.postalCode}
             </p>
+            <p>{site.address.landmark}</p>
             <p className="mt-2">
-              <TrackedLink href={`tel:${site.phone}`} event="phone_click" location="footer" className="text-primary underline underline-offset-4">
+              <TrackedLink href={`tel:${site.phone}`} event="phone_click" location="footer" className="text-ink underline underline-offset-4">
                 {site.phoneDisplay}
               </TrackedLink>
             </p>
@@ -39,45 +40,61 @@ export function Footer() {
           </address>
         </div>
 
-        <nav aria-label="Tautan situs">
-          <p className="text-label mb-3 text-accent">Halaman</p>
-          <ul className="space-y-1">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="inline-flex min-h-11 items-center hover:text-primary">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        {/* HP: dua kolom berdampingan (Halaman | Wilayah + Media sosial).
+            md ke atas: wrapper ini "menghilang" (contents) sehingga kedua nav
+            kembali menjadi kolom ke-2 dan ke-3 pada grid utama. */}
+        <div className="grid grid-cols-2 gap-x-6 md:contents">
+          <nav aria-label="Tautan situs" className="min-w-0">
+            <p className="text-label mb-3 inline-flex min-h-6 items-center border-l-2 border-primary pl-2 font-bold text-primary">
+              Menu
+            </p>
+            <ul className="space-y-1">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="inline-flex min-h-11 items-center hover:text-ink">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <nav aria-label="Area layanan">
-          <p className="text-label mb-3 text-accent">Area layanan</p>
-          <ul className="space-y-1">
-            {areaList.map((a) => (
-              <li key={a.slug}>
-                <Link href={`/area-layanan/${a.slug}`} className="inline-flex min-h-11 items-center hover:text-primary">
-                  Jasa plafon PVC {a.nama}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          {site.sameAs.length > 0 ? (
-            <>
-              <p className="text-label mb-3 mt-6 text-accent">Media sosial</p>
-              <ul className="space-y-1">
-                {site.sameAs.map((url) => (
-                  <li key={url}>
-                    <a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center hover:text-primary">
-                      {new URL(url).hostname.replace("www.", "")}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : null}
-        </nav>
+          <nav aria-label="Area layanan" className="min-w-0">
+            <p className="text-label mb-3 inline-flex min-h-6 items-center border-l-2 border-primary pl-2 font-bold text-primary">
+              Wilayah layanan
+            </p>
+            <ul className="space-y-1">
+              {areaList.map((a) => (
+                <li key={a.slug}>
+                  <Link href={`/area-layanan/${a.slug}`} className="inline-flex min-h-11 items-center hover:text-ink">
+                    Jasa plafon PVC {a.nama}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {site.sameAs.length > 0 ? (
+              <>
+                <p className="text-label mb-3 mt-6 inline-flex min-h-6 items-center border-l-2 border-primary pl-2 font-bold text-primary">
+                  Media sosial
+                </p>
+                <ul className="space-y-1">
+                  {site.sameAs.map((url) => (
+                    <li key={url}>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-11 items-center break-words hover:text-ink"
+                      >
+                        {new URL(url).hostname.replace("www.", "")}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+          </nav>
+        </div>
       </div>
       <div className="border-t border-line">
         <p className="container-page py-5 text-sm text-ink-muted">

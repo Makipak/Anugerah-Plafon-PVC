@@ -9,8 +9,8 @@ import { formatTanggal } from "@/lib/format";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Blog Plafon PVC: Harga dan Panduan",
-  description: "Artikel tentang plafon PVC: cara menghitung biaya, perbandingan dengan gypsum, dan panduan memilih untuk rumah di Serang dan sekitarnya. Baca sebelum memesan.",
+  title: "Panduan Plafon PVC Serang",
+  description: "Baca panduan plafon PVC tentang pengukuran ruangan, pilihan bahan, dan motif. Gunakan informasi ini untuk menyiapkan konsultasi pemasangan di Serang.",
   path: "/blog",
 });
 
@@ -22,7 +22,7 @@ export default async function BlogPage() {
         trail={[{ name: "Blog", path: "/blog" }]}
         label="Blog"
         title="Panduan plafon PVC"
-        lead="Jawaban untuk pertanyaan yang paling sering muncul sebelum memasang plafon."
+        lead="Baca panduan tentang plafon PVC sebelum memilih motif dan merencanakan pemasangan."
       />
       <Section tone="surface">
         <ul className="grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
@@ -30,8 +30,8 @@ export default async function BlogPage() {
             <li key={p.slug}>
               <Link href={`/blog/${p.slug}`} className="group block">
                 <Asset id={p.coverAssetId as AssetId} sizes="(min-width: 1024px) 384px, (min-width: 768px) 50vw, 100vw" className="rounded-card" />
-                <p className="text-label mt-4 text-accent">Diperbarui {formatTanggal(p.updated)}</p>
-                <h2 className="text-title mt-1 text-primary group-hover:text-primary-hover">{p.title}</h2>
+                <p className="text-label mt-4 text-ink">Diperbarui {formatTanggal(p.updated)}</p>
+                <h2 className="text-title mt-1 text-ink group-hover:text-ink-muted">{p.title}</h2>
                 <p className="mt-2 text-ink-muted">{p.description}</p>
               </Link>
             </li>

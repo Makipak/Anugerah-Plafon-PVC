@@ -40,10 +40,9 @@ Uji minimal di 360, 390, 768, dan 1280 px.
 |---|---|
 | Header | Logo, menu, tombol WhatsApp; menu hamburger di mobile |
 | Tombol WhatsApp floating | Pojok kanan bawah mobile; tidak menutupi tombol utama; label aksesibel "Chat WhatsApp" |
-| Hero | H1, subjudul (produk + kota), CTA primer (WhatsApp), CTA sekunder (lihat galeri/harga), gambar asli |
-| Kartu produk | Gambar, nama, rentang harga, tombol tanya |
-| Tabel harga | Responsif (kartu di mobile), tanggal pembaruan, catatan |
-| Galeri | Grid, lazy load, lightbox sederhana dengan fokus keyboard |
+| Hero | H1, subjudul (produk + kota), CTA primer (WhatsApp), CTA sekunder (lihat galeri), gambar asli |
+| Kartu produk | Gambar, nama, spesifikasi, tombol konsultasi |
+| Galeri | Grid, lazy load, jenis ruang dan bahan sebagai keterangan, lightbox sederhana dengan fokus keyboard; tanpa lokasi atau tahun |
 | Bagian FAQ | Accordion aksesibel (`button` + `aria-expanded`) |
 | Testimoni | Kutipan, nama/inisial, lokasi; hanya dengan izin |
 | Breadcrumb | Sinkron dengan schema |
@@ -57,7 +56,7 @@ flowchart TD
   B --> C[Keunggulan 3-4 poin berbukti]
   C --> D[Produk unggulan]
   D --> E[Galeri singkat 6-8 foto]
-  E --> F[Harga mulai dari + tautan halaman harga]
+  E --> F[Konsultasi kebutuhan melalui WhatsApp]
   F --> G[Testimoni]
   G --> H[Area layanan]
   H --> I[FAQ ringkas]
@@ -107,7 +106,7 @@ flowchart TD
 | Produk | Varian, spesifikasi, kelebihan, perbandingan jujur dengan alternatif, FAQ |
 | Harga | Rentang, faktor, contoh hitungan 3x3 m, tanggal pembaruan, cara mendapatkan penawaran |
 | Jasa | Proses (survei, pengukuran, pemasangan, finishing), garansi nyata, contoh proyek |
-| Galeri | Filter per jenis ruang (opsional), keterangan lokasi |
+| Galeri | Filter per jenis ruang (opsional), keterangan jenis ruang dan bahan |
 | Area | Konten unik, proyek lokal, FAQ wilayah |
 | Tentang | Cerita, tim, pengalaman, legalitas |
 | Kontak | NAP teks, jam, peta, WhatsApp, tautan sosmed |

@@ -61,9 +61,9 @@ CMS (mis. untuk artikel dan galeri), kalkulator estimasi biaya interaktif, formu
 |---|---|---|
 | FR-01 | Situs menampilkan semua halaman di bagian 4.1 dengan navigasi konsisten | Must |
 | FR-02 | Tombol WhatsApp terlihat di header dan floating di mobile; pesan prefilled mengikuti halaman/produk | Must |
-| FR-03 | Halaman produk menampilkan varian, rentang harga, kelebihan, FAQ, dan CTA | Must |
-| FR-04 | Halaman harga menampilkan rentang harga material dan jasa serta contoh hitungan, dengan tanggal pembaruan | Must |
-| FR-05 | Galeri menampilkan foto proyek dengan lokasi (kecamatan), jenis ruang, dan alt text | Must |
+| FR-03 | Halaman produk menampilkan varian, spesifikasi, kelebihan, FAQ, dan CTA konsultasi | Must |
+| FR-04 | Halaman konsultasi menjelaskan informasi yang perlu disiapkan dan menyediakan CTA WhatsApp tanpa menampilkan nominal | Must |
+| FR-05 | Galeri menampilkan foto proyek dengan jenis ruang, bahan, dan alt text; lokasi dan tahun tidak ditampilkan pada keterangan foto | Must |
 | FR-06 | Halaman kontak menampilkan NAP sebagai teks, jam, peta, dan tautan sosmed | Must |
 | FR-07 | Blog mendukung MDX, daftar isi, tanggal terbit dan diperbarui, artikel terkait | Must |
 | FR-08 | Halaman area layanan dibuat per wilayah dari data terstruktur dengan konten unik | Should |
@@ -92,7 +92,7 @@ Rincian ada di dokumen [03](03-keyword-map.md) dan [05](05-spesifikasi-teknis-se
 - Schema: LocalBusiness, Product atau Service, FAQPage (bila FAQ tampil), BreadcrumbList, Article.
 - Sitemap dinamis dan robots yang membedakan produksi dan preview.
 - Konsistensi NAP dengan Google Business Profile.
-- Internal link terstruktur dan artikel harga yang diperbarui berkala.
+- Internal link terstruktur dan artikel panduan layanan yang diperbarui berkala.
 
 ## 8. Dependensi dan asumsi
 
@@ -101,7 +101,7 @@ Rincian ada di dokumen [03](03-keyword-map.md) dan [05](05-spesifikasi-teknis-se
 | Materi klien (dokumen 04) | Dependensi | Blokir utama launch |
 | Domain atas nama klien | Dependensi | Belum ada |
 | Google Business Profile | Dependensi | Dibuat/diverifikasi klien |
-| Kesediaan klien menampilkan harga | Asumsi | Harga transparan adalah diferensiasi utama; jika klien menolak, tampilkan rentang/"mulai dari" |
+| Informasi penawaran | Keputusan | Situs mengarahkan pengunjung ke WhatsApp; nominal tidak ditampilkan |
 | Produk hanya plafon PVC | Asumsi | Belum dikonfirmasi; tambah halaman jika ada wall panel/gypsum |
 | Hosting Vercel | Asumsi | Sementara; cek ketentuan penggunaan komersial |
 

@@ -7,9 +7,11 @@ import { PageIntro } from "@/components/ui/page-intro";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { CtaBand } from "@/components/sections/cta-band";
 import { Faq } from "@/components/sections/faq";
-import { MotifGrid } from "@/components/sections/motif-grid";
+import { ProdukGrid } from "@/components/katalog/produk-card";
+import { ButtonLink } from "@/components/ui/button";
 import { produkUtama as p } from "@/content/produk";
 import { formatTanggal } from "@/lib/format";
+import { semuaProduk } from "@/lib/katalog";
 import { faqLd, productLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { waMessages } from "@/lib/site";
@@ -17,15 +19,15 @@ import { waMessages } from "@/lib/site";
 const path = "/produk/plafon-pvc";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Harga Plafon PVC Serang dan Motif",
-  description: "Spesifikasi plafon PVC di Serang: varian motif, ukuran, ketebalan, kelebihan, dan FAQ. Tanya harga terbaru dan ketersediaan stok lewat WhatsApp.",
+  title: "Motif Plafon PVC Serang",
+  description: "Lihat motif, ukuran, dan ketebalan plafon PVC di Serang. Hubungi kami melalui WhatsApp untuk menanyakan ketersediaan produk dan jasa pasang.",
   path,
 });
 
 export default function PlafonPvcPage() {
   return (
     <>
-      <JsonLd data={productLd(p, path)} />
+      <JsonLd data={productLd({ nama: p.nama, ringkasan: p.ringkasan }, path)} />
       <JsonLd data={faqLd(p.faq)} />
       <PageIntro
         trail={[
@@ -36,22 +38,22 @@ export default function PlafonPvcPage() {
         title="Plafon PVC di Serang: varian dan spesifikasi"
         lead={p.ringkasan}
       >
-        <WhatsAppButton message={waMessages.produk("[nama motif]")} location="produk-detail" label="Tanya harga via WhatsApp" />
+        <WhatsAppButton message={waMessages.produkUmum} location="produk-detail" label="Tanyakan ketersediaan" />
       </PageIntro>
 
       <Section tone="surface" labelledBy="judul-varian">
         <SectionHeading id="judul-varian" label="Varian" intro={`Diperbarui ${formatTanggal(p.diperbaruiPada)}.`}>
           Motif, ukuran, dan ketebalan
         </SectionHeading>
-        <MotifGrid varian={p.varian} />
-        {p.catatanHarga ? <p className="mt-8 text-ink-muted">{p.catatanHarga}</p> : null}
-        <p className="mt-4">
-          Kisaran harga ada di{" "}
-          <Link href="/layanan/harga-dan-biaya-pasang" className="text-primary underline underline-offset-4">
-            halaman harga dan biaya pasang
-          </Link>
-          , contoh pekerjaan di{" "}
-          <Link href="/galeri" className="text-primary underline underline-offset-4">
+        <ProdukGrid produk={semuaProduk("plafon-pvc").slice(0, 8)} />
+        <div className="mt-10">
+          <ButtonLink href="/produk" variant="secondary">
+            Lihat semua produk
+          </ButtonLink>
+        </div>
+        <p className="mt-8">
+          Contoh pekerjaan ada di{" "}
+          <Link href="/galeri" className="text-ink underline underline-offset-4">
             galeri proyek
           </Link>
           .
@@ -62,7 +64,7 @@ export default function PlafonPvcPage() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <SectionHeading id="judul-kelebihan" label="Kelebihan">
-              Yang perlu diketahui sebelum memilih
+              Pertimbangkan sebelum memilih plafon
             </SectionHeading>
             <ul className="list-disc space-y-3 pl-5">
               {p.kelebihan.map((k) => (
@@ -71,7 +73,7 @@ export default function PlafonPvcPage() {
             </ul>
             <p className="mt-6 text-ink-muted">
               Membandingkan dengan gypsum? Baca{" "}
-              <Link href="/blog/plafon-pvc-vs-gypsum" className="text-primary underline underline-offset-4">
+              <Link href="/blog/plafon-pvc-vs-gypsum" className="text-ink underline underline-offset-4">
                 perbandingan plafon PVC dan gypsum
               </Link>
               .
@@ -93,7 +95,7 @@ export default function PlafonPvcPage() {
         </div>
       </Section>
 
-      <CtaBand message={waMessages.produk("[nama motif]")} location="produk-detail-cta" secondaryHref="/layanan/pasang-plafon-pvc" secondaryLabel="Jasa pasang" />
+      <CtaBand message={waMessages.produkUmum} location="produk-detail-cta" secondaryHref="/layanan/pasang-plafon-pvc" secondaryLabel="Jasa pasang" />
     </>
   );
 }

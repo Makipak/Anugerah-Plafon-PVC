@@ -33,7 +33,7 @@ Langkah mengganti placeholder:
 | Bobot | Usahakan di bawah sekitar 500 KB per foto setelah ekspor (pedoman internal) |
 | Penamaan | huruf kecil, tanda hubung, deskriptif: `plafon-pvc-motif-kayu-ruang-tamu-serang.webp` |
 | Isi | Tanpa watermark pihak lain, tanpa filter berat, milik sendiri atau berizin |
-| Alt text | Deskripsi isi nyata (jenis plafon, ruang, lokasi), diisi di manifest saat aset final |
+| Alt text | Deskripsi isi nyata (jenis plafon dan ruang), tanpa nama lokasi proyek |
 | Video | Pendek, tanpa autoplay bersuara; wajib ada gambar poster |
 
 Konvensi file ikon dan gambar OG bawaan Next.js (`icon`, `apple-icon`, `opengraph-image`) disebut pada panduan upgrade Next.js 16; konfirmasi nama dan format yang didukung di dokumentasi saat implementasi.
@@ -55,6 +55,7 @@ Status: `[ ]` belum dibuat, `[x]` selesai dan terpasang.
 | ID | Dipakai di | Rasio | Ukuran minimum | Isi yang dibutuhkan | Status |
 |---|---|---|---|---|---|
 | HERO-01 | Hero Home (desktop dan mobile) | 4:3 | 1600 x 1200 | Ruangan dengan plafon PVC terpasang terlihat jelas, cahaya alami; sisakan ruang aman di tepi untuk pemotongan mobile | [ ] |
+| HERO-02 | Latar section keunggulan di Home | 3:2 | 1536 x 1024 | Interior rumah dengan plafon dan panel PVC bermotif kayu | [x] |
 
 ### Katalog motif (jumlah `[ISI]`, contoh 8)
 

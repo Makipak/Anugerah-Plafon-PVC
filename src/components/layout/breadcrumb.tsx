@@ -20,7 +20,7 @@ export function Breadcrumb({ trail }: { trail: readonly Crumb[] }) {
                     {c.name}
                   </span>
                 ) : (
-                  <Link href={c.path} className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-primary">
+                  <Link href={c.path} className="inline-flex min-h-11 items-center underline underline-offset-4 hover:text-ink">
                     {c.name}
                   </Link>
                 )}

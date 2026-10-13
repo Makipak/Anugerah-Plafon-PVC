@@ -28,8 +28,8 @@ Status: `[ ]` belum, `[x]` sudah diterima.
 - [ ] Daftar produk yang dijual (plafon PVC, wall panel, gypsum, WPC, lainnya)
 - [ ] Layanan yang ditawarkan (jual material saja, jasa pasang, keduanya)
 - [ ] Varian per produk: motif, warna, ukuran, ketebalan
-- [ ] Harga atau rentang harga material
-- [ ] Harga atau rentang biaya jasa pasang per meter
+- [ ] Informasi cakupan material dan jasa pasang
+- [ ] Cara meminta penawaran dan informasi yang perlu disiapkan
 - [ ] Merek yang dijual/dipakai
 - [ ] Ketersediaan stok dan waktu pengerjaan
 - [ ] Garansi (syarat dan lama, hanya yang benar-benar diberikan)

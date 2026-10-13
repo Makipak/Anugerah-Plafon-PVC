@@ -14,7 +14,7 @@ flowchart TD
   P --> P1[/produk/plafon-pvc]
   P --> P2[/produk/wall-panel PVC - opsional]
   L --> L1[/layanan/pasang-plafon-pvc]
-  L --> L2[/layanan/harga-dan-biaya-pasang]
+  L --> L2[/layanan/harga-dan-biaya-pasang - konsultasi]
   A --> A1[/area-layanan/serang]
   A --> A2[/area-layanan/cilegon]
   A --> A3[/area-layanan/kota-lain - hanya yang dilayani]
@@ -28,11 +28,11 @@ Halaman dengan label "opsional" dibuat hanya jika klien benar-benar menjual atau
 | URL | Tujuan | Isi wajib | Keyword utama |
 |---|---|---|---|
 | `/` | Halaman pendaratan utama | Hero + CTA WA, keunggulan, produk unggulan, galeri singkat, testimoni, FAQ ringkas, area layanan, NAP + peta | plafon pvc serang |
-| `/produk` | Listing produk | Kartu produk/motif, rentang harga, CTA WA per produk | plafon pvc serang banten |
-| `/produk/plafon-pvc` | Halaman produk inti | Varian motif, ukuran, ketebalan, harga mulai dari, kelebihan, perbandingan dengan gypsum, FAQ, schema Product | harga plafon pvc serang |
+| `/produk` | Listing produk | Kartu produk/motif, spesifikasi, CTA konsultasi | plafon pvc serang banten |
+| `/produk/plafon-pvc` | Halaman produk inti | Varian motif, ukuran, ketebalan, kelebihan, perbandingan dengan gypsum, FAQ, schema Product | plafon pvc serang |
 | `/layanan/pasang-plafon-pvc` | Halaman jasa | Proses kerja, contoh proyek, garansi, cara order, schema Service | jasa pasang plafon pvc serang |
-| `/layanan/harga-dan-biaya-pasang` | Halaman harga | Rentang harga material dan jasa, contoh hitungan 3x3 m, faktor harga, FAQ | harga jasa pasang plafon pvc |
-| `/galeri` | Bukti sosial | Foto proyek asli, lokasi (kecamatan), jenis ruang, alt text deskriptif | (pendukung) |
+| `/layanan/harga-dan-biaya-pasang` | Konsultasi | Informasi yang perlu disiapkan dan CTA WhatsApp; nominal tidak ditampilkan | konsultasi plafon pvc serang |
+| `/galeri` | Bukti sosial | Foto proyek asli, jenis ruang, bahan, alt text deskriptif tanpa lokasi | (pendukung) |
 | `/area-layanan/[kota]` | SEO lokal | Konten unik per wilayah, proyek di wilayah itu, waktu tempuh, FAQ lokal | jasa plafon pvc [kota] |
 | `/blog` dan `/blog/[slug]` | Traffic informasional | Artikel, daftar isi, internal link ke produk/layanan | lihat dokumen 06 |
 | `/tentang-kami` | Kepercayaan (E-E-A-T) | Sejarah, tim, pengalaman, legalitas, foto toko | (brand) |
@@ -55,7 +55,7 @@ Halaman dengan label "opsional" dibuat hanya jika klien benar-benar menjual atau
 ## Internal linking
 
 - Setiap artikel blog menaut ke minimal satu halaman produk/layanan.
-- Halaman produk menaut ke halaman harga dan galeri.
+- Halaman produk menaut ke galeri dan mengarahkan konsultasi melalui WhatsApp.
 - Halaman area layanan menaut ke halaman layanan dan galeri.
 - Anchor text deskriptif (hindari "klik di sini").
 

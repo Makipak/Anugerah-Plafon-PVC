@@ -65,11 +65,11 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         <aside aria-label="Daftar isi dan tautan terkait" className="lg:sticky lg:top-24 lg:self-start">
           {post.headings.length > 0 ? (
             <nav aria-label="Daftar isi">
-              <p className="text-label mb-3 text-accent">Daftar isi</p>
+              <p className="text-label mb-3 text-ink">Daftar isi</p>
               <ul className="space-y-1 border-l border-line pl-4">
                 {post.headings.map((h) => (
                   <li key={h.id}>
-                    <a href={`#${h.id}`} className="inline-flex min-h-11 items-center text-sm hover:text-primary">
+                    <a href={`#${h.id}`} className="inline-flex min-h-11 items-center text-sm hover:text-ink">
                       {h.text}
                     </a>
                   </li>
@@ -78,11 +78,11 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
             </nav>
           ) : null}
           <div className="mt-8">
-            <p className="text-label mb-3 text-accent">Halaman terkait</p>
+            <p className="text-label mb-3 text-ink">Halaman terkait</p>
             <ul className="space-y-1">
               {post.menautKe.map((href) => (
                 <li key={href}>
-                  <Link href={href} className="inline-flex min-h-11 items-center text-sm text-primary underline underline-offset-4">
+                  <Link href={href} className="inline-flex min-h-11 items-center text-sm text-ink underline underline-offset-4">
                     {href}
                   </Link>
                 </li>
@@ -91,11 +91,11 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
           </div>
           {related.length > 0 ? (
             <div className="mt-8">
-              <p className="text-label mb-3 text-accent">Artikel lain</p>
+              <p className="text-label mb-3 text-ink">Artikel lain</p>
               <ul className="space-y-1">
                 {related.map((r) => (
                   <li key={r.slug}>
-                    <Link href={`/blog/${r.slug}`} className="inline-flex min-h-11 items-center text-sm hover:text-primary">
+                    <Link href={`/blog/${r.slug}`} className="inline-flex min-h-11 items-center text-sm hover:text-ink">
                       {r.title}
                     </Link>
                   </li>
@@ -105,7 +105,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
           ) : null}
         </aside>
       </article>
-      <CtaBand message={waMessages.harga} location={`blog-${post.slug}`} />
+      <CtaBand message={waMessages.penawaran} location={`blog-${post.slug}`} />
     </>
   );
 }

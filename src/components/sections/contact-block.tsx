@@ -1,6 +1,6 @@
 import { TrackedLink } from "@/components/layout/tracked-link";
-import { WhatsAppButton } from "@/components/layout/whatsapp-button";
-import { site, waMessages } from "@/lib/site";
+import { buttonClass } from "@/components/ui/button";
+import { site } from "@/lib/site";
 
 const belumAda = (v: string) => v === "" || v.includes("[ISI]");
 
@@ -14,28 +14,26 @@ export function ContactBlock({ location }: { location: string }) {
           <p>
             {site.address.locality}, {site.address.region} {site.address.postalCode}
           </p>
+          <p>{site.address.landmark}</p>
           <p className="mt-4">
             Telepon:{" "}
-            <TrackedLink href={`tel:${site.phone}`} event="phone_click" location={location} className="text-primary underline underline-offset-4">
+            <TrackedLink href={`tel:${site.phone}`} event="phone_click" location={location} className="text-ink underline underline-offset-4">
               {site.phoneDisplay}
             </TrackedLink>
           </p>
           {site.email ? <p>Email: {site.email}</p> : null}
           <p className="mt-4">Jam operasional: {site.hours.text}</p>
         </address>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <WhatsAppButton message={waMessages.umum} location={location} />
-          {belumAda(site.mapsUrl) ? null : (
-            <TrackedLink
-              href={site.mapsUrl}
-              event="map_click"
-              location={location}
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-ink px-5 font-display font-semibold text-ink hover:bg-panel"
-            >
-              Buka di Google Maps
-            </TrackedLink>
-          )}
-        </div>
+        {belumAda(site.mapsUrl) ? null : (
+          <TrackedLink
+            href={site.mapsUrl}
+            event="map_click"
+            location={location}
+            className={`mt-6 ${buttonClass.secondary}`}
+          >
+            Lihat lokasi di Google Maps
+          </TrackedLink>
+        )}
       </div>
 
       {belumAda(site.mapsEmbedUrl) ? (

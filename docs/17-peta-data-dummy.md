@@ -26,12 +26,11 @@ Data klien dikumpulkan lewat [04-checklist-materi-klien.md](04-checklist-materi-
 | Berkas | Yang diganti | Sumber (docs/04) |
 |---|---|---|
 | `src/lib/site.ts` | `email`, `geo` (koordinat toko), `hours.text` dan `hours.schema`, `mapsEmbedUrl` (src dari Google Maps > Sematkan peta) | A |
-| `src/lib/site.ts` | Opsional: `priceRange` (dari harga asli), `sameAs` (Instagram, Facebook, TikTok, marketplace) | C, G |
-| `src/content/harga.ts` | Semua baris harga material, jasa pasang, dan transport | C |
-| `src/content/produk.ts` | Nama motif, jenis motif, ukuran, ketebalan, catatan harga, 3 jawaban FAQ. Opsional `hargaMulai` dan `hargaSampai` agar schema Offer muncul | C |
+| `src/lib/site.ts` | Informasi usaha dan `sameAs` (Instagram, Facebook, TikTok, marketplace) | A, G |
+| `src/content/produk.ts` | Nama motif, jenis motif, ukuran, ketebalan, dan jawaban FAQ | C |
 | `src/content/proyek.ts` | Seluruh daftar proyek (minimal 15): judul, kecamatan, ruang, bahan, tahun, luas | E |
 | `src/content/area.ts` | Ringkasan, fakta lokal, FAQ, `proyekSlugs`. Tambah wilayah hanya jika dilayani dan punya isi unik | D |
-| `src/content/faq.ts` | Jawaban harga dan wilayah layanan | C, D |
+| `src/content/faq.ts` | Jawaban konsultasi dan wilayah layanan | C, D |
 | `src/content/testimoni.ts` | Kosong. Isi hanya testimoni asli dengan izin; bagiannya tampil otomatis | F |
 | `src/app/tentang-kami/page.tsx` | Kalimat pembuka, cerita usaha (tahun berdiri, jumlah proyek, legalitas), deskripsi tim | A |
 | `src/app/kontak/page.tsx` | Daftar wilayah layanan; samakan dengan `areaServed` di `site.ts` | D |

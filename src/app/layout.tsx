@@ -21,11 +21,11 @@ const ogImages = shareImages();
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Anugrah Plafon PVC: Plafon PVC Serang - Toko & Jasa Pasang",
+    default: "Plafon PVC Serang",
     template: "%s | Anugrah Plafon PVC",
   },
   description:
-    "Anugrah Plafon PVC, toko dan jasa pasang plafon PVC di Serang, Banten. Lihat motif, kisaran harga, dan contoh proyek, lalu tanya langsung lewat WhatsApp.",
+    "Toko dan jasa pasang plafon PVC di Serang, Banten. Pilih motif dan konsultasikan kebutuhan pemasangan langsung lewat WhatsApp.",
   applicationName: site.name,
   alternates: { canonical: "/" },
   icons: { icon: "/assets/logo-02.svg" },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f6f3ec",
+  themeColor: "#f5f8fc",
 };
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID;

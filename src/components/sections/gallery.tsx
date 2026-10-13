@@ -6,24 +6,27 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Asset } from "@/components/asset";
 import type { AssetId } from "@/content/assets";
 import type { Proyek } from "@/content/schemas";
+import type { InteriorSlug } from "@/content/schemas";
 import { altProyek } from "@/lib/alt";
+import { keteranganProyek, labelInterior, labelRuang, urutanRuang } from "@/lib/interior-label";
 
-const labelRuang: Record<Proyek["jenisRuang"], string> = {
-  rumah: "Rumah",
-  ruko: "Ruko",
-  masjid: "Masjid",
-  kantor: "Kantor",
-  lainnya: "Lainnya",
-};
+const chip = (aktif: boolean) =>
+  `min-h-11 rounded-full border px-4 font-display text-sm font-medium transition-colors ${
+    aktif ? "border-primary bg-primary-tint text-primary" : "border-line-strong bg-surface text-ink hover:bg-panel"
+  }`;
 
 export function Gallery({ items }: { items: readonly Proyek[] }) {
   const [filter, setFilter] = useState<Proyek["jenisRuang"] | "semua">("semua");
+  const [filterInterior, setFilterInterior] = useState<InteriorSlug | "semua">("semua");
   const [active, setActive] = useState<Proyek | null>(null);
   const lastTrigger = useRef<HTMLElement | null>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  const jenis = Array.from(new Set(items.map((p) => p.jenisRuang)));
-  const shown = filter === "semua" ? items : items.filter((p) => p.jenisRuang === filter);
+  // Kategori ruang selalu tiga (Rumah, Masjid, Kantor); jenis interior hanya yang sudah punya proyek.
+  const jenisInterior = (Object.keys(labelInterior) as InteriorSlug[]).filter((k) => items.some((p) => p.interior === k));
+  const shown = items.filter(
+    (p) => (filter === "semua" || p.jenisRuang === filter) && (filterInterior === "semua" || p.interior === filterInterior),
+  );
 
   const close = useCallback(() => {
     setActive(null);
@@ -42,25 +45,33 @@ export function Gallery({ items }: { items: readonly Proyek[] }) {
 
   return (
     <div>
-      {jenis.length > 1 ? (
-        <div role="group" aria-label="Filter jenis ruang" className="mb-8 flex flex-wrap gap-2">
-          {(["semua", ...jenis] as const).map((j) => (
-            <button
-              key={j}
-              type="button"
-              aria-pressed={filter === j}
-              onClick={() => setFilter(j)}
-              className={`min-h-11 rounded-full border px-4 font-display text-sm font-medium ${
-                filter === j ? "border-primary bg-primary text-white" : "border-line-strong bg-surface text-primary"
-              }`}
-            >
+      <div className="mb-8 space-y-4">
+        <div role="group" aria-label="Filter jenis ruang" className="flex flex-wrap items-center gap-2">
+          {(["semua", ...urutanRuang] as const).map((j) => (
+            <button key={j} type="button" aria-pressed={filter === j} onClick={() => setFilter(j)} className={chip(filter === j)}>
               {j === "semua" ? "Semua" : labelRuang[j]}
             </button>
           ))}
         </div>
+        {jenisInterior.length > 1 ? (
+          <div role="group" aria-label="Filter jenis interior" className="flex flex-wrap items-center gap-2">
+            <span className="text-label mr-1 text-ink-muted">Interior</span>
+            {(["semua", ...jenisInterior] as const).map((j) => (
+              <button key={j} type="button" aria-pressed={filterInterior === j} onClick={() => setFilterInterior(j)} className={chip(filterInterior === j)}>
+                {j === "semua" ? "Semua" : labelInterior[j]}
+              </button>
+            ))}
+          </div>
+        ) : null}
+      </div>
+
+      {shown.length === 0 ? (
+        <p className="rounded-card border border-line bg-background p-6 text-ink-muted">
+          Belum ada foto untuk kombinasi ini. Coba pilih kategori lain, atau tanyakan contoh pekerjaannya lewat WhatsApp.
+        </p>
       ) : null}
 
-      <ul className="grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid grid-cols-2 gap-x-4 gap-y-7 sm:gap-x-5 sm:gap-y-8 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
           {shown.map((p) => (
             <motion.li
@@ -80,16 +91,11 @@ export function Gallery({ items }: { items: readonly Proyek[] }) {
                   setActive(p);
                 }}
               >
-                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw" className="rounded-card" />
+                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 1024px) 384px, 50vw" className="rounded-card" />
                 <span className="mt-3 block">
-                  <span className="text-label text-accent">
-                    {p.lokasi.kecamatan}, {p.tahun}
-                  </span>
+                  <span className="text-label block text-ink">{keteranganProyek(p)}</span>
                   <span className="mt-1 block font-display text-lg font-semibold">{p.judul}</span>
-                  <span className="block text-sm text-ink-muted">
-                    {labelRuang[p.jenisRuang]} | {p.bahan}
-                    {p.luasM2 ? ` | ${p.luasM2} m2` : ""}
-                  </span>
+                  {p.luasM2 ? <span className="block text-sm text-ink-muted">{p.luasM2} m2</span> : null}
                 </span>
               </button>
             </motion.li>
@@ -132,7 +138,10 @@ export function Gallery({ items }: { items: readonly Proyek[] }) {
               </div>
               <Asset id={active.assetId as AssetId} alt={altProyek(active)} sizes="(min-width: 1024px) 896px, 100vw" className="rounded-card" />
               <p className="mt-3 text-white">
-                {active.judul} | {active.lokasi.kecamatan}, {active.lokasi.kota} | {active.tahun}
+                {active.judul}
+                <span className="block text-sm text-white/80">
+                  {keteranganProyek(active)}
+                </span>
               </p>
             </motion.div>
           </motion.div>

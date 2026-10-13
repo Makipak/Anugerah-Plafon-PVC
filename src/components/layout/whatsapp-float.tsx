@@ -8,8 +8,8 @@ import { waLink, waMessages } from "@/lib/site";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 
 function messageFor(pathname: string): string {
-  if (pathname.startsWith("/produk")) return waMessages.produk("[nama motif]");
-  if (pathname.startsWith("/layanan/harga")) return waMessages.harga;
+  if (pathname.startsWith("/produk")) return waMessages.produkUmum;
+  if (pathname.startsWith("/layanan/interior")) return waMessages.interior;
   if (pathname.startsWith("/layanan")) return waMessages.jasa;
   return waMessages.umum;
 }

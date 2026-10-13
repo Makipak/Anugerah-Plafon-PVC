@@ -1,4 +1,4 @@
-type EventName = "whatsapp_click" | "phone_click" | "map_click";
+type EventName = "whatsapp_click" | "phone_click" | "map_click" | "video_play";
 
 declare global {
   interface Window {

@@ -3,13 +3,14 @@ export const site = {
   name: "Anugrah Plafon PVC",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
   locale: "id_ID",
-  tagline: "Toko dan jasa pasang plafon PVC di Serang, Banten",
+  tagline: "Toko dan jasa pasang plafon PVC di Serang, Banten.",
   phone: "+6287887980777",
   phoneDisplay: "087887980777",
   whatsapp: "6287887980777",
   email: undefined as string | undefined, // Tampil di halaman Kontak hanya jika diisi
   address: {
-    street: "Jl. Ayip Usman, Unyur",
+    street: "Jl. Ayip Usman No. 11, Unyur",
+    landmark: "Seberang gerbang Perumahan Bumi Agung Permai 1 (BAP 1)",
     locality: "Kec. Serang, Kota Serang",
     region: "Banten",
     postalCode: "42111",
@@ -27,9 +28,6 @@ export const site = {
     text: "Senin–Sabtu, 08.00–17.00",
     schema: "Mo-Sa 08:00-17:00",
   },
-  // Opsional; isi dari harga asli klien, mis. "Rp50.000 - Rp100.000". Kosong berarti tidak ditulis ke schema.
-  // Diturunkan dari content/harga.ts: jasa pasang termurah (Rp35.000/m2) sampai material termahal (Rp100.000/m2).
-  priceRange: "Rp35.000 - Rp100.000" as string | undefined,
   // Profil resmi yang sudah dikonfirmasi pemilik. Facebook masih profil mode profesional (bukan Page);
   // ganti dengan URL Page bila nanti dibuat.
   sameAs: [
@@ -44,7 +42,7 @@ export const site = {
 export const navItems = [
   { href: "/produk", label: "Produk" },
   { href: "/layanan/pasang-plafon-pvc", label: "Jasa Pasang" },
-  { href: "/layanan/harga-dan-biaya-pasang", label: "Harga" },
+  { href: "/layanan/interior-design", label: "Interior" },
   { href: "/galeri", label: "Galeri" },
   { href: "/blog", label: "Blog" },
   { href: "/tentang-kami", label: "Tentang" },
@@ -56,9 +54,11 @@ export function waLink(text: string): string {
 }
 
 export const waMessages = {
-  umum: "Halo Anugrah Plafon PVC, saya ingin tanya plafon PVC.",
+  umum: "Halo Anugrah Plafon PVC, saya ingin berkonsultasi tentang plafon PVC.",
   produk: (motif: string) =>
-    `Halo, saya tertarik dengan plafon PVC motif ${motif}. Boleh tahu harga dan ketersediaannya?`,
-  jasa: "Halo, saya ingin minta estimasi biaya pasang plafon PVC di [lokasi], luas sekitar [m2].",
-  harga: "Halo, saya ingin minta penawaran harga plafon PVC dan biaya pasang di [lokasi].",
+    `Halo, saya tertarik dengan plafon PVC motif ${motif}. Saya ingin menanyakan ketersediaan dan spesifikasinya.`,
+  produkUmum: "Halo Anugrah Plafon PVC, saya tertarik dengan plafon PVC. Saya ingin menanyakan pilihan produk, motif, dan ketersediaannya.",
+  interior: "Halo Anugrah Plafon PVC, saya ingin berkonsultasi tentang interior design. Saya ingin menanyakan jenis pekerjaan, bahan, dan jadwal survei.",
+  jasa: "Halo, saya ingin berkonsultasi tentang pemasangan plafon PVC di [lokasi], luas sekitar [m2].",
+  penawaran: "Halo, saya ingin berkonsultasi tentang plafon PVC dan pemasangannya di [lokasi].",
 } as const;

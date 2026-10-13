@@ -4,18 +4,18 @@ name: "Anugrah Plafon PVC"
 description: "Sistem desain website company profile toko dan jasa plafon PVC di Serang. Gaya katalog material yang jujur, berbasis foto proyek nyata, tanpa efek dekoratif."
 status: "Warna primer dan aksen bersifat sementara sampai logo klien diterima."
 colors:
-  background: "#F6F3EC"
+  background: "#F5F8FC"
   surface: "#FFFFFF"
-  panel: "#ECE7DB"
+  panel: "#EAF1F8"
   text-primary: "#1B1A17"
-  text-secondary: "#5C5950"
-  border: "#D8D2C4"
-  border-strong: "#7A7568"
-  primary: "#5C4033"
-  primary-hover: "#3E2B23"
-  primary-tint: "#EEE8E3"
-  accent: "#8A4B12"
-  whatsapp: "#0E7C3A"
+  text-secondary: "#586575"
+  border: "#D6E0EA"
+  border-strong: "#78889A"
+  primary: "#1D4F91"
+  primary-hover: "#173D73"
+  primary-tint: "#EAF2FF"
+  accent: "#1B1A17"
+  whatsapp: "#16A34A"
   error: "#A32A1F"
 typography:
   display: { family: "Archivo", weight: 700, size: "clamp(2.25rem, 5vw, 3.5rem)", line-height: 1.08, letter-spacing: "-0.01em" }
@@ -76,7 +76,7 @@ Catatan jujur: situs Javafon tidak bisa dibuka lewat browser saat riset, dan tam
 Referensi di atas hanya menunjukkan **prinsip** (struktur dokumen, konvensi komponen, pola industri). Hasil akhir harus terlihat sebagai identitas Anugrah Plafon PVC, bukan turunan situs lain.
 
 - Dilarang meniru tata letak, komposisi, palet, tipografi, teks, atau urutan bagian dari satu situs tertentu.
-- Ambil satu prinsip dari tiap referensi, lalu terapkan dengan token dan motif milik proyek ini (palet hangat, Archivo + Public Sans, garis sambungan panel).
+- Ambil satu prinsip dari tiap referensi, lalu terapkan dengan token dan motif milik proyek ini (palet biru lembut, Archivo + Public Sans, garis sambungan panel).
 - Komponen dari 21st.dev atau shadcn hanya titik awal struktur. Setelah disalin, ubah tampilan, gerak, dan isinya sampai tidak dikenali sebagai komponen aslinya, dan periksa lisensinya.
 - Uji jarak: letakkan halaman jadi di samping referensi. Jika orang yang melihat bisa berkata "ini mirip situs X", ubah komposisinya.
 - Jangan menyalin aset (gambar, ikon, ilustrasi) dari situs referensi.
@@ -97,7 +97,7 @@ Dilarang di seluruh situs:
 - Badge atau stempel yang tidak bisa dibuktikan.
 - Animasi tanpa tujuan (gerak yang tidak menunjukkan status, urutan, atau perhatian) dan efek yang hanya memamerkan library.
 
-Ganti dengan: foto asli, tabel harga, keterangan lokasi proyek, bahasa konkret, dan hierarki tipografi yang kuat.
+Ganti dengan: foto asli, keterangan lokasi proyek, bahasa konkret, dan hierarki tipografi yang kuat.
 
 ## 4. Elemen khas: garis sambungan panel
 
@@ -121,18 +121,18 @@ Satu-satunya motif dekoratif adalah **garis sambungan panel** plafon PVC: garis 
 
 | Token | Hex | Penggunaan |
 |---|---|---|
-| background | `#F6F3EC` | Latar halaman (putih hangat) |
+| background | `#F5F8FC` | Latar halaman biru sangat muda |
 | surface | `#FFFFFF` | Kartu, tabel, input |
-| panel | `#ECE7DB` | Blok pembeda, latar tabel header |
+| panel | `#EAF1F8` | Blok pembeda, latar tabel header |
 | text-primary | `#1B1A17` | Teks utama |
-| text-secondary | `#5C5950` | Teks pendukung |
-| border | `#D8D2C4` | Garis dekoratif dan pembatas kartu |
-| border-strong | `#7A7568` | Batas input dan kontrol interaktif |
-| primary | `#5C4033` | Tombol utama, tautan, fokus |
-| primary-hover | `#3E2B23` | Hover tombol utama |
-| primary-tint | `#EEE8E3` | Latar ringan untuk info/penanda |
-| accent | `#8A4B12` | Label kecil dan penekanan teks (bukan latar besar) |
-| whatsapp | `#0E7C3A` | Hanya tombol WhatsApp |
+| text-secondary | `#586575` | Teks pendukung |
+| border | `#D6E0EA` | Garis dekoratif dan pembatas kartu |
+| border-strong | `#78889A` | Batas input dan kontrol interaktif |
+| primary | `#1D4F91` | Tombol utama, indikator interaktif, fokus |
+| primary-hover | `#173D73` | Hover tombol utama |
+| primary-tint | `#EAF2FF` | Latar biru lembut untuk pilihan aktif |
+| accent | `#1B1A17` | Label dan teks kecil; jaga teks tetap netral |
+| whatsapp | `#16A34A` | Hanya tombol WhatsApp |
 | error | `#A32A1F` | Pesan galat |
 
 Warna `primary` dan `accent` bersifat sementara. Setelah logo diterima, turunkan keduanya dari logo dan hitung ulang kontras.
@@ -141,17 +141,15 @@ Warna `primary` dan `accent` bersifat sementara. Setelah logo diterima, turunkan
 
 | Pasangan | Rasio | Lulus |
 |---|---|---|
-| text-primary di background | 15,70 | AA dan AAA |
-| text-secondary di background | 6,32 | AA |
-| text-secondary di surface | 7,00 | AA |
-| putih di primary | 9,39 | AA dan AAA |
-| putih di whatsapp | 5,30 | AA |
-| primary di background (teks/tautan) | 8,47 | AA dan AAA |
-| primary di primary-tint (teks/tombol) | 7,73 | AA dan AAA |
-| accent di background (teks) | 6,12 | AA |
-| error di background | 6,52 | AA |
-| border-strong di surface (batas input) | 4,59 | Lulus 3:1 untuk komponen UI |
-| border di background | 1,36 | Hanya dekoratif, jangan untuk batas input |
+| text-primary di background | 16,34 | AA dan AAA |
+| text-secondary di background | 5,58 | AA |
+| text-secondary di surface | 5,94 | AA |
+| putih di primary | 8,14 | AA dan AAA |
+| putih di whatsapp | 3,30 | Hanya AA untuk teks besar |
+| primary di primary-tint (indikator interaktif) | 7,23 | AA dan AAA |
+| error di background | 6,78 | AA |
+| border-strong di surface (batas input) | 3,63 | Lulus 3:1 untuk komponen UI |
+| border di background | 1,25 | Hanya dekoratif, jangan untuk batas input |
 
 Hijau WhatsApp resmi terang (`#25D366`) memberi kontras 1,98 dengan teks putih dan **tidak boleh** dipakai sebagai latar tombol berteks putih. Pakai `whatsapp` di atas.
 
@@ -182,14 +180,13 @@ Aturan:
 
 | Urutan | Bagian | Bentuk |
 |---|---|---|
-| 1 | Hero | H1 memuat produk + Serang, satu kalimat pendukung, tombol WhatsApp, tautan "Lihat harga"; foto nyata |
+| 1 | Hero | H1 memuat produk + Serang, satu kalimat pendukung, tombol WhatsApp; foto nyata |
 | 2 | Katalog motif | Grid swatch foto motif dengan nama dan kode, bukan kartu ikon |
 | 3 | Proyek terbaru | Galeri dengan keterangan "kecamatan, tahun" dan jenis ruang |
-| 4 | Harga | Tabel sungguhan (rentang harga, satuan, tanggal pembaruan) |
-| 5 | Cara kerja | Langkah bernomor (survei, ukur, pasang, rapikan), teks konkret |
-| 6 | Testimoni | Kutipan polos dengan nama/inisial dan lokasi; tanpa bintang kecuali ulasan nyata |
-| 7 | Area layanan dan FAQ | Daftar wilayah nyata, accordion pertanyaan umum |
-| 8 | Kontak | Alamat teks, jam, peta, tombol WhatsApp |
+| 4 | Cara kerja | Langkah bernomor (survei, ukur, pasang, rapikan), teks konkret |
+| 5 | Testimoni | Kutipan polos dengan nama/inisial dan lokasi; tanpa bintang kecuali ulasan nyata |
+| 6 | Area layanan dan FAQ | Daftar wilayah nyata, accordion pertanyaan umum |
+| 7 | Kontak | Alamat teks, jam, peta, tombol WhatsApp |
 
 ## 8. Komponen
 
@@ -200,7 +197,7 @@ Aturan:
 | Tombol sekunder | Transparan, batas 1 px `primary`, teks `primary` |
 | Kartu | Latar `surface`, batas 1 px `border`, radius `card`, tanpa bayangan; padding 20-24 px |
 | Input | Latar `surface`, batas 1 px `border-strong`, label selalu terlihat, pesan galat memakai `error` dan teks, bukan warna saja |
-| Tabel harga | Header `panel`, baris dipisah garis `border`, kolom angka rata kanan; di mobile berubah menjadi daftar per baris |
+| Spesifikasi produk | Informasi ukuran dan ketebalan disusun jelas untuk dibaca di layar kecil maupun besar |
 | Accordion FAQ | Elemen `button` dengan `aria-expanded`, penanda +/- jelas, animasi tinggi sesuai katalog bagian 10 |
 | Galeri | Grid dengan rasio gambar konsisten, lazy load, keterangan di bawah gambar, lightbox sederhana dengan fokus keyboard |
 | Tombol WhatsApp melayang | Di mobile berbentuk pill berteks, sudut kanan bawah dengan `safe-area-inset`, bayangan `floating`; tidak menutupi tombol utama atau teks |
@@ -287,18 +284,18 @@ Tailwind 4 mendefinisikan token di CSS lewat `@theme` (diverifikasi di tailwindc
 @import "tailwindcss";
 
 @theme {
-  --color-background: #F6F3EC;
+  --color-background: #F5F8FC;
   --color-surface: #FFFFFF;
-  --color-panel: #ECE7DB;
+  --color-panel: #EAF1F8;
   --color-ink: #1B1A17;
-  --color-ink-muted: #5C5950;
-  --color-line: #D8D2C4;
-  --color-line-strong: #7A7568;
-  --color-primary: #5C4033;
-  --color-primary-hover: #3E2B23;
-  --color-primary-tint: #EEE8E3;
-  --color-accent: #8A4B12;
-  --color-whatsapp: #0E7C3A;
+  --color-ink-muted: #586575;
+  --color-line: #D6E0EA;
+  --color-line-strong: #78889A;
+  --color-primary: #1D4F91;
+  --color-primary-hover: #173D73;
+  --color-primary-tint: #EAF2FF;
+  --color-accent: #1B1A17;
+  --color-whatsapp: #16A34A;
   --color-danger: #A32A1F;
 
   --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;

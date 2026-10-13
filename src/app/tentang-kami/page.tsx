@@ -7,8 +7,8 @@ import { buildMetadata } from "@/lib/seo";
 import { waMessages } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Tentang Kami: Toko Plafon PVC Serang",
-  description: "Profil Anugrah Plafon PVC di Serang, Banten: usaha, tim, pengalaman, dan cara kami mengerjakan pemasangan plafon PVC untuk rumah, ruko, dan bangunan publik.",
+  title: "Tentang Anugrah Plafon PVC Serang",
+  description: "Kenali Anugrah Plafon PVC, toko dan jasa pasang di Serang, Banten. Lihat informasi usaha, produk, dan layanan pemasangan untuk berbagai ruangan.",
   path: "/tentang-kami",
 });
 
@@ -19,18 +19,16 @@ export default function TentangPage() {
         trail={[{ name: "Tentang Kami", path: "/tentang-kami" }]}
         label="Tentang"
         title="Tentang Anugrah Plafon PVC"
-        lead="Toko dan jasa pasang plafon PVC di Serang, Banten."
+        lead="Kami menyediakan plafon PVC dan jasa pasang di Serang, Banten."
       />
       <Section tone="surface" labelledBy="judul-cerita">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <SectionHeading id="judul-cerita" label="Cerita">
-              Usaha kami
+              Tentang usaha
             </SectionHeading>
             <div className="space-y-4">
-              <p>Anugrah Plafon PVC menjual material plafon PVC dan mengerjakan pemasangannya untuk rumah, ruko, dan bangunan publik di sekitar Serang.</p>
-              <p>Berdiri sejak 2020 dan telah mengerjakan puluhan proyek pemasangan.</p>
-              <p>Legalitas usaha: NIB tersedia atas permintaan.</p>
+              <p>Anugrah Plafon PVC menyediakan panel plafon PVC dan jasa pasang untuk rumah, ruko, dan bangunan di sekitar Serang.</p>
             </div>
           </div>
           <Asset id="TOKO-01" sizes="(min-width: 1024px) 560px, 100vw" className="rounded-card" />
@@ -41,9 +39,9 @@ export default function TentangPage() {
           <Asset id="TIM-01" sizes="(min-width: 1024px) 560px, 100vw" className="rounded-card" />
           <div>
             <SectionHeading id="judul-tim" label="Tim">
-              Yang mengerjakan di lapangan
+              Tim pemasangan
             </SectionHeading>
-            <p>Tim lapangan terdiri dari pemasang berpengalaman yang bekerja dengan pengawasan langsung dari pemilik usaha.</p>
+            <p>Tim lapangan menangani pemasangan plafon PVC.</p>
           </div>
         </div>
       </Section>

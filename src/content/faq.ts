@@ -2,19 +2,19 @@ import { faqSchema, type Faq } from "./schemas";
 
 export const faqUmum: readonly Faq[] = [
   {
-    q: "Berapa harga plafon PVC per meter di Serang?",
-    a: "Kisaran harga material dan jasa pasang ada di halaman harga dan diperbarui berkala. Harga akhir bergantung pada motif, luas, dan lokasi.",
+    q: "Bagaimana mendapatkan penawaran plafon PVC?",
+    a: "Kirim lokasi, ukuran ruangan, dan motif pilihan melalui WhatsApp untuk membahas kebutuhan Anda.",
   },
   {
-    q: "Apakah bisa minta estimasi biaya lewat WhatsApp?",
-    a: "Bisa. Kirim lokasi, perkiraan luas ruangan, dan motif yang diminati lewat WhatsApp untuk mendapat estimasi.",
+    q: "Bisakah saya berkonsultasi melalui WhatsApp?",
+    a: "Bisa. Kirim lokasi, ukuran ruangan, dan motif pilihan melalui WhatsApp untuk membahas kebutuhan Anda.",
   },
   {
-    q: "Apa beda plafon PVC dan gypsum?",
+    q: "Apa perbedaan plafon PVC dan gypsum?",
     a: "Keduanya berbeda bahan dan cara perawatan. Pembahasan lengkap ada di artikel perbandingan plafon PVC dan gypsum di blog.",
   },
   {
     q: "Wilayah mana saja yang dilayani?",
-    a: "Kami melayani Kota Serang dan sekitarnya. Kirim alamat lewat WhatsApp untuk memastikan lokasi Anda terjangkau.",
+    a: "Kami melayani wilayah yang tercantum di halaman area layanan. Kirim alamat melalui WhatsApp untuk memastikan jangkauannya.",
   },
 ].map((f) => faqSchema.parse(f));

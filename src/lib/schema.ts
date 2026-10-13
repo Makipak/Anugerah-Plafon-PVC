@@ -1,6 +1,7 @@
 import { assets, type AssetId, type AssetSpec } from "@/content/assets";
 import { site } from "@/lib/site";
-import type { Produk, Faq } from "@/content/schemas";
+import type { Faq } from "@/content/schemas";
+import type { VideoItem } from "@/content/video";
 
 const abs = (path: string) => `${site.url}${path}`;
 
@@ -24,7 +25,7 @@ export function websiteLd() {
     "@type": "WebSite",
     "@id": abs("/#website"),
     name: site.name,
-    alternateName: ["Anugrah Plafon", "Anugrah Plafon PVC Serang", "Anugerah Plafon PVC"],
+    alternateName: ["Anugrah Plafon", "Anugrah Plafon PVC Serang"],
     url: abs("/"),
     inLanguage: "id-ID",
     publisher: { "@id": abs("/#business") },
@@ -39,7 +40,7 @@ export function localBusinessLd() {
     "@type": "HomeAndConstructionBusiness",
     "@id": abs("/#business"),
     name: site.name,
-    alternateName: ["Anugerah Plafon PVC", "Anugrah Plafon PVC Serang"],
+    alternateName: ["Anugrah Plafon PVC", "Anugrah Plafon PVC Serang"],
     description: site.tagline,
     url: site.url,
     telephone: site.phone,
@@ -57,32 +58,24 @@ export function localBusinessLd() {
     areaServed: site.areaServed,
     ...(logo ? { logo } : {}),
     ...(image.length > 0 ? { image } : {}),
-    ...(site.priceRange ? { priceRange: site.priceRange } : {}),
     ...(site.sameAs.length > 0 ? { sameAs: site.sameAs } : {}),
   };
 }
 
-export function productLd(p: Produk, path: string) {
-  const pakaiHarga = typeof p.hargaMulai === "number" && typeof p.hargaSampai === "number";
-  const image = imagesOf(p.varian.map((v) => v.assetId as AssetId));
+export function productLd(
+  p: { nama: string; ringkasan: string; merek?: string; kategori?: string; gambar?: readonly string[] },
+  path: string,
+) {
+  const image = (p.gambar ?? []).filter(Boolean).map(abs);
   return {
     "@context": "https://schema.org",
     "@type": "Product",
     name: p.nama,
     description: p.ringkasan,
     url: abs(path),
+    ...(p.merek ? { brand: { "@type": "Brand", name: p.merek } } : {}),
+    ...(p.kategori ? { category: p.kategori } : {}),
     ...(image.length > 0 ? { image } : {}),
-    // Offer hanya jika harga benar-benar tampil di halaman.
-    ...(pakaiHarga
-      ? {
-          offers: {
-            "@type": "AggregateOffer",
-            priceCurrency: "IDR",
-            lowPrice: p.hargaMulai,
-            highPrice: p.hargaSampai,
-          },
-        }
-      : {}),
   };
 }
 
@@ -134,6 +127,19 @@ export function articleLd(post: { title: string; description: string; date: stri
     dateModified: post.updated,
     mainEntityOfPage: abs(`/blog/${post.slug}`),
     author: { "@type": "Organization", name: site.name },
+    publisher: businessRef,
+  };
+}
+
+export function videoLd(v: VideoItem) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: v.judul,
+    description: v.deskripsi ?? v.judul,
+    thumbnailUrl: abs(v.poster),
+    contentUrl: abs(v.src),
+    uploadDate: v.diunggah,
     publisher: businessRef,
   };
 }

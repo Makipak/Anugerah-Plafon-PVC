@@ -23,7 +23,7 @@ Memastikan semua kebutuhan PRD (dokumen 09) dan acceptance criteria (dokumen 10)
 | T-01 | Buka Home di 390 px | H1, hero, dan tombol WA terlihat tanpa scroll | US-01 |
 | T-02 | Klik tombol WA di Home | Membuka `wa.me/<nomor>` dengan pesan umum | US-07 |
 | T-03 | Klik tombol tanya pada varian produk | Pesan memuat nama produk | US-02, US-07 |
-| T-04 | Buka halaman harga | Tabel, contoh hitungan, dan tanggal pembaruan tampil | US-03 |
+| T-04 | Buka halaman konsultasi | Informasi persiapan dan CTA WhatsApp tampil tanpa nominal harga | US-03 |
 | T-05 | Buka galeri | Minimal 15 proyek, alt text ada, tidak ada layout shift | US-04 |
 | T-06 | Buka Kontak | NAP sebagai teks, peta, tombol arah | US-08 |
 | T-07 | Buka artikel blog | Jawaban singkat, tanggal, tautan terkait | US-09, US-10 |

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Asset } from "@/components/asset";
 import { altProyek } from "@/lib/alt";
+import { keteranganProyek } from "@/lib/interior-label";
 import { JsonLd } from "@/components/seo/json-ld";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { HeroCopy } from "@/components/motion/hero-copy";
@@ -8,25 +9,47 @@ import { Reveal } from "@/components/motion/reveal";
 import { SeamLines } from "@/components/motion/seam-lines";
 import { ButtonLink } from "@/components/ui/button";
 import { Section, SectionHeading } from "@/components/ui/section";
-import { CtaBand } from "@/components/sections/cta-band";
+import { Droplets, Feather, Flame } from "lucide-react";
 import { ContactBlock } from "@/components/sections/contact-block";
 import { Faq } from "@/components/sections/faq";
-import { MotifGrid } from "@/components/sections/motif-grid";
-import { PriceTable } from "@/components/sections/price-table";
+import { ProdukGrid } from "@/components/katalog/produk-card";
 import { Steps } from "@/components/sections/steps";
+import { VideoSection } from "@/components/sections/video-section";
 import { areaList } from "@/content/area";
 import { faqUmum } from "@/content/faq";
-import { hargaDiperbaruiPada, hargaJasa, hargaMaterial } from "@/content/harga";
-import { produkUtama } from "@/content/produk";
 import { proyekList } from "@/content/proyek";
 import { testimoniList } from "@/content/testimoni";
 import type { AssetId } from "@/content/assets";
-import { formatTanggal } from "@/lib/format";
+import { kategoriAktif, merekAktif, semuaProduk } from "@/lib/katalog";
 import { faqLd, localBusinessLd, websiteLd } from "@/lib/schema";
 import { waMessages } from "@/lib/site";
 
 export default function HomePage() {
-  const proyekTerbaru = proyekList.slice(0, 3);
+  const proyekTerbaru = proyekList.slice(0, 4);
+  const merek = merekAktif();
+  const kategori = kategoriAktif();
+  const banyakKategori = kategori.length > 1;
+  const daftarKategori = kategori.map((k) => k.nama.toLowerCase()).join(", ").replace(/, ([^,]*)$/, " dan $1");
+  const semua = semuaProduk();
+  const wakil = kategori.flatMap((k) => semua.filter((p) => p.kategori.slug === k.slug).slice(0, 1));
+  const produkBeranda = banyakKategori ? [...wakil, ...semua.filter((p) => !wakil.includes(p))].slice(0, 8) : semua.slice(0, 8);
+  const keunggulan = [
+    {
+      label: "Ringan dan mudah dipasang",
+      description: "Panel ringan, pemasangan lebih cepat.",
+      Icon: Feather,
+    },
+    {
+      label: "Tahan air",
+      description: "Tidak mudah rusak oleh kelembapan.",
+      Icon: Droplets,
+    },
+    {
+      label: "Tidak mudah menyulut api",
+      description: "Cenderung padam sendiri saat sumber api hilang.",
+      Icon: Flame,
+    },
+  ];
 
   return (
     <>
@@ -40,16 +63,13 @@ export default function HomePage() {
           <div className="space-y-6">
             <HeroCopy>
               <h1 id="judul-hero" className="text-display">
-                Plafon PVC di Serang, Banten: toko dan jasa pasang
+                Plafon PVC Serang
               </h1>
               <p className="max-w-xl text-lg text-ink-muted">
-                Pilih motif, lihat kisaran harga, dan minta estimasi pasang langsung lewat WhatsApp.
+                Toko dan jasa pasang plafon PVC di Serang, Banten. Pilih motif dan konsultasikan kebutuhan pemasangan langsung lewat WhatsApp.
               </p>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                 <WhatsAppButton message={waMessages.umum} location="hero" />
-                <Link href="/layanan/harga-dan-biaya-pasang" className="inline-flex min-h-11 items-center font-semibold text-primary underline underline-offset-4">
-                  Lihat harga
-                </Link>
               </div>
             </HeroCopy>
           </div>
@@ -65,13 +85,64 @@ export default function HomePage() {
 
       <Section tone="surface" labelledBy="judul-motif">
         <Reveal>
-          <SectionHeading id="judul-motif" label="Katalog" intro="Kode motif bisa langsung disebut saat chat agar ketersediaan dan harganya cepat dicek.">
-            Motif plafon PVC
+          <SectionHeading
+            id="judul-motif"
+            label="Katalog"
+            intro={
+              banyakKategori
+                ? `Tersedia ${daftarKategori}. Setiap produk punya pilihan warna dan foto.`
+                : merek.length > 0
+                  ? "Tersedia dari beberapa merek dan seri, dengan pilihan warna di setiap produk. Cocok untuk hunian, perkantoran, dan tempat ibadah. Sebutkan nama produk dan warnanya saat chat agar tim dapat mengecek ketersediaannya."
+                  : "Tersedia dalam berbagai warna dan motif: polos, kayu, dan marmer. Cocok untuk hunian, perkantoran, dan tempat ibadah. Sebutkan kode motif saat chat agar tim dapat mengecek ketersediaannya."
+            }
+          >
+            {banyakKategori ? "Pilihan produk" : merek.length > 0 ? "Merek dan motif plafon PVC" : "Motif plafon PVC"}
           </SectionHeading>
-          <MotifGrid varian={produkUtama.varian} />
+          {banyakKategori || merek.length > 0 ? (
+            banyakKategori ? (
+              <nav aria-label="Jenis produk" className="-mx-5 mb-4">
+                <ul className="flex snap-x gap-2 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                  {kategori.map((k) => {
+                    const jumlahMerek = merekAktif(k.slug).length;
+                    return (
+                      <li key={k.slug} className="shrink-0 snap-start">
+                        <Link
+                          href={`/produk/kategori/${k.slug}`}
+                          className="inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full border border-line bg-surface px-4 font-display text-sm font-semibold text-ink transition-colors hover:border-primary hover:bg-panel"
+                        >
+                          {k.nama}
+                          {jumlahMerek > 0 ? (
+                            <span className="rounded-full bg-primary-tint px-2 py-0.5 text-xs font-semibold text-primary">
+                              {jumlahMerek} merek
+                            </span>
+                          ) : null}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
+            ) : (
+              <ul aria-label="Merek" className="-mt-4 mb-8 flex flex-wrap gap-x-6 gap-y-1">
+                {merek.map((m) => (
+                  <li key={m.slug}>
+                    <Link
+                      href={`/produk?merek=${m.slug}`}
+                      className="inline-flex min-h-11 items-baseline gap-1.5 py-2 font-display font-semibold text-ink underline-offset-4 hover:text-primary hover:underline"
+                    >
+                      {m.nama}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )
+          ) : null}
+          <div className={banyakKategori ? "mt-8" : undefined}>
+            <ProdukGrid produk={produkBeranda} />
+          </div>
           <div className="mt-10">
-            <ButtonLink href="/produk/plafon-pvc" variant="secondary">
-              Spesifikasi lengkap
+            <ButtonLink href="/produk" variant="secondary">
+              Lihat semua produk
             </ButtonLink>
           </div>
         </Reveal>
@@ -79,52 +150,65 @@ export default function HomePage() {
 
       <Section labelledBy="judul-proyek">
         <Reveal>
-          <SectionHeading id="judul-proyek" label="Proyek" intro="Setiap proyek dicatat dengan kecamatan dan tahun pengerjaan.">
+          <SectionHeading id="judul-proyek" label="Proyek">
             Proyek terbaru
           </SectionHeading>
-          <ul className="grid gap-x-5 gap-y-8 md:grid-cols-3">
-            {proyekTerbaru.map((p) => (
-              <li key={p.slug}>
-                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 100vw" className="rounded-card" />
-                <p className="text-label mt-3 text-accent">
-                  {p.lokasi.kecamatan}, {p.tahun}
-                </p>
-                <p className="font-display text-lg font-semibold">{p.judul}</p>
-                <p className="text-sm text-ink-muted">{p.ruang}</p>
+          <ul className="grid grid-cols-2 gap-x-4 gap-y-7 sm:gap-x-5 sm:gap-y-8 md:grid-cols-3">
+            {proyekTerbaru.map((p, index) => (
+              <li key={p.slug} className={index === 3 ? "lg:hidden" : undefined}>
+                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 50vw" className="rounded-card" />
+                <span className="mt-3 block">
+                  <span className="text-label block text-ink">{keteranganProyek(p)}</span>
+                  <span className="mt-1 block font-display text-lg font-semibold">{p.judul}</span>
+                  {p.luasM2 ? <span className="block text-sm text-ink-muted">{p.luasM2} m2</span> : null}
+                </span>
               </li>
             ))}
           </ul>
           <div className="mt-10">
             <ButtonLink href="/galeri" variant="secondary">
-              Semua proyek
+              Lihat galeri
             </ButtonLink>
           </div>
         </Reveal>
       </Section>
 
-      <Section tone="panel" labelledBy="judul-harga">
-        <Reveal>
-          <SectionHeading
-            id="judul-harga"
-            label="Harga"
-            intro={`Kisaran diperbarui ${formatTanggal(hargaDiperbaruiPada)}. Harga akhir bergantung motif, luas, dan lokasi.`}
-          >
-            Kisaran harga material dan jasa pasang
-          </SectionHeading>
-          <div className="space-y-10">
-            <PriceTable caption="Material" rows={hargaMaterial} />
-            <PriceTable caption="Jasa pasang" rows={hargaJasa} />
+      <VideoSection />
+
+      <section aria-labelledby="judul-keunggulan" className="relative isolate overflow-hidden py-16 md:py-24">
+        <Asset
+          id="HERO-02"
+          sizes="100vw"
+          className="!absolute inset-0 !h-full !w-full"
+        />
+        <div aria-hidden="true" className="absolute inset-0 z-10 bg-ink/65" />
+        <div className="container-page relative z-20">
+          <div className="mb-10 max-w-2xl">
+            <p className="text-label mb-3 text-white">Keunggulan</p>
+            <h2 id="judul-keunggulan" className="text-heading text-white">
+              Mengapa memilih Anugrah Plafon PVC?
+            </h2>
           </div>
-          <div className="mt-10">
-            <ButtonLink href="/layanan/harga-dan-biaya-pasang">Rincian dan contoh hitungan</ButtonLink>
-          </div>
-        </Reveal>
-      </Section>
+          <ul className="grid gap-6 sm:grid-cols-3 sm:gap-8">
+            {keunggulan.map(({ label, description, Icon }) => (
+              <li key={label} className="flex items-start gap-4">
+                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-white sm:size-12">
+                  <Icon aria-hidden="true" className="size-5 text-primary sm:size-6" />
+                </span>
+                <span>
+                  <span className="block font-display text-title text-white">{label}</span>
+                  <span className="mt-1 block text-base leading-normal text-white">{description}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <Section tone="surface" labelledBy="judul-cara">
         <Reveal>
           <SectionHeading id="judul-cara" label="Cara kerja">
-            Dari survei sampai rapi
+            Dari survei hingga pemasangan selesai
           </SectionHeading>
           <Steps />
         </Reveal>
@@ -159,7 +243,7 @@ export default function HomePage() {
             <ul className="space-y-1">
               {areaList.map((a) => (
                 <li key={a.slug}>
-                  <Link href={`/area-layanan/${a.slug}`} className="inline-flex min-h-11 items-center font-semibold text-primary underline underline-offset-4">
+                  <Link href={`/area-layanan/${a.slug}`} className="inline-flex min-h-11 items-center font-semibold text-ink underline underline-offset-4">
                     Jasa plafon PVC {a.nama}
                   </Link>
                 </li>
@@ -176,13 +260,12 @@ export default function HomePage() {
       <Section tone="surface" labelledBy="judul-kontak">
         <Reveal>
           <SectionHeading id="judul-kontak" label="Kontak">
-            Datang atau chat
+            Kunjungi toko atau chat kami
           </SectionHeading>
           <ContactBlock location="home" />
         </Reveal>
       </Section>
 
-      <CtaBand message={waMessages.umum} location="home-cta" />
     </>
   );
 }

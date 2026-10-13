@@ -7,17 +7,17 @@ export const areaList: readonly Area[] = [
     slug: "serang",
     nama: "Serang",
     ringkasan:
-      "Melayani pemasangan plafon PVC di Kota Serang dan sekitarnya. Survei lokasi dijadwalkan setelah Anda mengirim alamat lewat WhatsApp.",
+      "Kami menerima permintaan jasa pasang plafon PVC di Kota Serang. Kirim alamat melalui WhatsApp untuk membahas jangkauan dan jadwal survei.",
     fakta: [
-      "Proyek terbanyak ada di Cipocok Jaya, Serang, dan Kasemen.",
-      "Survei di dalam Kota Serang biasanya dijadwalkan dalam beberapa hari setelah pesan diterima.",
+      "Jangkauan jasa pasang bergantung pada lokasi dan jadwal yang tersedia.",
+      "Kirim ukuran ruangan dan foto plafon untuk membahas kebutuhan pemasangan.",
     ],
     proyekSlugs: ["proyek-01", "proyek-02"],
     assetId: "AREA-serang-01",
     faq: [
       {
-        q: "Apakah survei lokasi di Serang dikenakan biaya?",
-        a: "Survei di dalam Kota Serang tidak dikenai biaya.",
+        q: "Bagaimana menjadwalkan survei lokasi di Serang?",
+        a: "Chat kami melalui WhatsApp untuk membahas kebutuhan dan jadwal survei lokasi.",
       },
     ],
   }),

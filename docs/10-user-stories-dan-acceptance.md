@@ -22,14 +22,13 @@ Acceptance:
 - Setiap varian punya tombol "Tanya via WhatsApp" dengan pesan berisi nama produk.
 - Gambar memiliki alt text deskriptif.
 
-### US-03 (M) Mengetahui harga
-Sebagai calon pelanggan, saya ingin melihat kisaran harga material dan biaya pasang, agar saya bisa memperkirakan anggaran.
+### US-03 (M) Meminta penawaran
+Sebagai calon pelanggan, saya ingin tahu informasi yang perlu disiapkan untuk konsultasi, agar tim dapat memahami kebutuhan ruangan saya.
 
 Acceptance:
-- Halaman harga memuat rentang harga material dan jasa, faktor yang memengaruhi, dan contoh hitungan ruang 3x3 m.
-- Tampil tanggal "diperbarui pada".
-- Ada pernyataan bahwa harga final mengikuti survei/penawaran.
-- Harga berasal dari klien, bukan dari artikel pihak ketiga.
+- Halaman konsultasi menjelaskan detail ruangan dan lokasi yang perlu disampaikan.
+- Tersedia CTA WhatsApp untuk membahas kebutuhan dan penawaran.
+- Tidak ada nominal atau rentang harga yang ditampilkan.
 
 ## Epic B: Membangun kepercayaan
 
@@ -38,7 +37,7 @@ Sebagai calon pelanggan, saya ingin melihat foto proyek, agar yakin dengan kuali
 
 Acceptance:
 - Galeri minimal 15 proyek sebelum launch.
-- Setiap item memuat lokasi (kecamatan), jenis ruang, dan alt text.
+- Setiap item memuat jenis ruang, bahan, dan alt text tanpa lokasi atau tahun pada keterangan foto.
 - Gambar dimuat lazy kecuali yang di atas lipatan; tidak ada layout shift.
 
 ### US-05 (S) Membaca testimoni

@@ -7,15 +7,15 @@ Tujuan: menjawab pertanyaan nyata calon pelanggan, membangun otoritas topik, dan
 1. Jawab pertanyaan dengan jelas di paragraf awal, lalu perdalam.
 2. Gunakan data dan foto proyek klien sendiri; hindari klaim tanpa sumber (contoh buruk: persentase peminat tanpa referensi).
 3. Tiap artikel punya satu keyword utama dan menaut ke minimal satu halaman komersial.
-4. Tampilkan tanggal terbit dan **tanggal diperbarui**; perbarui artikel harga minimal setahun sekali.
+4. Tampilkan tanggal terbit dan **tanggal diperbarui**; tinjau informasi layanan minimal setahun sekali.
 5. Panjang mengikuti kebutuhan topik, bukan target kata.
 
 ## Prioritas artikel
 
 | # | Judul kerja | Keyword utama | Menaut ke | Prioritas |
 |---|---|---|---|---|
-| 1 | Harga Plafon PVC per Meter 2026 + Biaya Pasang di Serang | harga plafon pvc per meter | `/layanan/harga-dan-biaya-pasang` | Tinggi |
-| 2 | Cara Menghitung Kebutuhan dan Biaya Plafon PVC (Contoh Ruang 3x3 m) | biaya pasang plafon pvc 3x3 | `/produk/plafon-pvc` | Tinggi |
+| 1 | Cara Meminta Penawaran Plafon PVC di Serang | penawaran plafon pvc serang | `/kontak` | Tinggi |
+| 2 | Cara Mengukur Kebutuhan Plafon PVC untuk Ruangan 3x3 m | kebutuhan plafon pvc 3x3 | `/produk/plafon-pvc` | Tinggi |
 | 3 | Plafon PVC vs Gypsum: Mana yang Cocok untuk Rumah Anda? | plafon pvc vs gypsum | `/produk/plafon-pvc` | Tinggi |
 | 4 | Kelebihan dan Kekurangan Plafon PVC (Jujur dan Lengkap) | kelebihan kekurangan plafon pvc | `/` | Sedang |
 | 5 | Cara Memasang Plafon PVC dan Kesalahan yang Sering Terjadi | cara pasang plafon pvc | `/layanan/pasang-plafon-pvc` | Sedang |
@@ -24,13 +24,13 @@ Tujuan: menjawab pertanyaan nyata calon pelanggan, membangun otoritas topik, dan
 | 8 | Plafon PVC untuk Kamar Mandi dan Dapur: Tahan Lembap? | plafon pvc kamar mandi | `/produk/plafon-pvc` | Rendah |
 | 9 | Proyek Terbaru: Pemasangan Plafon PVC di [lokasi nyata] | (studi kasus lokal) | `/area-layanan/[kota]` | Berkelanjutan |
 
-Artikel 1-3 langsung menjawab pertanyaan yang muncul di "Orang lain juga bertanya" untuk keyword lokal.
+Artikel 1-3 menjawab pertanyaan calon pelanggan tentang konsultasi, pengukuran, dan pemilihan produk.
 
 ## Kalender 3 bulan pertama
 
 | Bulan | Artikel |
 |---|---|
-| Bulan 1 | #1 dan #2 (harga dan hitungan) |
+| Bulan 1 | #1 dan #2 (penawaran dan pengukuran) |
 | Bulan 2 | #3 dan #5 (perbandingan dan tutorial) |
 | Bulan 3 | #4 dan satu studi kasus proyek (#9) |
 
@@ -67,9 +67,8 @@ keyword: "..."
 - [ ] Ditambahkan ke sitemap
 - [ ] Dibagikan ke IG/FB klien dan ditautkan di GBP (posting)
 
-## Aturan untuk harga
+## Informasi penawaran
 
-- Sebut tanggal data dan sumbernya.
-- Bedakan harga material dan biaya jasa.
-- Gunakan rentang dan jelaskan faktor yang memengaruhi (motif, kualitas, ukuran, lokasi, kerumitan).
-- Jangan menjanjikan harga pasti; arahkan ke survei/WhatsApp untuk penawaran.
+- Jangan menampilkan nominal atau rentang harga di artikel.
+- Jelaskan informasi yang perlu disiapkan untuk konsultasi (motif, ukuran, lokasi, kondisi ruangan).
+- Arahkan pembaca ke WhatsApp untuk membahas kebutuhan dan penawaran.

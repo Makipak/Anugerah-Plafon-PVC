@@ -39,7 +39,7 @@ export function SectionHeading({
 }) {
   return (
     <div className="mb-10 max-w-2xl">
-      {label ? <p className="text-label mb-3 text-accent">{label}</p> : null}
+      {label ? <p className="text-label mb-3 text-ink">{label}</p> : null}
       <h2 id={id} className="text-heading">
         {children}
       </h2>

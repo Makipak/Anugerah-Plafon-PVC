@@ -29,16 +29,16 @@ Sebelum commit: jalankan checklist di AGENTS.md bagian 8.
 
 ## Mengisi data klien
 
-Saat ini semua harga, kontak, motif, proyek, dan teks adalah **data dummy**, ditandai komentar `DUMMY` di kode (cari dengan `grep -rn DUMMY src`). Ganti dengan data asli klien:
+Saat ini kontak, motif, proyek, dan teks adalah **data dummy**, ditandai komentar `DUMMY` di kode (cari dengan `grep -rn DUMMY src`). Harga tidak ditampilkan; calon pelanggan diarahkan untuk berkonsultasi lewat WhatsApp. Ganti dengan data asli klien:
 
 | Berkas | Isi |
 |---|---|
 | `src/lib/site.ts` | Nama, alamat, telepon, WhatsApp, jam, peta, sosmed |
-| `src/content/produk.ts`, `harga.ts` | Motif, ukuran, ketebalan, harga |
+| `src/content/produk.ts` | Motif, ukuran, dan ketebalan |
 | `src/content/proyek.ts`, `area.ts` | Proyek nyata dan wilayah yang benar-benar dilayani |
 | `src/content/testimoni.ts` | Testimoni dengan izin; kosong = bagian tidak tampil |
 | `src/app/tentang-kami/page.tsx`, `layanan/pasang-plafon-pvc/page.tsx` | Teks usaha dan FAQ jasa |
-| `src/content/blog/*.mdx` | Contoh angka di 3 artikel awal |
+| `src/content/blog/*.mdx` | Informasi dan contoh pada artikel |
 | `src/content/assets.ts` | `src` dan `alt` tiap aset setelah berkas ada di `public/assets/` |
 
 Setelah semua diganti, set `DATA_DUMMY = false` di `src/lib/placeholders.ts`. **Build dengan `VERCEL_ENV=production` sengaja gagal** selama `DATA_DUMMY` true, ada `[ISI]`, atau ada aset tanpa `src`/`alt`. Di dev dan preview, aset kosong tampil sebagai placeholder berlabel dan meta robots `noindex`.

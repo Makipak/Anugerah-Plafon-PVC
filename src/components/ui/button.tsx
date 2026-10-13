@@ -7,7 +7,7 @@ const base =
 
 export const buttonClass: Record<Variant, string> = {
   primary: `${base} bg-primary text-white hover:bg-primary-hover`,
-  secondary: `${base} border border-primary bg-transparent text-primary hover:bg-panel`,
+  secondary: `${base} border border-primary bg-transparent text-primary hover:bg-primary-tint`,
 };
 
 export function ButtonLink({

@@ -65,7 +65,7 @@ Status: `[ ]` belum, `[~]` berjalan, `[x]` selesai. Ukuran: S (<0,5 hari), M (0,
 - [ ] Home sesuai wireframe (L)
 - [ ] Produk listing + detail plafon PVC (L)
 - [ ] Layanan pasang plafon PVC (M)
-- [ ] Halaman harga dan biaya pasang + contoh hitungan (M)
+- [ ] Halaman konsultasi dan permintaan penawaran (M)
 - [ ] Tentang Kami (S)
 - [ ] Kontak: NAP teks, peta, tombol WA/arah (M)
 - [ ] 404 kustom (S)
