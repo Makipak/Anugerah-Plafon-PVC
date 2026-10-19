@@ -50,7 +50,7 @@ export function buildMetadata({
     openGraph: {
       type,
       locale: site.locale,
-      siteName: site.name,
+      siteName: site.namaSitus,
       title,
       description,
       url: path,

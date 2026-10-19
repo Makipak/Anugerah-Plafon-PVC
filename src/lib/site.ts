@@ -1,6 +1,9 @@
 // Sumber tunggal data usaha (docs/04). Email dan geo opsional: baru ditampilkan atau ditulis ke schema setelah diisi.
 export const site = {
   name: "Anugrah Plafon PVC",
+  // Nama situs yang diharapkan tampil di hasil Google (WebSite schema, og:site_name, application-name).
+  // name tetap nama usaha untuk schema LocalBusiness.
+  namaSitus: "Anugrah Plafon PVC Serang",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
   locale: "id_ID",
   tagline: "Toko dan jasa pasang plafon PVC di Serang, Banten.",
