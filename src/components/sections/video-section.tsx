@@ -29,7 +29,12 @@ export function VideoSection() {
 
   return (
     <Section tone="surface" labelledBy="judul-video">
-      {!kosong ? tampil.map((v) => <JsonLd key={v.id} data={videoLd(v)} />) : null}
+      {!kosong
+        ? tampil.map((v) => {
+            const ld = videoLd(v);
+            return ld ? <JsonLd key={v.id} data={ld} /> : null;
+          })
+        : null}
       <Reveal>
         <SectionHeading id="judul-video" label="Video" intro="Klik video untuk memutar. Geser ke kiri atau kanan untuk melihat video lainnya.">
           Cuplikan pemasangan plafon PVC

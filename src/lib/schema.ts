@@ -131,15 +131,20 @@ export function articleLd(post: { title: string; description: string; date: stri
   };
 }
 
+// Google mewajibkan name, thumbnailUrl, dan uploadDate (plus contentUrl atau embedUrl) pada VideoObject.
+// Video tanpa poster atau tanggal unggah tidak mengeluarkan schema, karena markup yang tidak lengkap
+// hanya memunculkan galat "item tidak valid" di Search Console. Isi poster dan diunggah di
+// src/content/video.ts agar schema tampil.
 export function videoLd(v: VideoItem) {
+  if (!v.src || !v.poster || !v.diunggah) return null;
   return {
     "@context": "https://schema.org",
     "@type": "VideoObject",
     name: v.judul,
     description: v.deskripsi ?? v.judul,
-    ...(v.poster ? { thumbnailUrl: abs(v.poster) } : {}),
+    thumbnailUrl: abs(v.poster),
     contentUrl: abs(v.src),
-    ...(v.diunggah ? { uploadDate: v.diunggah } : {}),
+    uploadDate: v.diunggah,
     publisher: businessRef,
   };
 }
