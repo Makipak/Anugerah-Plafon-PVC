@@ -51,6 +51,28 @@
 }
 
 @layer components {
+  .video-player-shell:fullscreen {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    background: var(--color-ink);
+  }
+  .video-player-frame {
+    flex: none;
+  }
+  .video-player-shell:fullscreen .video-player-frame {
+    width: min(100vw, 56.25dvh);
+    height: min(100dvh, 177.78vw);
+    aspect-ratio: 9 / 16;
+  }
   .container-page {
     width: 100%;
     max-width: 1200px;

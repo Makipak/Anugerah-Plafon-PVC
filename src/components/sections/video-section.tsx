@@ -6,8 +6,11 @@ import { videoList, type VideoItem } from "@/content/video";
 import { isProduction } from "@/lib/placeholders";
 import { videoLd } from "@/lib/schema";
 
+// Jumlah video yang ditampilkan di beranda. Slot contoh juga memakai jumlah ini.
+const JUMLAH_VIDEO = 7;
+
 // Slot contoh agar posisi dan ukuran bagian ini terlihat di dev/preview sebelum video pertama diunggah.
-const slotContoh: VideoItem[] = Array.from({ length: 4 }, (_, i) => ({
+const slotContoh: VideoItem[] = Array.from({ length: JUMLAH_VIDEO }, (_, i) => ({
   id: `VIDEO-0${i + 1}`,
   judul: "Judul video proyek",
   src: "",
@@ -22,14 +25,16 @@ export function VideoSection() {
   // Seperti slot aset opsional: tidak boleh tampil sebagai kotak placeholder di situs produksi.
   if (kosong && isProduction) return null;
 
+  const tampil = videoList.slice(0, JUMLAH_VIDEO);
+
   return (
     <Section tone="surface" labelledBy="judul-video">
-      {!kosong ? videoList.map((v) => <JsonLd key={v.id} data={videoLd(v)} />) : null}
+      {!kosong ? tampil.map((v) => <JsonLd key={v.id} data={videoLd(v)} />) : null}
       <Reveal>
-        <SectionHeading id="judul-video" label="Video" intro="Pilih video untuk memutar. Geser ke samping untuk melihat video lainnya.">
+        <SectionHeading id="judul-video" label="Video" intro="Klik video untuk memutar. Geser ke kiri atau kanan untuk melihat video lainnya.">
           Cuplikan pemasangan plafon PVC
         </SectionHeading>
-        <VideoCarousel items={kosong ? slotContoh : videoList} placeholder={kosong} />
+        <VideoCarousel items={kosong ? slotContoh : tampil} placeholder={kosong} />
       </Reveal>
     </Section>
   );

@@ -34,7 +34,7 @@ Langkah mengganti placeholder:
 | Penamaan | huruf kecil, tanda hubung, deskriptif: `plafon-pvc-motif-kayu-ruang-tamu-serang.webp` |
 | Isi | Tanpa watermark pihak lain, tanpa filter berat, milik sendiri atau berizin |
 | Alt text | Deskripsi isi nyata (jenis plafon dan ruang), tanpa nama lokasi proyek |
-| Video | Pendek, tanpa autoplay bersuara; wajib ada gambar poster |
+| Video | Pendek, tanpa autoplay bersuara; gambar poster opsional |
 
 Konvensi file ikon dan gambar OG bawaan Next.js (`icon`, `apple-icon`, `opengraph-image`) disebut pada panduan upgrade Next.js 16; konfirmasi nama dan format yang didukung di dokumentasi saat implementasi.
 
@@ -92,7 +92,7 @@ Status: `[ ]` belum dibuat, `[x]` selesai dan terpasang.
 
 | ID | Dipakai di | Spesifikasi | Status |
 |---|---|---|---|
-| VIDEO-01 | Halaman layanan atau Home | Klip pemasangan 10-30 detik, tanpa suara wajib, dengan poster (ID POSTER-VIDEO-01, 16:9) | [ ] |
+| VIDEO-01 sampai VIDEO-07 | Home | Klip MP4 potret di `public/assets/video/`; tombol putar/jeda di tengah, layar penuh potret, panah geser di sisi, dan jeda otomatis saat keluar dari layar; poster opsional | [x] |
 | ILLUS-xx | Ilustrasi khas brand jika diinginkan | SVG, mengikuti palet DESIGN.md | [ ] |
 
 Yang **bukan** aset: garis sambungan panel (CSS), ikon fungsional (pustaka ikon), foto testimoni (pakai inisial), peta (embed).

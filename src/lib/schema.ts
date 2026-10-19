@@ -137,9 +137,9 @@ export function videoLd(v: VideoItem) {
     "@type": "VideoObject",
     name: v.judul,
     description: v.deskripsi ?? v.judul,
-    thumbnailUrl: abs(v.poster),
+    ...(v.poster ? { thumbnailUrl: abs(v.poster) } : {}),
     contentUrl: abs(v.src),
-    uploadDate: v.diunggah,
+    ...(v.diunggah ? { uploadDate: v.diunggah } : {}),
     publisher: businessRef,
   };
 }
