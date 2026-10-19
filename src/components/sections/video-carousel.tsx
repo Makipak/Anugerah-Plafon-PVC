@@ -195,7 +195,6 @@ export function VideoCarousel({ items, placeholder = false }: { items: readonly 
                   <VideoCard item={item} onPlay={onPlay} />
                 )}
               </div>
-              <p className="font-display mt-3 text-base font-semibold leading-snug">{item.judul}</p>
             </li>
           ))}
         </ul>
