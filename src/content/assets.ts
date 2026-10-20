@@ -14,7 +14,7 @@ export type AssetSpec = {
 
 export const assets = {
   "LOGO-01": { ratio: "4/1", minWidth: 800, minHeight: 200, brief: "Logo horizontal (SVG)", src: "/assets/logo-01.webp", alt: "Logo Anugrah Plafon PVC", bare: true },
-  "LOGO-02": { ratio: "1/1", minWidth: 512, minHeight: 512, brief: "Logo ringkas untuk favicon (SVG + PNG)", src: "/assets/logo-02.svg", alt: "Logo Anugrah Plafon PVC", bare: true },
+  "LOGO-02": { ratio: "1/1", minWidth: 512, minHeight: 512, brief: "Logo ringkas untuk favicon (SVG + PNG)", src: "/assets/pvc-logo.svg", alt: "Logo Anugrah Plafon PVC", bare: true },
   "OG-DEFAULT": { ratio: "1200/630", minWidth: 1200, minHeight: 630, brief: "Gambar berbagi tautan: nama usaha dan produk", optional: true },
   "HERO-01": { ratio: "4/3", minWidth: 1600, minHeight: 1200, brief: "Ruangan dengan plafon PVC terpasang terlihat jelas, cahaya alami", src: "/assets/hero/hero-01.webp", alt: "Tumpukan panel plafon PVC motif marmer, kayu, abu-abu, dan putih", bare: true },
   "HERO-02": { ratio: "3/2", minWidth: 1536, minHeight: 1024, brief: "Interior rumah dengan plafon dan panel PVC bermotif kayu", src: "/assets/hero/hero-02.png", alt: "Interior rumah dengan plafon PVC putih dan panel dinding bermotif kayu" },
