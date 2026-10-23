@@ -4,14 +4,16 @@ import { Section } from "@/components/ui/section";
 import { PageIntro } from "@/components/ui/page-intro";
 import { CtaBand } from "@/components/sections/cta-band";
 import { KatalogBrowser } from "@/components/katalog/katalog-browser";
-import { kategoriAktif, kategoriBySlug, merekAktif, semuaProduk } from "@/lib/katalog";
+import { MerekGrid } from "@/components/katalog/merek-grid";
+import { ProdukGrid } from "@/components/katalog/produk-card";
+import { kategoriBySlug, merekAktif, semuaKategori, semuaProduk } from "@/lib/katalog";
 import { buildMetadata } from "@/lib/seo";
 import { waMessages } from "@/lib/site";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return kategoriAktif().map((k) => ({ kategori: k.slug }));
+  return semuaKategori().map((k) => ({ kategori: k.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/produk/kategori/[kategori]">): Promise<Metadata> {
@@ -28,8 +30,10 @@ export async function generateMetadata({ params }: PageProps<"/produk/kategori/[
 export default async function KategoriPage({ params }: PageProps<"/produk/kategori/[kategori]">) {
   const { kategori } = await params;
   const k = kategoriBySlug(kategori);
-  // Dengan satu kategori saja, halaman ini hanya menggandakan /produk, jadi tidak ditampilkan.
-  if (!k || kategoriAktif().length < 2) notFound();
+  if (!k) notFound();
+  const merek = merekAktif(k.slug);
+  const produk = semuaProduk(k.slug);
+  const tanpaMerek = produk.filter((p) => !p.merek);
 
   return (
     <>
@@ -44,9 +48,21 @@ export default async function KategoriPage({ params }: PageProps<"/produk/katego
       />
       <Section tone="surface" labelledBy="judul-katalog">
         <h2 id="judul-katalog" className="sr-only">
-          Daftar produk {k.nama}
+          {k.slug === "plafon-pvc" ? `Merek ${k.nama}` : `Daftar produk ${k.nama}`}
         </h2>
-        <KatalogBrowser produk={semuaProduk(k.slug)} merek={merekAktif(k.slug)} />
+        {k.slug === "plafon-pvc" ? (
+          <>
+            <MerekGrid kategori={k.slug} items={merek} />
+            {tanpaMerek.length > 0 ? (
+              <div className="mt-12">
+                <h3 className="mb-6 font-display text-xl font-semibold">Produk tanpa merek</h3>
+                <ProdukGrid produk={tanpaMerek} />
+              </div>
+            ) : null}
+          </>
+        ) : (
+          <KatalogBrowser produk={produk} merek={merek} />
+        )}
       </Section>
       <CtaBand message={waMessages.produkUmum} location="kategori-cta" secondaryHref="/produk" secondaryLabel="Lihat semua produk" />
     </>

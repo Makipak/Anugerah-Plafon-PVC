@@ -1,25 +1,24 @@
 import Link from "next/link";
+import { ProdukFoto } from "@/components/katalog/produk-foto";
 
-type Item = { slug: string; nama: string; jumlah: number; merek: string[] };
+type Item = { slug: string; nama: string; thumbnail?: string };
 
-// Daftar kategori di /produk. Merek tidak disaring di sini; kartu hanya memberi tahu
-// bahwa kategori itu punya pilihan merek, supaya pengunjung membukanya untuk melihat.
 export function KategoriGrid({ items }: { items: Item[] }) {
   return (
-    <ul aria-label="Kategori produk" className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <ul aria-label="Kategori produk" className="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 lg:grid-cols-4">
       {items.map((k) => (
-        <li key={k.slug}>
-          <Link
-            href={`/produk/kategori/${k.slug}`}
-            className="flex h-full min-h-28 flex-col rounded-card border border-line bg-surface p-5 transition-colors hover:border-primary hover:bg-panel"
-          >
-            <span className="font-display text-lg font-semibold">{k.nama}</span>
-            <span className="text-sm text-ink-muted tabular">{k.jumlah} produk</span>
-            {k.merek.length > 0 ? (
-              <span className="mt-auto pt-3 text-sm font-semibold text-primary">
-                {k.merek.length} merek: {k.merek.join(", ")}
-              </span>
-            ) : null}
+        <li key={k.slug} className="group">
+          <Link href={`/produk/kategori/${k.slug}`} className="block">
+            <div className="overflow-hidden rounded-card">
+              <ProdukFoto
+                src={k.thumbnail}
+                alt={`Foto kategori ${k.nama}`}
+                label={k.nama}
+                sizes="(min-width: 1024px) 280px, (min-width: 640px) 33vw, 50vw"
+                className="transition-transform duration-200 group-hover:scale-[1.03]"
+              />
+            </div>
+            <span className="mt-3 block font-display font-semibold">{k.nama}</span>
           </Link>
         </li>
       ))}

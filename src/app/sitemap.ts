@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { areaList } from "@/content/area";
 import { interiorList } from "@/content/interior";
 import { produkUtama } from "@/content/produk";
-import { kategoriAktif, semuaProduk } from "@/lib/katalog";
+import { merekAktif, semuaKategori, semuaProduk } from "@/lib/katalog";
 import { getAllPosts } from "@/lib/blog";
 import { site } from "@/lib/site";
 
@@ -14,7 +14,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: url("/") },
     { url: url("/produk") },
     { url: url("/produk/plafon-pvc"), lastModified: produkUtama.diperbaruiPada },
-    ...(kategoriAktif().length > 1 ? kategoriAktif().map((k) => ({ url: url(`/produk/kategori/${k.slug}`) })) : []),
+    ...semuaKategori().map((k) => ({ url: url(`/produk/kategori/${k.slug}`) })),
+    ...merekAktif("plafon-pvc").map((merek) => ({
+      url: url(`/produk/kategori/plafon-pvc/merek/${merek.slug}`),
+    })),
     ...semuaProduk().map((p) => ({ url: url(`/produk/${p.slug}`) })),
     { url: url("/layanan/pasang-plafon-pvc") },
     { url: url("/layanan/interior-design") },

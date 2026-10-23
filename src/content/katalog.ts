@@ -19,7 +19,7 @@ import { assets, type AssetId, type AssetSpec } from "./assets";
 //    dan tidak boleh "plafon-pvc" atau "kategori" (dipakai halaman lain). Setiap warna minimal punya satu foto.
 //    Isi `kategori` dengan slug dari kategoriData.
 // 3. Kategori, merek, dan seri baru ditambahkan ke kategoriData, merekData, dan seriData.
-//    Kategori atau merek tanpa produk tidak ditampilkan.
+//    Kategori selalu tampil; merek tanpa produk tidak ditampilkan.
 // 4. Ukuran dan ketebalan diisi di seri bila sama untuk satu seri; isi di produk bila berbeda.
 //
 // produkContoh hanya tampil di dev/preview agar tampilan merek, seri, dan warna terlihat sebelum data asli ada.
@@ -27,9 +27,9 @@ import { assets, type AssetId, type AssetSpec } from "./assets";
 
 // Ringkasan kategori sesuai istilah dari pemilik usaha; mohon dikonfirmasi sebelum tayang.
 export const kategoriData: readonly Kategori[] = [
-  { slug: "plafon-pvc", nama: "Plafon PVC", ringkasan: "Panel plafon dari PVC dalam berbagai merek, motif, dan warna." },
+  { slug: "plafon-pvc", nama: "PVC", ringkasan: "Panel plafon dari PVC dalam berbagai merek, motif, dan warna.", thumbnail: "/produk/PVC/PVC-Thumb.jpg" },
   { slug: "wpc", nama: "WPC", ringkasan: "WPC (Wood Plastic Composite) adalah bahan komposit dari serbuk kayu dan plastik." },
-  { slug: "wpc-outdoor", nama: "WPC Outdoor", ringkasan: "WPC untuk area luar ruangan." },
+  { slug: "wpc-outdoor", nama: "WPC Outdoor", ringkasan: "WPC untuk area luar ruangan.", thumbnail: "/produk/WPC-Outdoor/WPC-OD-Thum.jpg" },
   { slug: "pvc-marble-granite", nama: "PVC Marble Granite", ringkasan: "Lembaran PVC bermotif marmer dan granit." },
   { slug: "kisi-kisi", nama: "Kisi-kisi", ringkasan: "Batang berjajar untuk dekorasi dinding, plafon, atau sekat ruangan." },
   { slug: "kisi-kisi-outdoor", nama: "Kisi-kisi Outdoor", ringkasan: "Kisi-kisi untuk area luar ruangan." },
@@ -38,7 +38,7 @@ export const kategoriData: readonly Kategori[] = [
 ].map((k) => kategoriSchema.parse(k));
 
 export const merekData: readonly Merek[] = [
-  { slug: "dante", nama: "DANTE" },
+  { slug: "dante", nama: "DANTE", thumbnail: "/produk/PVC/DANTE/DANTE-Thumb.jpg" },
   { slug: "lamiwood", nama: "LAMIWOOD" },
   { slug: "javafon", nama: "JAVAFON" },
   { slug: "conwood", nama: "Conwood", ringkasan: "Merek panel berbahan serat semen (fiber cement) dengan tampilan kayu." },
@@ -89,6 +89,39 @@ export const produkNyata: readonly ProdukKatalog[] = motifLama.map((m, i) =>
   }),
 );
 
+const produkDante: ProdukKatalog[] = Array.from({ length: 9 }, (_, index) => {
+  const nomor = index + 1;
+  return produkKatalogSchema.parse({
+    slug: `dante-${nomor}`,
+    nama: `Produk ${nomor}`,
+    kategori: "plafon-pvc",
+    merek: "dante",
+    warna: [{
+      slug: "standar",
+      nama: "Standar",
+      foto: [`/produk/dante/DANTE-${nomor}.jpg`],
+    }],
+  });
+});
+
+const produkWpcOutdoor: ProdukKatalog[] = Array.from({ length: 5 }, (_, index) => {
+  const nomor = index + 1;
+  const nama = `WPC Outdoor ${nomor}`;
+  return produkKatalogSchema.parse({
+    slug: `wpc-outdoor-${nomor}`,
+    nama,
+    kategori: "wpc-outdoor",
+    motif: "Kayu",
+    warna: [{
+      slug: "standar",
+      nama: "Standar",
+      foto: [`/produk/WPC-Outdoor/WPC-OD-${nomor}.png`],
+    }],
+  });
+});
+
+export const produkNyataLengkap: readonly ProdukKatalog[] = [...produkNyata, ...produkDante, ...produkWpcOutdoor];
+
 // Contoh: foto kosong ("") tampil sebagai placeholder berlabel.
 const warnaContoh = (nama: string, jumlahFoto = 3) => ({
   slug: nama.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
@@ -100,8 +133,6 @@ const warnaContoh = (nama: string, jumlahFoto = 3) => ({
 type Contoh = Omit<ProdukKatalog, "contoh">;
 const dataContoh: Contoh[] = [
   // Plafon PVC
-  { slug: "dante-contoh-kayu", nama: "Contoh Motif Kayu", kategori: "plafon-pvc", merek: "dante", motif: "Kayu", warna: [warnaContoh("Cokelat"), warnaContoh("Natural"), warnaContoh("Abu")] },
-  { slug: "dante-contoh-polos", nama: "Contoh Motif Polos", kategori: "plafon-pvc", merek: "dante", motif: "Polos", warna: [warnaContoh("Putih"), warnaContoh("Krem", 2)] },
   { slug: "lamiwood-glossy-contoh-marmer", nama: "Contoh Motif Marmer", kategori: "plafon-pvc", merek: "lamiwood", seri: "glossy", motif: "Marmer", warna: [warnaContoh("Putih"), warnaContoh("Abu")] },
   { slug: "lamiwood-laminate-contoh-kayu", nama: "Contoh Motif Kayu", kategori: "plafon-pvc", merek: "lamiwood", seri: "laminate-series", motif: "Kayu", warna: [warnaContoh("Jati"), warnaContoh("Walnut"), warnaContoh("Oak")] },
   { slug: "javafon-glossy-contoh-marmer", nama: "Contoh Motif Marmer", kategori: "plafon-pvc", merek: "javafon", seri: "glossy", motif: "Marmer", warna: [warnaContoh("Putih"), warnaContoh("Hitam")] },
@@ -143,7 +174,7 @@ function validasi(): void {
   if (kategoriSlugs.size !== kategoriData.length) galat.push("slug kategori ganda");
 
   const slugPakai = new Set<string>(["plafon-pvc", "kategori"]);
-  for (const p of [...produkNyata, ...produkContoh]) {
+  for (const p of [...produkNyataLengkap, ...produkContoh]) {
     if (slugPakai.has(p.slug)) galat.push(`slug produk ganda atau dicadangkan: ${p.slug}`);
     slugPakai.add(p.slug);
     if (!kategoriSlugs.has(p.kategori)) galat.push(`produk ${p.slug}: kategori ${p.kategori} tidak ada`);
@@ -153,7 +184,7 @@ function validasi(): void {
     const warnaSlugs = new Set(p.warna.map((w) => w.slug));
     if (warnaSlugs.size !== p.warna.length) galat.push(`produk ${p.slug}: slug warna ganda`);
   }
-  for (const p of produkNyata) {
+  for (const p of produkNyataLengkap) {
     for (const w of p.warna) {
       if (w.foto.some((f) => !f.startsWith("/"))) galat.push(`produk ${p.slug}/${w.slug}: foto harus berupa jalur berawalan "/"`);
     }

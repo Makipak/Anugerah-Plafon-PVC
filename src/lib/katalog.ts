@@ -1,10 +1,10 @@
-import { kategoriData, merekData, produkContoh, produkNyata, seriData } from "@/content/katalog";
+import { kategoriData, merekData, produkContoh, produkNyataLengkap, seriData } from "@/content/katalog";
 import type { ProdukKatalog } from "@/content/schemas";
 import { isProduction } from "@/lib/placeholders";
 import type { KategoriView, MerekView, ProdukView, WarnaView } from "@/lib/katalog-view";
 
 // Akses data katalog untuk komponen server. Produk contoh tidak pernah tampil di produksi.
-const aktif: readonly ProdukKatalog[] = isProduction ? produkNyata : [...produkNyata, ...produkContoh];
+const aktif: readonly ProdukKatalog[] = isProduction ? produkNyataLengkap : [...produkNyataLengkap, ...produkContoh];
 
 // Alt text dibentuk dari data, bukan ditulis ulang per foto, sehingga tetap akurat saat data diganti.
 function altFoto(kategori: string, namaLengkap: string, motif: string | undefined, banyakWarna: boolean, warna: string, urutan: number, jumlah: number): string {
@@ -55,20 +55,26 @@ export function produkBySlug(slug: string): ProdukView | undefined {
   return p ? toView(p) : undefined;
 }
 
-// Hanya kategori yang punya produk; yang kosong tidak ditampilkan.
+function toKategoriView(slug: string, nama: string, ringkasan: string | undefined, thumbnail: string | undefined): KategoriView {
+  return {
+    slug,
+    nama,
+    ...(ringkasan ? { ringkasan } : {}),
+    ...(thumbnail ? { thumbnail } : {}),
+    jumlah: aktif.filter((p) => p.kategori === slug).length,
+  };
+}
+
+export function semuaKategori(): KategoriView[] {
+  return kategoriData.map((k) => toKategoriView(k.slug, k.nama, k.ringkasan, k.thumbnail));
+}
+
 export function kategoriAktif(): KategoriView[] {
-  return kategoriData
-    .map((k) => ({
-      slug: k.slug,
-      nama: k.nama,
-      ...(k.ringkasan ? { ringkasan: k.ringkasan } : {}),
-      jumlah: aktif.filter((p) => p.kategori === k.slug).length,
-    }))
-    .filter((k) => k.jumlah > 0);
+  return semuaKategori().filter((k) => k.jumlah > 0);
 }
 
 export function kategoriBySlug(slug: string): KategoriView | undefined {
-  return kategoriAktif().find((k) => k.slug === slug);
+  return semuaKategori().find((k) => k.slug === slug);
 }
 
 // Hanya merek (dan seri) yang punya produk (di kategori tertentu bila diisi); yang kosong tidak ditampilkan.
@@ -79,7 +85,14 @@ export function merekAktif(kategori?: string): MerekView[] {
       const seri = seriData
         .filter((s) => s.merek === m.slug && produk.some((p) => p.seri === s.slug))
         .map((s) => ({ slug: s.slug, nama: s.nama }));
-      return { slug: m.slug, nama: m.nama, ...(m.ringkasan ? { ringkasan: m.ringkasan } : {}), seri, jumlah: produk.length };
+      return {
+        slug: m.slug,
+        nama: m.nama,
+        ...(m.ringkasan ? { ringkasan: m.ringkasan } : {}),
+        ...(m.thumbnail ? { thumbnail: m.thumbnail } : {}),
+        seri,
+        jumlah: produk.length,
+      };
     })
     .filter((m) => m.jumlah > 0);
 }

@@ -3,7 +3,7 @@ import { isAbsolute, relative, resolve, sep } from "node:path";
 import { DATA_DUMMY, findPlaceholders, isProduction } from "@/lib/placeholders";
 import { site } from "@/lib/site";
 import { interiorList } from "@/content/interior";
-import { produkNyata } from "@/content/katalog";
+import { kategoriData, merekData, produkNyataLengkap } from "@/content/katalog";
 import { produkList } from "@/content/produk";
 import { proyekList } from "@/content/proyek";
 import { areaList } from "@/content/area";
@@ -21,7 +21,7 @@ export function assertProductionReady(): void {
   const pending = [
     ...findPlaceholders(site, "site"),
     ...findPlaceholders(produkList, "produk"),
-    ...findPlaceholders(produkNyata, "katalog"),
+    ...findPlaceholders(produkNyataLengkap, "katalog"),
     ...findPlaceholders(interiorList, "interior"),
     ...findPlaceholders(proyekList, "proyek"),
     ...findPlaceholders(areaList, "area"),
@@ -32,7 +32,7 @@ export function assertProductionReady(): void {
     .map(([id]) => `asset:${id}`);
 
   const publicDir = resolve(process.cwd(), "public");
-  const fotoBermasalah = produkNyata.flatMap((p) =>
+  const fotoBermasalah = produkNyataLengkap.flatMap((p) =>
     p.warna.flatMap((w) => {
       const kosong = w.foto.length === 0 || w.foto.some((f) => f.trim().length === 0);
       const fotoKosong = kosong ? [`foto-kosong:${p.slug}/${w.slug}`] : [];
@@ -50,6 +50,16 @@ export function assertProductionReady(): void {
     }),
   );
 
+  const thumbnailHilang = [...kategoriData, ...merekData].flatMap(({ nama, thumbnail }) => {
+    if (!thumbnail) return [];
+    const filePath = resolve(publicDir, thumbnail.slice(1));
+    const rel = relative(publicDir, filePath);
+    const diPublic = thumbnail.startsWith("/") && rel !== ".." && !rel.startsWith(`..${sep}`) && !isAbsolute(rel);
+    return !diPublic || !existsSync(filePath) || !statSync(filePath).isFile()
+      ? [`thumbnail-hilang:${nama}:${thumbnail}`]
+      : [];
+  });
+
   const fotoInterior = interiorList.flatMap((item) =>
     (item.foto ?? []).flatMap((foto) => {
       if (foto.trim().length === 0) return [`foto-kosong-interior:${item.slug}`];
@@ -61,7 +71,7 @@ export function assertProductionReady(): void {
     }),
   );
 
-  const all = [...pending, ...assetsKosong, ...fotoBermasalah, ...fotoInterior];
+  const all = [...pending, ...assetsKosong, ...fotoBermasalah, ...thumbnailHilang, ...fotoInterior];
   if (all.length > 0) {
     throw new Error(
       `Build produksi dihentikan: ${all.length} item belum diisi. Contoh: ${all.slice(0, 8).join(", ")}`,

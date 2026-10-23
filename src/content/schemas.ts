@@ -20,6 +20,7 @@ export const kategoriSchema = z.object({
   slug,
   nama: z.string().min(1),
   ringkasan: z.string().min(1).optional(),
+  thumbnail: z.string().startsWith("/").optional(),
 });
 export type Kategori = z.infer<typeof kategoriSchema>;
 
@@ -27,6 +28,7 @@ export const merekSchema = z.object({
   slug,
   nama: z.string().min(1),
   ringkasan: z.string().min(1).optional(),
+  thumbnail: z.string().startsWith("/").optional(),
 });
 export type Merek = z.infer<typeof merekSchema>;
 

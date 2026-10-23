@@ -15,11 +15,12 @@ export type ProdukView = {
   tebal?: string;
   warna: WarnaView[];
 };
-export type KategoriView = { slug: string; nama: string; ringkasan?: string; jumlah: number };
+export type KategoriView = { slug: string; nama: string; ringkasan?: string; thumbnail?: string; jumlah: number };
 export type MerekView = {
   slug: string;
   nama: string;
   ringkasan?: string;
+  thumbnail?: string;
   seri: { slug: string; nama: string }[];
   jumlah: number;
 };
