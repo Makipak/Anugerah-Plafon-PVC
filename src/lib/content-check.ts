@@ -34,8 +34,11 @@ export function assertProductionReady(): void {
   const publicDir = resolve(process.cwd(), "public");
   const fotoBermasalah = produkNyataLengkap.flatMap((p) =>
     p.warna.flatMap((w) => {
-      const kosong = w.foto.length === 0 || w.foto.some((f) => f.trim().length === 0);
-      const fotoKosong = kosong ? [`foto-kosong:${p.slug}/${w.slug}`] : [];
+      const tidakAdaFoto = w.foto.length === 0;
+      const fotoKosong =
+        (tidakAdaFoto && !w.fotoOpsional) || w.foto.some((f) => f.trim().length === 0)
+          ? [`foto-kosong:${p.slug}/${w.slug}`]
+          : [];
       const fotoHilang = w.foto
         .filter((f) => f.trim().length > 0)
         .filter((f) => {

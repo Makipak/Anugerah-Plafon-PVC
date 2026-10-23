@@ -26,7 +26,7 @@ function Isi({ produk: p, awalWarna }: { produk: ProdukView; awalWarna: string }
 
   const warna = p.warna[wi] ?? p.warna[0];
   if (!warna) return null;
-  // Warna tanpa foto (data contoh) tetap menampilkan satu slot placeholder.
+  // Produk tanpa foto opsional tetap memakai slot placeholder yang sama.
   const daftarFoto = warna.foto.length > 0 ? warna.foto : [{ src: "", alt: p.namaLengkap }];
   const foto = daftarFoto[fi] ?? daftarFoto[0];
 

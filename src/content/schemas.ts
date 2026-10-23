@@ -49,6 +49,7 @@ export const warnaSchema = z.object({
   nama: z.string().min(1),
   hex: z.string().regex(/^#[0-9a-fA-F]{6}$/, "Format hex harus #RRGGBB").optional(),
   foto: z.array(z.string()),
+  fotoOpsional: z.boolean().optional(),
 });
 export type Warna = z.infer<typeof warnaSchema>;
 

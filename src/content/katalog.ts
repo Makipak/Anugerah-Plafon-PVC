@@ -8,13 +8,12 @@ import {
   type ProdukKatalog,
   type Seri,
 } from "./schemas";
-import { assets, type AssetId, type AssetSpec } from "./assets";
-
 // KATALOG: kategori > produk, dengan merek dan seri opsional; tiap produk punya warna, dan tiap warna punya foto.
 //
 // Menambah produk baru (untuk pemilik usaha):
 // 1. Taruh foto di public/produk/<slug-produk>/ dengan nama <slug-warna>-1.webp, <slug-warna>-2.webp, dst.
-//    Foto persegi (1:1), minimal 800x800 px, pencahayaan sama untuk semua warna. Foto pertama jadi foto utama.
+//    Foto persegi (1:1), minimal 800x800 px. Foto pertama jadi foto utama.
+//    Jika foto belum tersedia, isi foto: [] dan fotoOpsional: true untuk menggunakan placeholder yang ada.
 // 2. Tambahkan satu objek ke produkNyata di bawah. slug produk harus unik, huruf kecil dan tanda hubung,
 //    dan tidak boleh "plafon-pvc" atau "kategori" (dipakai halaman lain). Setiap warna minimal punya satu foto.
 //    Isi `kategori` dengan slug dari kategoriData.
@@ -54,13 +53,7 @@ export const seriData: readonly Seri[] = [
   { slug: "kompak", merek: "javafon", nama: "Kompak" },
 ].map((s) => seriSchema.parse(s));
 
-// Foto lama (motif tanpa merek) dibaca dari manifest aset agar berkasnya tetap satu.
-const fotoAset = (id: AssetId): string[] => {
-  const spec: AssetSpec = assets[id];
-  return spec.src ? [spec.src] : [];
-};
-
-// Motif yang sudah ada sebelum katalog bermerek. Sesuai data pemilik usaha; belum dikaitkan ke merek.
+// Delapan produk lama dipertahankan sampai foto pemilik usaha tersedia.
 const motifLama = [
   { slug: "polos-putih", nama: "Polos Putih", motif: "Polos" },
   { slug: "polos-krem", nama: "Polos Krem", motif: "Polos" },
@@ -71,11 +64,6 @@ const motifLama = [
   { slug: "marmer-abu", nama: "Marmer Abu", motif: "Marmer" },
   { slug: "abu-doff", nama: "Abu Doff", motif: "Polos" },
 ] as const;
-const motifLamaIds: AssetId[] = [
-  "MOTIF-01", "MOTIF-02", "MOTIF-03", "MOTIF-04",
-  "MOTIF-05", "MOTIF-06", "MOTIF-07", "MOTIF-08",
-];
-
 export const produkNyata: readonly ProdukKatalog[] = motifLama.map((m, i) =>
   produkKatalogSchema.parse({
     slug: m.slug,
@@ -85,7 +73,7 @@ export const produkNyata: readonly ProdukKatalog[] = motifLama.map((m, i) =>
     motif: m.motif,
     ukuran: "25 cm x 4 m",
     tebal: "8 mm",
-    warna: [{ slug: "standar", nama: m.nama, foto: fotoAset(motifLamaIds[i] ?? "MOTIF-01") }],
+    warna: [{ slug: "standar", nama: m.nama, foto: [], fotoOpsional: true }],
   }),
 );
 
@@ -99,7 +87,7 @@ const produkDante: ProdukKatalog[] = Array.from({ length: 9 }, (_, index) => {
     warna: [{
       slug: "standar",
       nama: "Standar",
-      foto: [`/produk/dante/DANTE-${nomor}.jpg`],
+      foto: [`/produk/PVC/DANTE/DANTE-${nomor}.jpg`],
     }],
   });
 });

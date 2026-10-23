@@ -57,11 +57,11 @@ Status: `[ ]` belum dibuat, `[x]` selesai dan terpasang.
 | HERO-01 | Hero Home (desktop dan mobile) | 4:3 | 1600 x 1200 | Ruangan dengan plafon PVC terpasang terlihat jelas, cahaya alami; sisakan ruang aman di tepi untuk pemotongan mobile | [ ] |
 | HERO-02 | Latar section keunggulan di Home | 3:2 | 1536 x 1024 | Interior rumah dengan plafon dan panel PVC bermotif kayu | [x] |
 
-### Katalog motif (jumlah `[ISI]`, contoh 8)
+### Foto produk
 
 | ID | Dipakai di | Rasio | Ukuran minimum | Isi yang dibutuhkan | Status |
 |---|---|---|---|---|---|
-| MOTIF-01 sampai MOTIF-NN | Katalog dan halaman produk | 1:1 | 800 x 800 | Close-up satu motif, pencahayaan sama untuk semua | [ ] |
+| Foto varian produk | Kartu katalog dan halaman detail | 1:1 | 800 x 800 | Foto produk yang disiapkan pemilik; jika belum tersedia, kartu memakai placeholder dan foto ditandai opsional di data katalog | [ ] |
 | DETAIL-01 | Halaman produk | 4:3 | 1200 x 900 | Sambungan dan profil panel dari dekat | [ ] |
 | DETAIL-02 | Halaman produk | 4:3 | 1200 x 900 | Perbandingan sudut pemasangan atau finishing | [ ] |
 
@@ -116,10 +116,6 @@ export const assets = {
   "HERO-01": {
     ratio: "4/3", minWidth: 1600, minHeight: 1200,
     brief: "Ruangan dengan plafon PVC terpasang, cahaya alami",
-  },
-  "MOTIF-01": {
-    ratio: "1/1", minWidth: 800, minHeight: 800,
-    brief: "Close-up motif 01",
   },
   // ... lanjutkan sesuai daftar slot
 } satisfies Record<string, AssetSpec>;
