@@ -66,7 +66,7 @@ export default function HomePage() {
                 Plafon PVC Serang
               </h1>
               <p className="max-w-xl text-lg text-ink-muted">
-                Toko dan jasa pasang plafon PVC di Serang, Banten. Pilih motif dan konsultasikan kebutuhan pemasangan langsung lewat WhatsApp.
+                Toko dan jasa pasang plafon PVC di Serang, Banten dan Sekitarnya. Pilih motif dan konsultasikan kebutuhan pemasangan langsung lewat WhatsApp.
               </p>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                 <WhatsAppButton message={waMessages.umum} location="hero" />

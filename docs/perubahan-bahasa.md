@@ -3,7 +3,7 @@
 | File | Teks lama | Teks baru | Alasan singkat |
 |---|---|---|---|
 | `src/app/page.tsx` | “Plafon PVC di Serang, Banten: toko dan jasa pasang” | “Plafon PVC Serang” | H1 lebih ringkas dan mempertahankan kata kunci utama. |
-| `src/app/page.tsx` | Deskripsi hero lama | “Toko dan jasa pasang plafon PVC di Serang, Banten. Pilih motif dan konsultasikan kebutuhan pemasangan langsung lewat WhatsApp.” | Menggunakan kalimat yang ditetapkan klien. |
+| `src/app/page.tsx` | Deskripsi hero lama | “Toko dan jasa pasang plafon PVC di Serang, Banten dan Sekitarnya. Pilih motif dan konsultasikan kebutuhan pemasangan langsung lewat WhatsApp.” | Menggunakan kalimat yang ditetapkan klien. |
 | `src/app/page.tsx` | Kartu keunggulan hanya berisi label; “Tidak merambat api” | Tiga kartu memiliki deskripsi; “Tidak mudah menyulut api” | Menambahkan penjelasan dan menghapus klaim mutlak sesuai arahan klien. |
 | `src/app/page.tsx` | Pengantar motif hanya meminta pengunjung menyebut kode | “Tersedia dalam berbagai warna dan motif: polos, kayu, dan marmer. Cocok untuk hunian, perkantoran, dan tempat ibadah. Sebutkan kode motif saat chat agar tim dapat mengecek ketersediaannya.” | Menjelaskan pilihan dan memakai daftar jenis tempat yang konsisten. |
 | `src/app/page.tsx` | CTA beranda memakai judul dan teks bawaan | “Wujudkan interior hunian yang lebih cantik dan berwarna”; “Pilih model dan motif sesuai karakter ruangan Anda, lalu konsultasikan lewat WhatsApp.”; tombol “Lihat produk” | Memakai ajakan yang spesifik dan menambahkan jalur ke produk. |

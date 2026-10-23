@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Anugrah Plafon PVC",
   },
   description:
-    "Toko dan jasa pasang plafon PVC di Serang, Banten. Pilih motif dan konsultasikan kebutuhan pemasangan langsung lewat WhatsApp.",
+    "Toko dan jasa pasang plafon PVC di Serang, Banten dan Sekitarnya. Pilih motif dan konsultasikan kebutuhan pemasangan langsung lewat WhatsApp.",
   applicationName: site.namaSitus,
   alternates: { canonical: "/" },
   icons: { icon: "/assets/pvc-logo.svg" },
