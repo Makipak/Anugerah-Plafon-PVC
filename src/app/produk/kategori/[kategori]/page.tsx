@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/section";
 import { PageIntro } from "@/components/ui/page-intro";
 import { CtaBand } from "@/components/sections/cta-band";
-import { KatalogBrowser } from "@/components/katalog/katalog-browser";
 import { MerekGrid } from "@/components/katalog/merek-grid";
+import { ProdukDetail } from "@/components/katalog/produk-detail";
 import { ProdukGrid } from "@/components/katalog/produk-card";
 import { kategoriBySlug, merekAktif, semuaKategori, semuaProduk } from "@/lib/katalog";
 import { buildMetadata } from "@/lib/seo";
@@ -33,7 +33,6 @@ export default async function KategoriPage({ params }: PageProps<"/produk/katego
   if (!k) notFound();
   const merek = merekAktif(k.slug);
   const produk = semuaProduk(k.slug);
-  const tanpaMerek = produk.filter((p) => !p.merek);
 
   return (
     <>
@@ -44,24 +43,20 @@ export default async function KategoriPage({ params }: PageProps<"/produk/katego
         ]}
         label="Kategori"
         title={k.nama}
-        lead={k.ringkasan ?? "Pilih produk untuk melihat warna dan fotonya."}
+        lead={k.slug === "plafon-pvc"
+          ? "Lihat semua pilihan PVC berdasarkan jenis produk, lalu pilih untuk melihat foto dan detailnya."
+          : k.ringkasan ?? "Pilih produk untuk melihat warna dan fotonya."}
       />
       <Section tone="surface" labelledBy="judul-katalog">
         <h2 id="judul-katalog" className="sr-only">
-          {k.slug === "plafon-pvc" ? `Merek ${k.nama}` : `Daftar produk ${k.nama}`}
+          {`Daftar produk ${k.nama}`}
         </h2>
         {k.slug === "plafon-pvc" ? (
-          <>
-            <MerekGrid kategori={k.slug} items={merek} />
-            {tanpaMerek.length > 0 ? (
-              <div className="mt-12">
-                <h3 className="mb-6 font-display text-xl font-semibold">Produk tanpa merek</h3>
-                <ProdukGrid produk={tanpaMerek} />
-              </div>
-            ) : null}
-          </>
+          <MerekGrid kategori={k.slug} items={merek} />
+        ) : produk.length === 1 && produk[0] ? (
+          <ProdukDetail produk={produk[0]} />
         ) : (
-          <KatalogBrowser produk={produk} merek={merek} />
+          <ProdukGrid produk={produk} />
         )}
       </Section>
       <CtaBand message={waMessages.produkUmum} location="kategori-cta" secondaryHref="/produk" secondaryLabel="Lihat semua produk" />

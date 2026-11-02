@@ -15,13 +15,13 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-background/95">
-      <div className="container-page flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="-ml-4 flex min-w-0 shrink-0 items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="block w-24 sm:w-28">
-            <Asset id="LOGO-01" sizes="(min-width: 640px) 112px, 96px" />
+      <div className="container-page flex h-16 items-center justify-between gap-3 sm:gap-4">
+        <Link href="/" className="flex min-w-0 shrink items-center gap-2" onClick={() => setOpen(false)}>
+          <span className="block w-16 shrink-0 sm:w-28">
+            <Asset id="LOGO-01" sizes="(min-width: 640px) 112px, 64px" />
           </span>
           <span
-            className={`${logoFont.className} -ml-6 block -skew-x-12 whitespace-nowrap text-xs uppercase tracking-wide text-ink min-[400px]:text-sm sm:text-base`}
+            className={`${logoFont.className} -ml-1 block min-w-0 -skew-x-12 whitespace-nowrap text-[0.625rem] uppercase tracking-wide text-ink min-[400px]:text-xs sm:text-base`}
           >
             Anugrah Plafon PVC
           </span>

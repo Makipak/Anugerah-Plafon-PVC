@@ -33,9 +33,11 @@ export const assets = {
   "TOKO-01": { ratio: "3/2", minWidth: 1600, minHeight: 1067, brief: "Tampak depan toko atau gudang", src: "/assets/tentang/toko-01.webp", alt: "Tampak depan usaha Anugrah Plafon PVC di Serang", },
   "TIM-01": { ratio: "3/2", minWidth: 1600, minHeight: 1067, brief: "Tim di lokasi kerja", src: "/assets/tentang/tim-01.webp", alt: "Dua pekerja memasang papan plafon pada rangka besi", },
   "AREA-serang-01": { ratio: "3/2", minWidth: 1200, minHeight: 800, brief: "Proyek nyata di wilayah Serang", optional: true },
-  "BLOG-01": { ratio: "16/9", minWidth: 1600, minHeight: 900, brief: "Sampul artikel 01", src: "/assets/blog/blog-01.webp", alt: "Sampul artikel 01", },
-  "BLOG-02": { ratio: "16/9", minWidth: 1600, minHeight: 900, brief: "Sampul artikel 02", src: "/assets/blog/blog-02.webp", alt: "Sampul artikel 02", },
-  "BLOG-03": { ratio: "16/9", minWidth: 1600, minHeight: 900, brief: "Sampul artikel 03", src: "/assets/blog/blog-03.webp", alt: "Sampul artikel 03", },
+  "BLOG-01": { ratio: "16/9", minWidth: 960, minHeight: 1280, brief: "Plafon PVC putih dengan desain bertingkat", src: "/assets/blog/blog-5.jpeg", alt: "Plafon PVC putih dengan desain bertingkat dan lampu gantung" },
+  "BLOG-02": { ratio: "16/9", minWidth: 1536, minHeight: 1024, brief: "Interior ruang dengan panel dinding motif kayu", src: "/assets/blog/blog-2.png", alt: "Interior ruang dengan panel dinding motif kayu dan rak televisi" },
+  "BLOG-03": { ratio: "16/9", minWidth: 1280, minHeight: 960, brief: "Plafon PVC pada ruang tamu", src: "/assets/blog/blog-3.jpeg", alt: "Plafon PVC terpasang pada ruang tamu" },
+  "BLOG-04": { ratio: "16/9", minWidth: 960, minHeight: 1280, brief: "Plafon PVC dengan aksen geometris dan lampu gantung", src: "/assets/blog/blog-4.jpeg", alt: "Plafon PVC putih dengan aksen geometris dan lampu gantung" },
+  "BLOG-05": { ratio: "16/9", minWidth: 960, minHeight: 1280, brief: "Pemasangan plafon PVC motif kayu pada area teras", src: "/assets/blog/blog-1.jpeg", alt: "Pemasangan plafon PVC motif kayu di area teras rumah" },
 } satisfies Record<string, AssetSpec>;
 
 export type AssetId = keyof typeof assets;

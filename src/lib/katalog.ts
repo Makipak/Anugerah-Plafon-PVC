@@ -1,10 +1,8 @@
-import { kategoriData, merekData, produkContoh, produkNyataLengkap, seriData } from "@/content/katalog";
+import { kategoriData, merekData, produkNyataLengkap, seriData } from "@/content/katalog";
 import type { ProdukKatalog } from "@/content/schemas";
-import { isProduction } from "@/lib/placeholders";
 import type { KategoriView, MerekView, ProdukView, WarnaView } from "@/lib/katalog-view";
 
-// Akses data katalog untuk komponen server. Produk contoh tidak pernah tampil di produksi.
-const aktif: readonly ProdukKatalog[] = isProduction ? produkNyataLengkap : [...produkNyataLengkap, ...produkContoh];
+const aktif: readonly ProdukKatalog[] = produkNyataLengkap;
 
 // Alt text dibentuk dari data, bukan ditulis ulang per foto, sehingga tetap akurat saat data diganti.
 function altFoto(kategori: string, namaLengkap: string, motif: string | undefined, banyakWarna: boolean, warna: string, urutan: number, jumlah: number): string {
@@ -19,7 +17,7 @@ function toView(p: ProdukKatalog): ProdukView {
   if (!kategori) throw new Error(`Kategori ${p.kategori} tidak ada`);
   const merek = merekData.find((m) => m.slug === p.merek);
   const seri = seriData.find((s) => s.merek === p.merek && s.slug === p.seri);
-  const namaLengkap = [merek?.nama, seri?.nama, p.nama].filter(Boolean).join(" ");
+  const namaLengkap = [...new Set([merek?.nama, seri?.nama, p.nama].filter(Boolean))].join(" ");
   const warna: WarnaView[] = p.warna.map((w) => ({
     slug: w.slug,
     nama: w.nama,
@@ -77,24 +75,23 @@ export function kategoriBySlug(slug: string): KategoriView | undefined {
   return semuaKategori().find((k) => k.slug === slug);
 }
 
-// Hanya merek (dan seri) yang punya produk (di kategori tertentu bila diisi); yang kosong tidak ditampilkan.
 export function merekAktif(kategori?: string): MerekView[] {
   return merekData
-    .map((m) => {
+    .flatMap((m) => {
       const produk = aktif.filter((p) => p.merek === m.slug && (!kategori || p.kategori === kategori));
+      if (produk.length === 0) return [];
       const seri = seriData
         .filter((s) => s.merek === m.slug && produk.some((p) => p.seri === s.slug))
         .map((s) => ({ slug: s.slug, nama: s.nama }));
-      return {
+      return [{
         slug: m.slug,
         nama: m.nama,
         ...(m.ringkasan ? { ringkasan: m.ringkasan } : {}),
         ...(m.thumbnail ? { thumbnail: m.thumbnail } : {}),
         seri,
         jumlah: produk.length,
-      };
+      }];
     })
-    .filter((m) => m.jumlah > 0);
 }
 
 // Produk lain dari kategori yang sama, lalu merek, lalu seri yang sama; sisanya mengikuti urutan data.

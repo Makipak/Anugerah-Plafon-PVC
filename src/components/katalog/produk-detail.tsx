@@ -39,7 +39,7 @@ function Isi({ produk: p, awalWarna }: { produk: ProdukView; awalWarna: string }
 
   const spesifikasi: [string, string][] = [];
   spesifikasi.push(["Kategori", p.kategori.nama]);
-  if (p.merek) spesifikasi.push(["Merek", p.merek.nama]);
+  if (p.merek) spesifikasi.push(["Jenis produk", p.merek.nama]);
   if (p.seri) spesifikasi.push(["Seri", p.seri.nama]);
   if (p.kode) spesifikasi.push(["Kode", p.kode]);
   if (p.motif) spesifikasi.push(["Motif", p.motif]);
@@ -48,45 +48,53 @@ function Isi({ produk: p, awalWarna }: { produk: ProdukView; awalWarna: string }
   if (!p.ukuran && !p.tebal) spesifikasi.push(["Ukuran", "Tanyakan lewat WhatsApp"]);
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-14">
-      <div>
+    <div className="grid min-w-0 gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-14">
+      <div className="min-w-0">
         <ProdukFoto
           src={foto?.src}
           alt={foto?.alt ?? p.namaLengkap}
           label={`${p.namaLengkap} | ${warna.nama} | foto ${fi + 1}`}
-          sizes="(min-width: 1024px) 600px, 100vw"
+          sizes="(min-width: 1024px) 600px, calc(100vw - 40px)"
           priority
           className="rounded-card"
         />
         {daftarFoto.length > 1 ? (
-          <ul aria-label={`Foto warna ${warna.nama}`} className="mt-3 flex gap-3 overflow-x-auto pb-1">
-            {daftarFoto.map((f, i) => (
-              <li key={`${warna.slug}-${i}`} className="shrink-0">
-                <button
-                  type="button"
-                  onClick={() => setFi(i)}
-                  aria-label={`Foto ${i + 1} dari ${daftarFoto.length}`}
-                  aria-current={i === fi ? "true" : undefined}
-                  className={`relative block size-20 overflow-hidden rounded-control border bg-panel ${i === fi ? "border-primary ring-2 ring-primary" : "border-line hover:border-line-strong"}`}
-                >
-                  {f.src ? (
-                    <Image src={f.src} alt="" fill sizes="80px" className="object-cover" />
-                  ) : (
-                    <span className="text-label flex size-full items-center justify-center text-ink-muted">{i + 1}</span>
-                  )}
-                </button>
-              </li>
-            ))}
-          </ul>
+          <>
+            <p className="mt-2 text-xs text-ink-muted sm:hidden">
+              Foto {fi + 1} dari {daftarFoto.length}. Geser untuk melihat foto lainnya.
+            </p>
+            <ul
+              aria-label={`Foto warna ${warna.nama}`}
+              className="-mx-5 mt-2 flex w-full min-w-0 snap-x snap-mandatory gap-2 overflow-x-auto px-5 pb-2 sm:mx-0 sm:mt-3 sm:gap-3 sm:px-0"
+            >
+              {daftarFoto.map((f, i) => (
+                <li key={`${warna.slug}-${i}`} className="shrink-0 snap-start">
+                  <button
+                    type="button"
+                    onClick={() => setFi(i)}
+                    aria-label={`Foto ${i + 1} dari ${daftarFoto.length}`}
+                    aria-current={i === fi ? "true" : undefined}
+                    className={`relative block size-16 overflow-hidden rounded-control border bg-panel sm:size-20 ${i === fi ? "border-primary ring-2 ring-primary" : "border-line hover:border-line-strong"}`}
+                  >
+                    {f.src ? (
+                      <Image src={f.src} alt="" fill sizes="(min-width: 640px) 80px, 64px" className="object-cover" />
+                    ) : (
+                      <span className="text-label flex size-full items-center justify-center text-ink-muted">{i + 1}</span>
+                    )}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </>
         ) : null}
       </div>
 
-      <div>
-        <dl className="grid grid-cols-[6.5rem_1fr] gap-y-2 border-y border-line py-4">
+      <div className="min-w-0">
+        <dl className="grid grid-cols-[6rem_minmax(0,1fr)] gap-x-3 gap-y-2 border-y border-line py-4">
           {spesifikasi.map(([k, v]) => (
             <div key={k} className="contents">
-              <dt className="text-ink-muted">{k}</dt>
-              <dd className="font-semibold">{v}</dd>
+              <dt className="min-w-0 text-ink-muted">{k}</dt>
+              <dd className="min-w-0 break-words font-semibold">{v}</dd>
             </div>
           ))}
         </dl>

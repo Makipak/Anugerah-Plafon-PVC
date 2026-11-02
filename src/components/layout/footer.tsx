@@ -12,17 +12,17 @@ export function Footer() {
     <footer className="mt-0 border-t border-line bg-panel">
       <div className="container-page grid gap-10 py-14 md:grid-cols-3">
         <div>
-          <Link href="/" className="-ml-8 flex items-center gap-3">
-            <span className="block w-44 shrink-0">
-              <Asset id="LOGO-01" sizes="176px" />
+          <Link href="/" className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <span className="block w-24 shrink-0 sm:w-44">
+              <Asset id="LOGO-01" sizes="(min-width: 640px) 176px, 96px" />
             </span>
-            <span className="-ml-8 min-w-0">
+            <span className="min-w-0">
               <span
-                className={`${logoFont.className} block -skew-x-12 whitespace-nowrap text-sm uppercase tracking-wide text-ink min-[400px]:text-base`}
+                className={`${logoFont.className} block -skew-x-12 whitespace-nowrap text-xs uppercase tracking-wide text-ink min-[400px]:text-sm sm:text-base`}
               >
                 Anugrah Plafon PVC
               </span>
-              <span className="block text-sm leading-tight text-ink-muted">Toko plafon PVC</span>
+              <span className="block text-xs leading-tight text-ink-muted sm:text-sm">Toko plafon PVC</span>
             </span>
           </Link>
           <address className="mt-5 not-italic text-ink-muted">

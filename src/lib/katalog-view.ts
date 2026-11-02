@@ -31,7 +31,11 @@ export function pesanProduk(p: ProdukView, warna?: WarnaView): string {
 }
 
 export function labelAtas(p: ProdukView): string | undefined {
-  if (p.merek) return p.seri ? `${p.merek.nama} | ${p.seri.nama}` : p.merek.nama;
+  if (p.merek) {
+    if (p.merek.nama === p.nama) return undefined;
+    return p.seri ? `${p.merek.nama} | ${p.seri.nama}` : p.merek.nama;
+  }
+  if (p.nama === p.kategori.nama) return p.kode;
   return p.kode ?? p.kategori.nama;
 }
 

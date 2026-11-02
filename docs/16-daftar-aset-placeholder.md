@@ -85,7 +85,7 @@ Status: `[ ]` belum dibuat, `[x]` selesai dan terpasang.
 
 | ID | Dipakai di | Rasio | Ukuran minimum | Isi yang dibutuhkan | Status |
 |---|---|---|---|---|---|
-| BLOG-01 sampai BLOG-03 | Sampul artikel | 16:9 | 1600 x 900 | Gambar yang relevan dengan artikel (foto atau diagram buatan sendiri) | [ ] |
+| BLOG-01 sampai BLOG-05 | Sampul artikel | 16:9 | 960 x 960 | Foto plafon/interior yang relevan dengan artikel | [x] |
 | OG-BLOG-01 sampai 03 | Pratinjau tautan artikel | 1200:630 | 1200 x 630 | Judul artikel dan merek | [ ] |
 
 ### Opsional

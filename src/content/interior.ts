@@ -6,9 +6,8 @@ import { interiorSchema, type Interior, type InteriorSlug } from "./schemas";
 // Teks sengaja belum memuat klaim bahan, ukuran khusus, harga, garansi, atau lama pengerjaan
 // sebelum dikonfirmasi pemilik. Setelah pemilik mengonfirmasi, tambahkan di `penjelasan` dan `faq`.
 //
-// Foto hasil pekerjaan (opsional, maksimal 3 tampil): taruh di
-// public/interior/<slug>-1.webp, <slug>-2.webp, ... (persegi 1:1, min 800x800), lalu isi
-// `foto: ["/interior/kitchen-set-1.webp", ...]`. Foto pertama juga dipakai di kartu halaman induk.
+// Foto hasil pekerjaan (opsional, maksimal 3 tampil) disimpan di public/assets/interior/
+// dan dicantumkan dengan path aktual di `foto`. Foto pertama juga dipakai di kartu halaman induk.
 // Jika foto belum tersedia, halaman tampil tanpa gambar di produksi (placeholder hanya di dev/preview).
 const data: readonly Interior[] = [
   {
@@ -42,6 +41,7 @@ const data: readonly Interior[] = [
     slug: "kamar-set",
     nama: "Kamar set",
     ringkasan: "Set furnitur untuk kamar tidur.",
+    foto: ["/assets/interior/intr-2.jpeg"],
     judul: "Kamar set di Serang",
     metaTitle: "Kamar Set Serang",
     metaDescription:
@@ -68,6 +68,7 @@ const data: readonly Interior[] = [
     slug: "kitchen-set",
     nama: "Kitchen set (dapur set)",
     ringkasan: "Lemari dan penataan area dapur.",
+    foto: ["/assets/interior/intr-3.png"],
     judul: "Kitchen set (dapur set) di Serang",
     metaTitle: "Kitchen Set Serang",
     metaDescription:

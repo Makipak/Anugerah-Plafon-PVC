@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CtaBand } from "@/components/sections/cta-band";
-import { ProdukGrid } from "@/components/katalog/produk-card";
+import { ProdukDetail } from "@/components/katalog/produk-detail";
 import { PageIntro } from "@/components/ui/page-intro";
 import { Section } from "@/components/ui/section";
 import { kategoriBySlug, merekAktif, semuaProduk } from "@/lib/katalog";
@@ -34,7 +34,8 @@ export default async function MerekPage({ params }: PageProps<"/produk/kategori/
   const merek = merekAktif(kategori).find((item) => item.slug === merekSlug);
   if (!k || !merek) notFound();
 
-  const produk = semuaProduk(kategori).filter((item) => item.merek?.slug === merek.slug);
+  const produk = semuaProduk(kategori).find((item) => item.merek?.slug === merek.slug);
+  if (!produk) notFound();
 
   return (
     <>
@@ -50,9 +51,9 @@ export default async function MerekPage({ params }: PageProps<"/produk/kategori/
       />
       <Section tone="surface" labelledBy="judul-katalog">
         <h2 id="judul-katalog" className="sr-only">
-          Produk {merek.nama}
+          Foto dan detail {merek.nama}
         </h2>
-        <ProdukGrid produk={produk} />
+        <ProdukDetail produk={produk} />
       </Section>
       <CtaBand
         message={waMessages.produkUmum}

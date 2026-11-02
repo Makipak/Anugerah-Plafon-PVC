@@ -58,7 +58,7 @@ export default async function ProdukDetailPage({ params }: PageProps<"/produk/[s
         trail={[
           { name: "Produk", path: "/produk" },
           ...(banyakKategori ? [{ name: p.kategori.nama, path: `/produk/kategori/${p.kategori.slug}` }] : []),
-          ...(p.merek && p.kategori.slug === "plafon-pvc"
+          ...(p.merek && p.nama !== p.merek.nama && p.kategori.slug === "plafon-pvc"
             ? [{
                 name: p.merek.nama,
                 path: `/produk/kategori/${p.kategori.slug}/merek/${p.merek.slug}`,
@@ -66,7 +66,7 @@ export default async function ProdukDetailPage({ params }: PageProps<"/produk/[s
             : []),
           { name: p.namaLengkap, path },
         ]}
-        label={p.merek ? p.merek.nama : p.kategori.nama}
+        label={p.merek && p.nama !== p.merek.nama ? p.merek.nama : p.kategori.nama}
         title={p.namaLengkap}
         lead={
           p.warna.length > 1

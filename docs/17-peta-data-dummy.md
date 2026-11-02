@@ -17,7 +17,7 @@ Nilai berikut tampil publik dan **belum diverifikasi** dengan fakta usaha. Verif
 | Jam operasional | `src/lib/site.ts` |
 | Wilayah layanan di halaman Kontak (menyebut Cilegon) berbeda dari `areaServed` (hanya Serang) | `src/app/kontak/page.tsx`, `src/lib/site.ts` |
 
-Email dan koordinat (`geo`) sengaja dikosongkan dan tidak ditampilkan sampai nilai aslinya diisi di `src/lib/site.ts`. Slot gambar `OG-DEFAULT`, `DETAIL-01`, `DETAIL-02`, `AREA-serang-01`, dan `BLOG-01` sampai `BLOG-03` bertanda `optional: true`: tidak dirender di produksi dan tidak menggagalkan build. Hapus tanda itu saat gambarnya tersedia.
+Email dan koordinat (`geo`) sengaja dikosongkan dan tidak ditampilkan sampai nilai aslinya diisi di `src/lib/site.ts`. Slot gambar `OG-DEFAULT`, `DETAIL-01`, `DETAIL-02`, dan `AREA-serang-01` bertanda `optional: true`: tidak dirender di produksi dan tidak menggagalkan build. Sampul BLOG-01 sampai BLOG-05 sudah tersedia.
 
 Data klien dikumpulkan lewat [04-checklist-materi-klien.md](04-checklist-materi-klien.md). Nomor telepon, WhatsApp, dan alamat sudah asli (commit "update alamat asli").
 
@@ -47,7 +47,7 @@ Daftar lengkap ada di [16-daftar-aset-placeholder.md](16-daftar-aset-placeholder
 | `OG-DEFAULT` | Gambar pratinjau tautan, 1200 x 630. Kode OG dan twitter card sudah siap; aktif otomatis saat `src` dan `alt` terisi |
 | `DETAIL-01`, `DETAIL-02` | Foto detail sambungan dan finishing |
 | `AREA-serang-01` | Foto proyek nyata di Serang |
-| `BLOG-01` sampai `BLOG-03` | Sampul artikel |
+| `BLOG-01` sampai `BLOG-05` | Sampul artikel, berkas tersedia di `public/assets/blog/` |
 
 `MOTIF-xx` dan `PROJ-xx` sudah punya berkas. Pastikan isinya sesuai dengan data motif dan proyek asli yang dimasukkan.
 

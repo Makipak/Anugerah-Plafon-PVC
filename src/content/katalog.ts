@@ -2,7 +2,6 @@ import {
   kategoriSchema,
   merekSchema,
   produkKatalogSchema,
-  seriSchema,
   type Kategori,
   type Merek,
   type ProdukKatalog,
@@ -10,139 +9,121 @@ import {
 } from "./schemas";
 // KATALOG: kategori > produk, dengan merek dan seri opsional; tiap produk punya warna, dan tiap warna punya foto.
 //
-// Menambah produk baru (untuk pemilik usaha):
-// 1. Taruh foto di public/produk/<slug-produk>/ dengan nama <slug-warna>-1.webp, <slug-warna>-2.webp, dst.
-//    Foto persegi (1:1), minimal 800x800 px. Foto pertama jadi foto utama.
-//    Jika foto belum tersedia, isi foto: [] dan fotoOpsional: true untuk menggunakan placeholder yang ada.
-// 2. Tambahkan satu objek ke produkNyata di bawah. slug produk harus unik, huruf kecil dan tanda hubung,
-//    dan tidak boleh "plafon-pvc" atau "kategori" (dipakai halaman lain). Setiap warna minimal punya satu foto.
-//    Isi `kategori` dengan slug dari kategoriData.
-// 3. Kategori, merek, dan seri baru ditambahkan ke kategoriData, merekData, dan seriData.
-//    Kategori selalu tampil; merek tanpa produk tidak ditampilkan.
-// 4. Ukuran dan ketebalan diisi di seri bila sama untuk satu seri; isi di produk bila berbeda.
-//
-// produkContoh hanya tampil di dev/preview agar tampilan merek, seri, dan warna terlihat sebelum data asli ada.
-// Hapus produkContoh setelah data klien lengkap. Di produksi, produkContoh tidak pernah tampil.
-
-// Ringkasan kategori sesuai istilah dari pemilik usaha; mohon dikonfirmasi sebelum tayang.
+// Satu folder jenis produk dengan foto menjadi satu produk. Masukkan semua foto folder ke `foto`;
+// folder atau data tanpa foto tidak masuk katalog. File thumbnail hanya dipakai sebagai thumbnail.
 export const kategoriData: readonly Kategori[] = [
-  { slug: "plafon-pvc", nama: "PVC", ringkasan: "Panel plafon dari PVC dalam berbagai merek, motif, dan warna.", thumbnail: "/produk/PVC/PVC-Thumb.jpg" },
-  { slug: "wpc", nama: "WPC", ringkasan: "WPC (Wood Plastic Composite) adalah bahan komposit dari serbuk kayu dan plastik." },
-  { slug: "wpc-outdoor", nama: "WPC Outdoor", ringkasan: "WPC untuk area luar ruangan.", thumbnail: "/produk/WPC-Outdoor/WPC-OD-Thum.jpg" },
-  { slug: "pvc-marble-granite", nama: "PVC Marble Granite", ringkasan: "Lembaran PVC bermotif marmer dan granit." },
-  { slug: "kisi-kisi", nama: "Kisi-kisi", ringkasan: "Batang berjajar untuk dekorasi dinding, plafon, atau sekat ruangan." },
-  { slug: "kisi-kisi-outdoor", nama: "Kisi-kisi Outdoor", ringkasan: "Kisi-kisi untuk area luar ruangan." },
-  { slug: "hollow-rangka", nama: "Hollow Rangka", ringkasan: "Pipa hollow sebagai rangka pemasangan." },
-  { slug: "panel-dinding", nama: "Panel Dinding", ringkasan: "Panel dekoratif untuk melapisi dinding." },
+  { slug: "plafon-pvc", nama: "PVC", ringkasan: "Panel plafon dari PVC dalam berbagai merek, motif, dan warna.", thumbnail: "/produk/PVC/PVC.png" },
+  { slug: "lis-dinding-6cm", nama: "LIS DINDING 6CM", thumbnail: "/produk/LIS-DINDING-6CM/LIS-DINDING-6CM-1.png" },
+  { slug: "lis-dinding-laminate", nama: "LIS DINDING LAMINATE", thumbnail: "/produk/LIS-DINDING-LAMINATE/LIS-DINDING-LAMINATE-1.png" },
+  { slug: "lis-wallboard", nama: "LIS WALLBOARD", thumbnail: "/produk/LIS-WALLBOARD/LIS-WALLBOARD-1.jpeg" },
+  { slug: "wallboard-40cm", nama: "WALLBOARD 40CM", thumbnail: "/produk/WALLBOARD-40CM/WALLBOARD-40CM-1.png" },
+  { slug: "wpc-outdoor", nama: "WPC Outdoor", ringkasan: "Panel WPC untuk area luar ruangan.", thumbnail: "/produk/WPC-Outdoor/WPC-OD-Thum.jpg" },
 ].map((k) => kategoriSchema.parse(k));
 
 export const merekData: readonly Merek[] = [
-  { slug: "dante", nama: "DANTE", thumbnail: "/produk/PVC/DANTE/DANTE-Thumb.jpg" },
-  { slug: "lamiwood", nama: "LAMIWOOD" },
-  { slug: "javafon", nama: "JAVAFON" },
-  { slug: "conwood", nama: "Conwood", ringkasan: "Merek panel berbahan serat semen (fiber cement) dengan tampilan kayu." },
+  { slug: "dante", nama: "DANTE", thumbnail: "/produk/PVC/DANTE/DANTE-1.jpg", kategori: "plafon-pvc" },
+  { slug: "lamiwood-glossy", nama: "LAMIWOOD GLOSSY", thumbnail: "/produk/PVC/LAMIWOOD-GLOSSY/LAMI-GLOSS-1.jpeg", kategori: "plafon-pvc" },
+  { slug: "lamiwood-laminatedoff-series", nama: "LAMIWOOD LAMINATEDOFF SERIES", thumbnail: "/produk/PVC/LAMIWOOD-LAMINATEDOFF-SERIES/DOFF-1.png", kategori: "plafon-pvc" },
+  { slug: "safir-laminatedoff-series", nama: "SAFIR LAMINATEDOFF SERIES", thumbnail: "/produk/PVC/SAFIR-LAMINATEDOFF-SERIES/SAFIR-1.png", kategori: "plafon-pvc" },
 ].map((m) => merekSchema.parse(m));
 
-// Nama seri sesuai daftar klien. Ejaan "Kompak" menunggu konfirmasi klien (tertulis "kompac").
-export const seriData: readonly Seri[] = [
-  { slug: "glossy", merek: "lamiwood", nama: "Glossy" },
-  { slug: "laminate-series", merek: "lamiwood", nama: "Laminate Series" },
-  { slug: "glossy", merek: "javafon", nama: "Glossy" },
-  { slug: "laminate-series", merek: "javafon", nama: "Laminate Series" },
-  { slug: "ultra", merek: "javafon", nama: "Ultra" },
-  { slug: "kompak", merek: "javafon", nama: "Kompak" },
-].map((s) => seriSchema.parse(s));
+export const seriData: readonly Seri[] = [];
 
-// Delapan produk lama dipertahankan sampai foto pemilik usaha tersedia.
-const motifLama = [
-  { slug: "polos-putih", nama: "Polos Putih", motif: "Polos" },
-  { slug: "polos-krem", nama: "Polos Krem", motif: "Polos" },
-  { slug: "kayu-jati", nama: "Kayu Jati", motif: "Kayu" },
-  { slug: "kayu-walnut", nama: "Kayu Walnut", motif: "Kayu" },
-  { slug: "kayu-oak", nama: "Kayu Oak", motif: "Kayu" },
-  { slug: "marmer-putih", nama: "Marmer Putih", motif: "Marmer" },
-  { slug: "marmer-abu", nama: "Marmer Abu", motif: "Marmer" },
-  { slug: "abu-doff", nama: "Abu Doff", motif: "Polos" },
-] as const;
-export const produkNyata: readonly ProdukKatalog[] = motifLama.map((m, i) =>
-  produkKatalogSchema.parse({
-    slug: m.slug,
-    nama: m.nama,
-    kode: `M${String(i + 1).padStart(2, "0")}`,
-    kategori: "plafon-pvc",
-    motif: m.motif,
-    ukuran: "25 cm x 4 m",
-    tebal: "8 mm",
-    warna: [{ slug: "standar", nama: m.nama, foto: [], fotoOpsional: true }],
-  }),
-);
+function fotoBerurutan(folder: string, prefix: string, jumlah: number, ekstensi: (nomor: number) => string): string[] {
+  return Array.from({ length: jumlah }, (_, index) => {
+    const nomor = index + 1;
+    return `/produk/${folder}/${prefix}${nomor}.${ekstensi(nomor)}`;
+  });
+}
 
-const produkDante: ProdukKatalog[] = Array.from({ length: 9 }, (_, index) => {
-  const nomor = index + 1;
+function produkFolder(data: {
+  slug: string;
+  nama: string;
+  kategori: string;
+  foto: string[];
+  merek?: string;
+}): ProdukKatalog {
   return produkKatalogSchema.parse({
-    slug: `dante-${nomor}`,
-    nama: `Produk ${nomor}`,
+    slug: data.slug,
+    nama: data.nama,
+    kategori: data.kategori,
+    ...(data.merek ? { merek: data.merek } : {}),
+    warna: [{ slug: "foto-produk", nama: "Foto produk", foto: data.foto }],
+  });
+}
+
+const produkPVC: ProdukKatalog[] = [
+  produkFolder({
+    slug: "dante",
+    nama: "DANTE",
     kategori: "plafon-pvc",
     merek: "dante",
-    warna: [{
-      slug: "standar",
-      nama: "Standar",
-      foto: [`/produk/PVC/DANTE/DANTE-${nomor}.jpg`],
-    }],
-  });
-});
-
-const produkWpcOutdoor: ProdukKatalog[] = Array.from({ length: 5 }, (_, index) => {
-  const nomor = index + 1;
-  const nama = `WPC Outdoor ${nomor}`;
-  return produkKatalogSchema.parse({
-    slug: `wpc-outdoor-${nomor}`,
-    nama,
-    kategori: "wpc-outdoor",
-    motif: "Kayu",
-    warna: [{
-      slug: "standar",
-      nama: "Standar",
-      foto: [`/produk/WPC-Outdoor/WPC-OD-${nomor}.png`],
-    }],
-  });
-});
-
-export const produkNyataLengkap: readonly ProdukKatalog[] = [...produkNyata, ...produkDante, ...produkWpcOutdoor];
-
-// Contoh: foto kosong ("") tampil sebagai placeholder berlabel.
-const warnaContoh = (nama: string, jumlahFoto = 3) => ({
-  slug: nama.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-  nama,
-  foto: Array.from({ length: jumlahFoto }, () => ""),
-});
-
-// Ukuran kisi-kisi (5x5, 5x10) dan hollow (2x4, 4x4) memakai satuan cm: asumsi, menunggu konfirmasi pemilik.
-type Contoh = Omit<ProdukKatalog, "contoh">;
-const dataContoh: Contoh[] = [
-  // Plafon PVC
-  { slug: "lamiwood-glossy-contoh-marmer", nama: "Contoh Motif Marmer", kategori: "plafon-pvc", merek: "lamiwood", seri: "glossy", motif: "Marmer", warna: [warnaContoh("Putih"), warnaContoh("Abu")] },
-  { slug: "lamiwood-laminate-contoh-kayu", nama: "Contoh Motif Kayu", kategori: "plafon-pvc", merek: "lamiwood", seri: "laminate-series", motif: "Kayu", warna: [warnaContoh("Jati"), warnaContoh("Walnut"), warnaContoh("Oak")] },
-  { slug: "javafon-glossy-contoh-marmer", nama: "Contoh Motif Marmer", kategori: "plafon-pvc", merek: "javafon", seri: "glossy", motif: "Marmer", warna: [warnaContoh("Putih"), warnaContoh("Hitam")] },
-  { slug: "javafon-laminate-contoh-kayu", nama: "Contoh Motif Kayu", kategori: "plafon-pvc", merek: "javafon", seri: "laminate-series", motif: "Kayu", warna: [warnaContoh("Cokelat Tua"), warnaContoh("Cokelat Muda")] },
-  { slug: "javafon-ultra-contoh-polos", nama: "Contoh Motif Polos", kategori: "plafon-pvc", merek: "javafon", seri: "ultra", motif: "Polos", warna: [warnaContoh("Putih"), warnaContoh("Krem"), warnaContoh("Abu")] },
-  { slug: "javafon-kompak-contoh-kayu", nama: "Contoh Motif Kayu", kategori: "plafon-pvc", merek: "javafon", seri: "kompak", motif: "Kayu", warna: [warnaContoh("Natural"), warnaContoh("Cokelat")] },
-  // Kategori lain
-  { slug: "wpc-contoh-panel", nama: "Contoh Panel WPC", kategori: "wpc", motif: "Kayu", warna: [warnaContoh("Cokelat"), warnaContoh("Abu"), warnaContoh("Hitam")] },
-  { slug: "wpc-outdoor-contoh", nama: "Contoh WPC Outdoor", kategori: "wpc-outdoor", motif: "Kayu", warna: [warnaContoh("Teak"), warnaContoh("Abu")] },
-  { slug: "pvc-marble-contoh", nama: "Contoh Marble", kategori: "pvc-marble-granite", motif: "Marmer", warna: [warnaContoh("Putih"), warnaContoh("Hitam"), warnaContoh("Abu")] },
-  { slug: "pvc-granite-contoh", nama: "Contoh Granite", kategori: "pvc-marble-granite", motif: "Granit", warna: [warnaContoh("Hitam"), warnaContoh("Cokelat")] },
-  { slug: "kisi-kisi-contoh-5x5", nama: "Contoh Kisi-kisi 5x5", kategori: "kisi-kisi", ukuran: "5 x 5 cm", motif: "Kayu", warna: [warnaContoh("Cokelat"), warnaContoh("Natural")] },
-  { slug: "kisi-kisi-contoh-5x10", nama: "Contoh Kisi-kisi 5x10", kategori: "kisi-kisi", ukuran: "5 x 10 cm", motif: "Kayu", warna: [warnaContoh("Cokelat"), warnaContoh("Natural")] },
-  { slug: "kisi-kisi-outdoor-contoh-5x5", nama: "Contoh Kisi-kisi Outdoor 5x5", kategori: "kisi-kisi-outdoor", ukuran: "5 x 5 cm", motif: "Kayu", warna: [warnaContoh("Teak"), warnaContoh("Abu")] },
-  { slug: "kisi-kisi-outdoor-contoh-5x10", nama: "Contoh Kisi-kisi Outdoor 5x10", kategori: "kisi-kisi-outdoor", ukuran: "5 x 10 cm", motif: "Kayu", warna: [warnaContoh("Teak"), warnaContoh("Abu")] },
-  { slug: "hollow-contoh-2x4", nama: "Contoh Hollow 2x4", kategori: "hollow-rangka", ukuran: "2 x 4 cm", warna: [warnaContoh("Standar", 2)] },
-  { slug: "hollow-contoh-4x4", nama: "Contoh Hollow 4x4", kategori: "hollow-rangka", ukuran: "4 x 4 cm", warna: [warnaContoh("Standar", 2)] },
-  { slug: "conwood-contoh-panel", nama: "Contoh Panel Dinding", kategori: "panel-dinding", merek: "conwood", motif: "Kayu", warna: [warnaContoh("Natural"), warnaContoh("Cokelat")] },
+    foto: fotoBerurutan("PVC/DANTE", "DANTE-", 9, () => "jpg"),
+  }),
+  produkFolder({
+    slug: "lamiwood-glossy",
+    nama: "LAMIWOOD GLOSSY",
+    kategori: "plafon-pvc",
+    merek: "lamiwood-glossy",
+    foto: fotoBerurutan("PVC/LAMIWOOD-GLOSSY", "LAMI-GLOSS-", 30, (nomor) =>
+      nomor === 6 ? "jpg" : nomor === 27 ? "png" : nomor >= 28 ? "jpg" : "jpeg",
+    ),
+  }),
+  produkFolder({
+    slug: "lamiwood-laminatedoff-series",
+    nama: "LAMIWOOD LAMINATEDOFF SERIES",
+    kategori: "plafon-pvc",
+    merek: "lamiwood-laminatedoff-series",
+    foto: fotoBerurutan("PVC/LAMIWOOD-LAMINATEDOFF-SERIES", "DOFF-", 11, () => "png"),
+  }),
+  produkFolder({
+    slug: "safir-laminatedoff-series",
+    nama: "SAFIR LAMINATEDOFF SERIES",
+    kategori: "plafon-pvc",
+    merek: "safir-laminatedoff-series",
+    foto: fotoBerurutan("PVC/SAFIR-LAMINATEDOFF-SERIES", "SAFIR-", 5, () => "png"),
+  }),
 ];
-export const produkContoh: readonly ProdukKatalog[] = dataContoh.map((p) =>
-  produkKatalogSchema.parse({ ...p, contoh: true }),
-);
+
+const produkPanelDinding: ProdukKatalog[] = [
+  produkFolder({
+    slug: "lis-dinding-6cm",
+    nama: "LIS DINDING 6CM",
+    kategori: "lis-dinding-6cm",
+    foto: fotoBerurutan("LIS-DINDING-6CM", "LIS-DINDING-6CM-", 7, () => "png"),
+  }),
+  produkFolder({
+    slug: "lis-dinding-laminate",
+    nama: "LIS DINDING LAMINATE",
+    kategori: "lis-dinding-laminate",
+    foto: fotoBerurutan("LIS-DINDING-LAMINATE", "LIS-DINDING-LAMINATE-", 4, () => "png"),
+  }),
+  produkFolder({
+    slug: "lis-wallboard",
+    nama: "LIS WALLBOARD",
+    kategori: "lis-wallboard",
+    foto: fotoBerurutan("LIS-WALLBOARD", "LIS-WALLBOARD-", 4, () => "jpeg"),
+  }),
+  produkFolder({
+    slug: "wallboard-40cm",
+    nama: "WALLBOARD 40CM",
+    kategori: "wallboard-40cm",
+    foto: fotoBerurutan("WALLBOARD-40CM", "WALLBOARD-40CM-", 8, () => "png"),
+  }),
+];
+
+const produkWpcOutdoor = produkFolder({
+  slug: "wpc-outdoor",
+  nama: "WPC Outdoor",
+  kategori: "wpc-outdoor",
+  foto: fotoBerurutan("WPC-Outdoor", "WPC-OD-", 5, () => "png"),
+});
+
+export const produkNyataLengkap: readonly ProdukKatalog[] = [
+  ...produkPVC,
+  ...produkPanelDinding,
+  produkWpcOutdoor,
+];
 
 // Pemeriksaan acuan silang saat modul dimuat: salah isi data menghentikan dev/build dengan pesan jelas.
 function validasi(): void {
@@ -162,7 +143,7 @@ function validasi(): void {
   if (kategoriSlugs.size !== kategoriData.length) galat.push("slug kategori ganda");
 
   const slugPakai = new Set<string>(["plafon-pvc", "kategori"]);
-  for (const p of [...produkNyataLengkap, ...produkContoh]) {
+  for (const p of produkNyataLengkap) {
     if (slugPakai.has(p.slug)) galat.push(`slug produk ganda atau dicadangkan: ${p.slug}`);
     slugPakai.add(p.slug);
     if (!kategoriSlugs.has(p.kategori)) galat.push(`produk ${p.slug}: kategori ${p.kategori} tidak ada`);
@@ -174,6 +155,7 @@ function validasi(): void {
   }
   for (const p of produkNyataLengkap) {
     for (const w of p.warna) {
+      if (w.foto.length === 0) galat.push(`produk ${p.slug}/${w.slug}: harus memiliki foto`);
       if (w.foto.some((f) => !f.startsWith("/"))) galat.push(`produk ${p.slug}/${w.slug}: foto harus berupa jalur berawalan "/"`);
     }
   }

@@ -29,6 +29,7 @@ export const merekSchema = z.object({
   nama: z.string().min(1),
   ringkasan: z.string().min(1).optional(),
   thumbnail: z.string().startsWith("/").optional(),
+  kategori: slug.optional(),
 });
 export type Merek = z.infer<typeof merekSchema>;
 

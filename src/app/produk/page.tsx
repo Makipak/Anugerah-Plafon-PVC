@@ -10,7 +10,7 @@ import { waMessages } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Produk Plafon PVC dan WPC Serang",
-  description: "Lihat jenis produk plafon PVC, WPC, kisi-kisi, dan panel dinding di Serang, Banten. Pilih kategori untuk melihat pilihan produknya.",
+  description: "Lihat PVC, lis dinding, wallboard, dan WPC Outdoor yang tersedia beserta foto produknya di Serang, Banten.",
   path: "/produk",
 });
 
@@ -23,7 +23,7 @@ export default function ProdukPage() {
         trail={[{ name: "Produk", path: "/produk" }]}
         label="Produk"
         title="Produk Plafon PVC dan Material Interior"
-        lead="Pilih jenis produk untuk melihat pilihan dan foto produknya. Hubungi kami untuk membahas ketersediaan dan jasa pasang."
+        lead="Pilih folder produk untuk melihat jenis dan foto yang tersedia. Di dalam folder PVC, pilih merek atau jenis plafon PVC yang ingin dilihat."
       />
       <Section tone="surface" labelledBy="judul-katalog">
         <SectionHeading id="judul-katalog" label="Katalog">

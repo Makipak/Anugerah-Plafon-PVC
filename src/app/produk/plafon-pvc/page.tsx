@@ -73,8 +73,8 @@ export default function PlafonPvcPage() {
             </ul>
             <p className="mt-6 text-ink-muted">
               Membandingkan dengan gypsum? Baca{" "}
-              <Link href="/blog/plafon-pvc-vs-gypsum" className="text-ink underline underline-offset-4">
-                perbandingan plafon PVC dan gypsum
+              <Link href="/blog/perbandingan-plafon-pvc-dan-gypsum-ruang-tamu" className="text-ink underline underline-offset-4">
+                perbandingan plafon PVC dan gypsum untuk ruang tamu
               </Link>
               .
             </p>

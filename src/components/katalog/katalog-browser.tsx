@@ -59,7 +59,7 @@ function Isi({ produk, merek, awalMerek, awalSeri }: Props & { awalMerek: string
     <div>
       {merek.length > 0 ? (
         <div className="mb-8">
-          <div role="group" aria-label="Filter merek" className="flex flex-wrap gap-x-6 border-b border-line">
+          <div role="group" aria-label="Filter jenis produk" className="flex flex-wrap gap-x-6 border-b border-line">
             <Tab aktif={!mSlug} onClick={() => pilih("")}>
               Semua
             </Tab>

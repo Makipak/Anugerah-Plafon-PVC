@@ -13,10 +13,11 @@ flowchart TD
   H --> K[Kontak /kontak]
   P --> P1[/produk/kategori/plafon-pvc]
   P1 --> P1a[/produk/kategori/plafon-pvc/merek/dante]
-  P1a --> P1b[/produk/dante-1 - detail produk]
-  P --> P2[/produk/kategori/wpc]
-  P --> P3[/produk/kategori/wpc-outdoor]
-  P --> P4[/produk/kategori/kisi-kisi dan kategori lain]
+  P --> P2[/produk/kategori/lis-dinding-6cm]
+  P --> P3[/produk/kategori/lis-dinding-laminate]
+  P --> P4[/produk/kategori/lis-wallboard]
+  P --> P5[/produk/kategori/wallboard-40cm]
+  P --> P6[/produk/kategori/wpc-outdoor]
   L --> L1[/layanan/pasang-plafon-pvc]
   L --> L2[/layanan/harga-dan-biaya-pasang - konsultasi]
   A --> A1[/area-layanan/serang]
@@ -32,10 +33,10 @@ Halaman dengan label "opsional" dibuat hanya jika klien benar-benar menjual atau
 | URL | Tujuan | Isi wajib | Keyword utama |
 |---|---|---|---|
 | `/` | Halaman pendaratan utama | Hero + CTA WA, keunggulan, produk unggulan, galeri singkat, testimoni, FAQ ringkas, area layanan, NAP + peta | plafon pvc serang |
-| `/produk` | Daftar jenis produk | Kartu thumbnail dan judul kategori; pilih kategori untuk membuka daftar produknya | produk plafon pvc dan material interior Serang |
-| `/produk/kategori/plafon-pvc` | Merek plafon PVC | Kartu thumbnail dan nama merek; pilih merek untuk membuka daftar produk | merek plafon pvc Serang |
-| `/produk/kategori/plafon-pvc/merek/[merek]` | Produk per merek plafon PVC | Kartu foto dan judul produk; pilih produk untuk membuka foto dan detail | nama merek plafon pvc Serang |
-| `/produk/kategori/[kategori]` | Produk kategori lain | Daftar produk dengan foto dan judul; pilih produk untuk membuka foto dan detail | nama kategori + Serang |
+| `/produk` | Daftar folder produk | Kartu untuk setiap folder utama berfoto: PVC, lis dinding, lis wallboard, wallboard, dan WPC Outdoor | produk plafon pvc dan material interior Serang |
+| `/produk/kategori/plafon-pvc` | Daftar folder di dalam PVC | Kartu nama dan foto untuk tiap folder merek/jenis PVC | produk plafon pvc Serang |
+| `/produk/kategori/plafon-pvc/merek/[merek]` | Galeri jenis PVC | Semua foto dari folder merek/jenis yang dipilih | nama jenis plafon pvc Serang |
+| `/produk/kategori/[kategori]` | Galeri folder produk lain | Semua foto dari folder lis dinding, lis wallboard, wallboard, atau WPC Outdoor | nama jenis produk + Serang |
 | `/produk/plafon-pvc` | Halaman produk inti | Varian motif, ukuran, ketebalan, kelebihan, perbandingan dengan gypsum, FAQ, schema Product | plafon pvc serang |
 | `/layanan/pasang-plafon-pvc` | Halaman jasa | Proses kerja, contoh proyek, garansi, cara order, schema Service | jasa pasang plafon pvc serang |
 | `/layanan/harga-dan-biaya-pasang` | Konsultasi | Informasi yang perlu disiapkan dan CTA WhatsApp; nominal tidak ditampilkan | konsultasi plafon pvc serang |
