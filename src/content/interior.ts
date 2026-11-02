@@ -39,16 +39,16 @@ const data: readonly Interior[] = [
   },
   {
     slug: "kamar-set",
-    nama: "Kamar set",
-    ringkasan: "Set furnitur untuk kamar tidur.",
+    nama: "Furniture",
+    ringkasan: "Furniture kamar tidur sesuai ukuran dan kebutuhan ruangan.",
     foto: ["/assets/interior/intr-2.jpeg"],
-    judul: "Kamar set di Serang",
-    metaTitle: "Kamar Set Serang",
+    judul: "Furniture kamar tidur di Serang",
+    metaTitle: "Furniture Kamar Tidur Serang",
     metaDescription:
-      "Layanan kamar set di Serang, Banten: furnitur kamar tidur yang menyesuaikan ruangan Anda. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
-    lead: "Kamar set adalah furnitur kamar tidur yang ditata mengikuti ukuran dan kebutuhan ruangan Anda.",
+      "Layanan furniture kamar tidur di Serang, Banten, ditata mengikuti ukuran dan kebutuhan ruangan. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
+    lead: "Furniture kamar tidur ditata mengikuti ukuran dan kebutuhan ruangan Anda.",
     penjelasan: [
-      "Kamar set biasanya mencakup perabot kamar tidur seperti tempat tidur, lemari pakaian, dan meja. Susunannya disesuaikan dengan ukuran kamar agar ruang terasa tertata.",
+      "Furniture kamar tidur dapat mencakup perabot seperti tempat tidur, lemari pakaian, dan meja. Susunannya disesuaikan dengan ukuran kamar agar ruang terasa tertata.",
       "Ceritakan ukuran kamar, perabot yang Anda butuhkan, dan gaya yang disukai. Dari situ kami membahas langkah berikutnya, termasuk survei lokasi.",
     ],
     poin: [
@@ -58,10 +58,10 @@ const data: readonly Interior[] = [
       "Survei lokasi sebelum pekerjaan dimulai",
     ],
     faq: [
-      { q: "Apa saja yang termasuk dalam kamar set?", a: "Isinya bergantung pada kebutuhan Anda. Sebutkan perabot yang diinginkan saat konsultasi, lalu kami bahas bersama." },
-      { q: "Apakah kamar set bisa disesuaikan dengan ukuran kamar saya?", a: "Bisa dibahas. Kirim ukuran dan foto kamar lewat WhatsApp agar kami dapat memberi gambaran awal." },
-      { q: "Bagaimana cara memesan kamar set?", a: "Chat kami lewat WhatsApp, ceritakan kebutuhan dan lokasi Anda, lalu kami atur jadwal survei." },
-      { q: "Berapa biaya kamar set?", a: "Biaya bergantung pada isi set, ukuran, dan bahan yang dipilih. Hubungi kami untuk membahas estimasinya." },
+      { q: "Furniture apa saja yang bisa dibuat untuk kamar?", a: "Furniture dapat mencakup tempat tidur, lemari pakaian, dan meja. Sebutkan perabot yang diinginkan saat konsultasi, lalu kami bahas bersama." },
+      { q: "Apakah furniture bisa disesuaikan dengan ukuran kamar saya?", a: "Bisa dibahas. Kirim ukuran dan foto kamar lewat WhatsApp agar kami dapat memberi gambaran awal." },
+      { q: "Bagaimana cara memesan furniture kamar?", a: "Chat kami lewat WhatsApp, ceritakan kebutuhan dan lokasi Anda, lalu kami atur jadwal survei." },
+      { q: "Berapa biaya furniture kamar?", a: "Biaya bergantung pada jenis perabot, ukuran, dan bahan yang dipilih. Hubungi kami untuk membahas estimasinya." },
     ],
   },
   {

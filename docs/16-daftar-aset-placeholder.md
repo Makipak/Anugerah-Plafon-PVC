@@ -69,7 +69,7 @@ Status: `[ ]` belum dibuat, `[x]` selesai dan terpasang.
 
 | ID | Dipakai di | Rasio | Ukuran minimum | Isi yang dibutuhkan | Status |
 |---|---|---|---|---|---|
-| PROJ-01-SESUDAH sampai PROJ-NN-SESUDAH | Galeri, Home, area layanan | 4:3 | 1600 x 1200 | Hasil akhir; catat kecamatan, jenis ruang, luas, bahan, tahun | [ ] |
+| PROJ-01-SESUDAH sampai PROJ-35-SESUDAH | Galeri, Home, area layanan | 4:3 atau 3:4 sesuai foto | 700 x 900 | Foto proyek; catat jenis ruang dan bahan. Lokasi dan tahun boleh dikosongkan jika belum terverifikasi | [x] |
 | PROJ-01-SEBELUM sampai PROJ-NN-SEBELUM | Penggeser sebelum/sesudah | 4:3 | 1600 x 1200 | Kondisi awal dari **sudut yang sama** dengan foto sesudah (tidak semua proyek wajib punya) | [ ] |
 
 ### Proses, tentang, area

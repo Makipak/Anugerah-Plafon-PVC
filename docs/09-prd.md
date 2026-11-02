@@ -39,7 +39,7 @@ Mayoritas trafik diasumsikan dari mobile; desain mobile-first.
 
 ### 4.1 Dalam scope (MVP)
 
-1. Halaman: Home, Produk, Detail Produk Plafon PVC, Layanan Pasang, Harga dan Biaya, Galeri, Area Layanan (wilayah yang dilayani), Blog, Tentang Kami, Kontak.
+1. Halaman: Home, Produk, Detail Produk Plafon PVC, Layanan Pasang, Harga dan Biaya, Galeri, Area Layanan (wilayah yang dilayani), Blog, Tentang Toko, Kontak.
 2. CTA WhatsApp (header, floating, per produk) dengan pesan prefilled.
 3. SEO teknis: metadata, canonical, sitemap, robots, JSON-LD, breadcrumb.
 4. Performa: SSG, optimasi gambar dan font.
@@ -63,7 +63,7 @@ CMS (mis. untuk artikel dan galeri), kalkulator estimasi biaya interaktif, formu
 | FR-02 | Tombol WhatsApp terlihat di header dan floating di mobile; pesan prefilled mengikuti halaman/produk | Must |
 | FR-03 | Halaman produk menampilkan varian, spesifikasi, kelebihan, FAQ, dan CTA konsultasi | Must |
 | FR-04 | Halaman konsultasi menjelaskan informasi yang perlu disiapkan dan menyediakan CTA WhatsApp tanpa menampilkan nominal | Must |
-| FR-05 | Galeri menampilkan foto proyek dengan jenis ruang, bahan, dan alt text; lokasi dan tahun tidak ditampilkan pada keterangan foto | Must |
+| FR-05 | Galeri menampilkan foto dan video proyek; foto dikelompokkan berdasarkan bentuk pemasangan setelah klasifikasi klien | Must |
 | FR-06 | Halaman kontak menampilkan NAP sebagai teks, jam, peta, dan tautan sosmed | Must |
 | FR-07 | Blog mendukung MDX, daftar isi, tanggal terbit dan diperbarui, artikel terkait | Must |
 | FR-08 | Halaman area layanan dibuat per wilayah dari data terstruktur dengan konten unik | Should |

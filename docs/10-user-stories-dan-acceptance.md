@@ -37,7 +37,7 @@ Sebagai calon pelanggan, saya ingin melihat foto proyek, agar yakin dengan kuali
 
 Acceptance:
 - Galeri minimal 15 proyek sebelum launch.
-- Setiap item memuat jenis ruang, bahan, dan alt text tanpa lokasi atau tahun pada keterangan foto.
+- Foto dan video tampil tanpa filter tempat; pengelompokan bentuk pemasangan menyusul setelah klasifikasi klien.
 - Gambar dimuat lazy kecuali yang di atas lipatan; tidak ada layout shift.
 
 ### US-05 (S) Membaca testimoni
@@ -51,7 +51,7 @@ Acceptance:
 Sebagai calon pelanggan, saya ingin tahu siapa di balik usaha ini, agar saya percaya.
 
 Acceptance:
-- Halaman Tentang Kami memuat sejarah singkat, pengalaman, foto toko/tim, dan alamat.
+- Halaman Tentang Toko memuat sejarah singkat, pengalaman, foto toko/tim, dan alamat.
 
 ## Epic C: Menghubungi
 

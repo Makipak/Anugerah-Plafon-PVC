@@ -12,11 +12,11 @@ export function Footer() {
     <footer className="mt-0 border-t border-line bg-panel">
       <div className="container-page grid gap-10 py-14 md:grid-cols-3">
         <div>
-          <Link href="/" className="flex min-w-0 items-center gap-2 sm:gap-3">
+          <Link href="/" className="-ml-2 flex min-w-0 items-center gap-0 sm:-ml-3">
             <span className="block w-24 shrink-0 sm:w-44">
               <Asset id="LOGO-01" sizes="(min-width: 640px) 176px, 96px" />
             </span>
-            <span className="min-w-0">
+            <span className="-ml-3 min-w-0 sm:-ml-5">
               <span
                 className={`${logoFont.className} block -skew-x-12 whitespace-nowrap text-xs uppercase tracking-wide text-ink min-[400px]:text-sm sm:text-base`}
               >
@@ -34,6 +34,10 @@ export function Footer() {
             <p className="mt-2">
               <TrackedLink href={`tel:${site.phone}`} event="phone_click" location="footer" className="text-ink underline underline-offset-4">
                 {site.phoneDisplay}
+              </TrackedLink>
+              {" / "}
+              <TrackedLink href={`tel:${site.phoneSecondary}`} event="phone_click" location="footer" className="text-ink underline underline-offset-4">
+                {site.phoneSecondaryDisplay}
               </TrackedLink>
             </p>
             <p className="mt-2">Jam operasional: {site.hours.text}</p>

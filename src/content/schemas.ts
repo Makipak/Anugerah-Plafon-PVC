@@ -99,7 +99,7 @@ export const proyekSchema = z.object({
   slug,
   judul: z.string().min(1),
   assetId: z.string().min(1),
-  lokasi: z.object({ kecamatan: z.string().min(1), kota: z.string().min(1) }),
+  lokasi: z.object({ kecamatan: z.string().min(1), kota: z.string().min(1) }).optional(),
   ruang: z.string().min(1),
   // Kategori galeri hanya tiga. Ruko, toko, atau ruang usaha lain dimasukkan ke "kantor".
   jenisRuang: z.enum(["rumah", "masjid", "kantor"]),
@@ -107,7 +107,7 @@ export const proyekSchema = z.object({
   interior: z.enum(interiorSlugs),
   luasM2: z.number().positive().optional(),
   bahan: z.string().min(1),
-  tahun: z.number().int().min(2000).max(2100),
+  tahun: z.number().int().min(2000).max(2100).optional(),
 });
 export type Proyek = z.infer<typeof proyekSchema>;
 

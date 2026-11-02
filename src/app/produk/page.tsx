@@ -10,7 +10,7 @@ import { waMessages } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Produk Plafon PVC dan WPC Serang",
-  description: "Lihat PVC, lis dinding, wallboard, dan WPC Outdoor yang tersedia beserta foto produknya di Serang, Banten.",
+  description: "Lihat pilihan PVC, WPC OUTDOOR, wallboard, dan lis dinding beserta foto produknya di Serang, Banten.",
   path: "/produk",
 });
 

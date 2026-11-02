@@ -20,6 +20,10 @@ export function ContactBlock({ location }: { location: string }) {
             <TrackedLink href={`tel:${site.phone}`} event="phone_click" location={location} className="text-ink underline underline-offset-4">
               {site.phoneDisplay}
             </TrackedLink>
+            {" / "}
+            <TrackedLink href={`tel:${site.phoneSecondary}`} event="phone_click" location={location} className="text-ink underline underline-offset-4">
+              {site.phoneSecondaryDisplay}
+            </TrackedLink>
           </p>
           {site.email ? <p>Email: {site.email}</p> : null}
           <p className="mt-4">Jam operasional: {site.hours.text}</p>

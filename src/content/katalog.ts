@@ -13,18 +13,19 @@ import {
 // folder atau data tanpa foto tidak masuk katalog. File thumbnail hanya dipakai sebagai thumbnail.
 export const kategoriData: readonly Kategori[] = [
   { slug: "plafon-pvc", nama: "PVC", ringkasan: "Panel plafon dari PVC dalam berbagai merek, motif, dan warna.", thumbnail: "/produk/PVC/PVC.png" },
-  { slug: "lis-dinding-6cm", nama: "LIS DINDING 6CM", thumbnail: "/produk/LIS-DINDING-6CM/LIS-DINDING-6CM-1.png" },
+  { slug: "wpc-outdoor", nama: "WPC OUTDOOR", ringkasan: "Panel WPC untuk area luar ruangan.", thumbnail: "/produk/WPC-Outdoor/WPC-O-1.png" },
+  { slug: "wallboard-40cm", nama: "WALLBOARD 40CM", thumbnail: "/produk/WALLBOARD-40CM/WALLBOARD-40CM-01.png" },
+  { slug: "lis-dinding-6cm", nama: "LIS DINDING 6CM", thumbnail: "/produk/LIS-DINDING-6CM/LIS-DINDING-6CM-01.png" },
   { slug: "lis-dinding-laminate", nama: "LIS DINDING LAMINATE", thumbnail: "/produk/LIS-DINDING-LAMINATE/LIS-DINDING-LAMINATE-1.png" },
   { slug: "lis-wallboard", nama: "LIS WALLBOARD", thumbnail: "/produk/LIS-WALLBOARD/LIS-WALLBOARD-1.jpeg" },
-  { slug: "wallboard-40cm", nama: "WALLBOARD 40CM", thumbnail: "/produk/WALLBOARD-40CM/WALLBOARD-40CM-1.png" },
-  { slug: "wpc-outdoor", nama: "WPC Outdoor", ringkasan: "Panel WPC untuk area luar ruangan.", thumbnail: "/produk/WPC-Outdoor/WPC-OD-Thum.jpg" },
 ].map((k) => kategoriSchema.parse(k));
 
 export const merekData: readonly Merek[] = [
+  { slug: "javafon", nama: "JAVAFON", thumbnail: "/produk/JAVAFON-ULTRA/JAVA-1.jpeg", kategori: "plafon-pvc" },
+  { slug: "lamiwood-laminatedoff-series", nama: "LAMIWOOD LAMINATE", thumbnail: "/produk/PVC/LAMIWOOD-LAMINATEDOFF-SERIES/DOFF-1.png", kategori: "plafon-pvc" },
+  { slug: "safir-laminatedoff-series", nama: "SAFIR", thumbnail: "/produk/PVC/SAFIR-LAMINATEDOFF-SERIES/SAFIR-1.png", kategori: "plafon-pvc" },
+  { slug: "lamiwood-glossy", nama: "LAMIWOOD GLOSSY", thumbnail: "/produk/PVC/LAMIWOOD-GLOSSY/LAMI-GLOSS-21.jpeg", kategori: "plafon-pvc" },
   { slug: "dante", nama: "DANTE", thumbnail: "/produk/PVC/DANTE/DANTE-1.jpg", kategori: "plafon-pvc" },
-  { slug: "lamiwood-glossy", nama: "LAMIWOOD GLOSSY", thumbnail: "/produk/PVC/LAMIWOOD-GLOSSY/LAMI-GLOSS-1.jpeg", kategori: "plafon-pvc" },
-  { slug: "lamiwood-laminatedoff-series", nama: "LAMIWOOD LAMINATEDOFF SERIES", thumbnail: "/produk/PVC/LAMIWOOD-LAMINATEDOFF-SERIES/DOFF-1.png", kategori: "plafon-pvc" },
-  { slug: "safir-laminatedoff-series", nama: "SAFIR LAMINATEDOFF SERIES", thumbnail: "/produk/PVC/SAFIR-LAMINATEDOFF-SERIES/SAFIR-1.png", kategori: "plafon-pvc" },
 ].map((m) => merekSchema.parse(m));
 
 export const seriData: readonly Seri[] = [];
@@ -54,11 +55,25 @@ function produkFolder(data: {
 
 const produkPVC: ProdukKatalog[] = [
   produkFolder({
-    slug: "dante",
-    nama: "DANTE",
+    slug: "javafon-ultra",
+    nama: "ULTRA",
     kategori: "plafon-pvc",
-    merek: "dante",
-    foto: fotoBerurutan("PVC/DANTE", "DANTE-", 9, () => "jpg"),
+    merek: "javafon",
+    foto: fotoBerurutan("JAVAFON-ULTRA", "JAVA-", 5, () => "jpeg"),
+  }),
+  produkFolder({
+    slug: "lamiwood-laminatedoff-series",
+    nama: "LAMIWOOD LAMINATE",
+    kategori: "plafon-pvc",
+    merek: "lamiwood-laminatedoff-series",
+    foto: fotoBerurutan("PVC/LAMIWOOD-LAMINATEDOFF-SERIES", "DOFF-", 11, () => "png"),
+  }),
+  produkFolder({
+    slug: "safir-laminatedoff-series",
+    nama: "SAFIR",
+    kategori: "plafon-pvc",
+    merek: "safir-laminatedoff-series",
+    foto: fotoBerurutan("PVC/SAFIR-LAMINATEDOFF-SERIES", "SAFIR-", 5, () => "png"),
   }),
   produkFolder({
     slug: "lamiwood-glossy",
@@ -70,27 +85,34 @@ const produkPVC: ProdukKatalog[] = [
     ),
   }),
   produkFolder({
-    slug: "lamiwood-laminatedoff-series",
-    nama: "LAMIWOOD LAMINATEDOFF SERIES",
+    slug: "dante",
+    nama: "DANTE",
     kategori: "plafon-pvc",
-    merek: "lamiwood-laminatedoff-series",
-    foto: fotoBerurutan("PVC/LAMIWOOD-LAMINATEDOFF-SERIES", "DOFF-", 11, () => "png"),
-  }),
-  produkFolder({
-    slug: "safir-laminatedoff-series",
-    nama: "SAFIR LAMINATEDOFF SERIES",
-    kategori: "plafon-pvc",
-    merek: "safir-laminatedoff-series",
-    foto: fotoBerurutan("PVC/SAFIR-LAMINATEDOFF-SERIES", "SAFIR-", 5, () => "png"),
+    merek: "dante",
+    foto: fotoBerurutan("PVC/DANTE", "DANTE-", 9, () => "jpg"),
   }),
 ];
 
 const produkPanelDinding: ProdukKatalog[] = [
   produkFolder({
+    slug: "wallboard-40cm",
+    nama: "WALLBOARD 40CM",
+    kategori: "wallboard-40cm",
+    foto: Array.from({ length: 8 }, (_, index) => {
+      const nomor = index + 1;
+      const namaFile = `${nomor === 1 ? "01" : nomor}.png`;
+      return `/produk/WALLBOARD-40CM/WALLBOARD-40CM-${namaFile}`;
+    }),
+  }),
+  produkFolder({
     slug: "lis-dinding-6cm",
     nama: "LIS DINDING 6CM",
     kategori: "lis-dinding-6cm",
-    foto: fotoBerurutan("LIS-DINDING-6CM", "LIS-DINDING-6CM-", 7, () => "png"),
+    foto: Array.from({ length: 7 }, (_, index) => {
+      const nomor = index + 1;
+      const namaFile = nomor === 1 ? "01.png" : nomor === 7 ? "7.jpeg" : `${nomor}.png`;
+      return `/produk/LIS-DINDING-6CM/LIS-DINDING-6CM-${namaFile}`;
+    }),
   }),
   produkFolder({
     slug: "lis-dinding-laminate",
@@ -104,25 +126,22 @@ const produkPanelDinding: ProdukKatalog[] = [
     kategori: "lis-wallboard",
     foto: fotoBerurutan("LIS-WALLBOARD", "LIS-WALLBOARD-", 4, () => "jpeg"),
   }),
-  produkFolder({
-    slug: "wallboard-40cm",
-    nama: "WALLBOARD 40CM",
-    kategori: "wallboard-40cm",
-    foto: fotoBerurutan("WALLBOARD-40CM", "WALLBOARD-40CM-", 8, () => "png"),
-  }),
 ];
 
 const produkWpcOutdoor = produkFolder({
   slug: "wpc-outdoor",
-  nama: "WPC Outdoor",
+  nama: "WPC OUTDOOR",
   kategori: "wpc-outdoor",
-  foto: fotoBerurutan("WPC-Outdoor", "WPC-OD-", 5, () => "png"),
+  foto: [
+    ...fotoBerurutan("WPC-Outdoor", "WPC-", 5, () => "jpeg"),
+    ...fotoBerurutan("WPC-Outdoor", "WPC-O-", 5, () => "png"),
+  ],
 });
 
 export const produkNyataLengkap: readonly ProdukKatalog[] = [
   ...produkPVC,
-  ...produkPanelDinding,
   produkWpcOutdoor,
+  ...produkPanelDinding,
 ];
 
 // Pemeriksaan acuan silang saat modul dimuat: salah isi data menghentikan dev/build dengan pesan jelas.

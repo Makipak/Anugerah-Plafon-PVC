@@ -6,14 +6,16 @@ export const site = {
   namaSitus: "Anugrah Plafon PVC Serang",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
   locale: "id_ID",
-  tagline: "Toko dan jasa pasang plafon PVC di Serang, Banten.",
+  tagline: "Pusat plafon PVC dan interior di Serang, Banten.",
   phone: "+6287887980777",
   phoneDisplay: "087887980777",
+  phoneSecondary: "+6287860569888",
+  phoneSecondaryDisplay: "087860569888",
   whatsapp: "6287887980777",
   email: undefined as string | undefined, // Tampil di halaman Kontak hanya jika diisi
   address: {
-    street: "Jl. Ayip Usman No. 11, Unyur",
-    landmark: "Seberang gerbang Perumahan Bumi Agung Permai 1 (BAP 1)",
+    street: "Jl. Ayip Usman Ruko No. 11, Unyur",
+    landmark: "Seberang gapura Perum Bumi Agung Permai 1 (BAP 1)",
     locality: "Kec. Serang, Kota Serang",
     region: "Banten",
     postalCode: "42111",
@@ -47,7 +49,7 @@ export const navItems = [
   { href: "/layanan/interior-design", label: "Interior" },
   { href: "/galeri", label: "Galeri" },
   { href: "/blog", label: "Blog" },
-  { href: "/tentang-kami", label: "Tentang" },
+  { href: "/tentang-kami", label: "Tentang Toko" },
   { href: "/kontak", label: "Kontak" },
 ] as const;
 

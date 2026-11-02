@@ -48,8 +48,16 @@ export default function KontakPage() {
                 <dd>{site.hours.text}</dd>
               </div>
               <div>
-                <dt className="font-medium">WhatsApp</dt>
-                <dd>{site.phoneDisplay}</dd>
+                <dt className="font-medium">Telepon</dt>
+                <dd>
+                  <TrackedLink href={`tel:${site.phone}`} event="phone_click" location="kontak" className="text-ink underline underline-offset-4">
+                    {site.phoneDisplay}
+                  </TrackedLink>
+                  {" / "}
+                  <TrackedLink href={`tel:${site.phoneSecondary}`} event="phone_click" location="kontak" className="text-ink underline underline-offset-4">
+                    {site.phoneSecondaryDisplay}
+                  </TrackedLink>
+                </dd>
               </div>
               <div>
                 <dt className="font-medium">Wilayah layanan</dt>
