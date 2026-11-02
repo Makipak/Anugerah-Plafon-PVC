@@ -6,7 +6,7 @@ export const site = {
   namaSitus: "Anugrah Plafon PVC Serang",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
   locale: "id_ID",
-  tagline: "Pusat plafon PVC dan interior di Serang, Banten.",
+  tagline: "Pusat plafon PVC dan interior di Serang, Banten dan sekitarnya.",
   phone: "+6287887980777",
   phoneDisplay: "087887980777",
   phoneSecondary: "+6287860569888",

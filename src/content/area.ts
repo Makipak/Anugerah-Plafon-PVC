@@ -5,18 +5,18 @@ import { areaSchema, type Area } from "./schemas";
 export const areaList: readonly Area[] = [
   areaSchema.parse({
     slug: "serang",
-    nama: "Serang",
+    nama: "Serang dan sekitarnya",
     ringkasan:
-      "Kami menerima permintaan jasa pasang plafon PVC di Kota Serang. Kirim alamat melalui WhatsApp untuk membahas jangkauan dan jadwal survei.",
+      "Kami menerima permintaan jasa pasang plafon PVC di Serang dan sekitarnya. Kirim alamat melalui WhatsApp untuk memastikan jangkauan dan jadwal survei.",
     fakta: [
-      "Jangkauan jasa pasang bergantung pada lokasi dan jadwal yang tersedia.",
+      "Jangkauan jasa pasang di Serang dan sekitarnya bergantung pada lokasi dan jadwal yang tersedia.",
       "Kirim ukuran ruangan dan foto plafon untuk membahas kebutuhan pemasangan.",
     ],
     proyekSlugs: ["proyek-01", "proyek-02"],
     assetId: "AREA-serang-01",
     faq: [
       {
-        q: "Bagaimana menjadwalkan survei lokasi di Serang?",
+        q: "Bagaimana menjadwalkan survei lokasi di Serang dan sekitarnya?",
         a: "Chat kami melalui WhatsApp untuk membahas kebutuhan dan jadwal survei lokasi.",
       },
     ],

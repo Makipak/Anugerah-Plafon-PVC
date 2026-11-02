@@ -15,10 +15,10 @@ const data: readonly Interior[] = [
     nama: "Plafon",
     ringkasan: "Pemasangan plafon PVC untuk rumah, masjid, dan kantor.",
     foto: ["/assets/interior/intr-01.jpeg"],
-    judul: "Plafon interior di Serang",
+    judul: "Plafon interior di Serang dan sekitarnya",
     metaTitle: "Plafon Interior Serang",
     metaDescription:
-      "Jasa pasang plafon PVC untuk interior rumah, masjid, dan kantor di Serang, Banten. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
+      "Jasa pasang plafon PVC untuk interior rumah, masjid, dan kantor di Serang dan sekitarnya. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
     lead: "Plafon adalah layanan utama kami. Kami menyediakan panel plafon PVC dan jasa pasangnya untuk ruangan di Serang dan sekitarnya.",
     penjelasan: [
       "Plafon memengaruhi tampilan seluruh ruangan. Pilihan motif dan warna panel menentukan kesan ruang, mulai dari ruang tamu, kamar, teras, serambi masjid, hingga ruang kerja.",
@@ -41,11 +41,10 @@ const data: readonly Interior[] = [
     slug: "kamar-set",
     nama: "Furniture",
     ringkasan: "Furniture kamar tidur sesuai ukuran dan kebutuhan ruangan.",
-    foto: ["/assets/interior/intr-2.jpeg"],
-    judul: "Furniture kamar tidur di Serang",
+    judul: "Furniture kamar tidur di Serang dan sekitarnya",
     metaTitle: "Furniture Kamar Tidur Serang",
     metaDescription:
-      "Layanan furniture kamar tidur di Serang, Banten, ditata mengikuti ukuran dan kebutuhan ruangan. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
+      "Layanan furniture kamar tidur di Serang dan sekitarnya, ditata mengikuti ukuran dan kebutuhan ruangan. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
     lead: "Furniture kamar tidur ditata mengikuti ukuran dan kebutuhan ruangan Anda.",
     penjelasan: [
       "Furniture kamar tidur dapat mencakup perabot seperti tempat tidur, lemari pakaian, dan meja. Susunannya disesuaikan dengan ukuran kamar agar ruang terasa tertata.",
@@ -69,10 +68,10 @@ const data: readonly Interior[] = [
     nama: "Kitchen set (dapur set)",
     ringkasan: "Lemari dan penataan area dapur.",
     foto: ["/assets/interior/intr-3.png"],
-    judul: "Kitchen set (dapur set) di Serang",
+    judul: "Kitchen set (dapur set) di Serang dan sekitarnya",
     metaTitle: "Kitchen Set Serang",
     metaDescription:
-      "Layanan kitchen set atau dapur set di Serang, Banten: lemari dan penataan dapur sesuai ruangan. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
+      "Layanan kitchen set atau dapur set di Serang dan sekitarnya: lemari dan penataan dapur sesuai ruangan. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
     lead: "Kitchen set atau dapur set menata lemari dan area kerja dapur sesuai bentuk ruangan Anda.",
     penjelasan: [
       "Dapur yang tertata membuat kegiatan memasak lebih nyaman. Kitchen set mengatur lemari atas dan bawah serta area kerja mengikuti denah dapur Anda.",
@@ -96,10 +95,10 @@ const data: readonly Interior[] = [
     nama: "Partisi",
     ringkasan: "Sekat pemisah antar ruangan.",
     foto: ["/assets/interior/intr-04.jpeg"],
-    judul: "Partisi ruangan di Serang",
+    judul: "Partisi ruangan di Serang dan sekitarnya",
     metaTitle: "Partisi Ruangan Serang",
     metaDescription:
-      "Layanan partisi atau sekat ruangan di Serang, Banten untuk rumah dan kantor. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
+      "Layanan partisi atau sekat ruangan di Serang dan sekitarnya untuk rumah dan kantor. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
     lead: "Partisi adalah sekat pemisah antar ruangan untuk membagi area di rumah maupun kantor.",
     penjelasan: [
       "Partisi membantu membagi satu ruangan menjadi beberapa area tanpa membangun dinding permanen. Cocok untuk memisahkan ruang kerja, ruang tamu, atau area lain sesuai kebutuhan.",
@@ -123,10 +122,10 @@ const data: readonly Interior[] = [
     nama: "Backdrop TV",
     ringkasan: "Dinding dekoratif di belakang televisi.",
     foto: ["/assets/interior/intr-05.jpeg"],
-    judul: "Backdrop TV di Serang",
+    judul: "Backdrop TV di Serang dan sekitarnya",
     metaTitle: "Backdrop TV Serang",
     metaDescription:
-      "Layanan backdrop TV di Serang, Banten: dinding dekoratif di belakang televisi untuk ruang keluarga. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
+      "Layanan backdrop TV di Serang dan sekitarnya: dinding dekoratif di belakang televisi untuk ruang keluarga. Lihat penjelasan, FAQ, dan konsultasi lewat WhatsApp.",
     lead: "Backdrop TV adalah dinding dekoratif di belakang televisi yang membuat ruang keluarga atau ruang tamu terlihat lebih rapi.",
     penjelasan: [
       "Backdrop TV memberi bingkai pada televisi sekaligus mempercantik dinding. Modelnya dapat disesuaikan dengan ukuran dinding dan gaya ruangan Anda.",

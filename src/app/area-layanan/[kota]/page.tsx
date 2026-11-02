@@ -10,7 +10,6 @@ import { CtaBand } from "@/components/sections/cta-band";
 import { Faq } from "@/components/sections/faq";
 import { areaList } from "@/content/area";
 import { proyekList } from "@/content/proyek";
-import type { AssetId } from "@/content/assets";
 import { faqLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { waMessages } from "@/lib/site";
@@ -27,7 +26,7 @@ export async function generateMetadata({ params }: PageProps<"/area-layanan/[kot
   if (!area) return {};
   return buildMetadata({
     title: `Jasa Pasang Plafon PVC ${area.nama}`,
-    description: `Informasi jasa pasang plafon PVC di ${area.nama}, Banten. Lihat contoh pekerjaan dan hubungi kami melalui WhatsApp untuk membahas kebutuhan Anda.`,
+    description: `Informasi jasa pasang plafon PVC di ${area.nama}. Lihat contoh pekerjaan dan hubungi kami melalui WhatsApp untuk memastikan jangkauan.`,
     path: `/area-layanan/${area.slug}`,
   });
 }
@@ -76,7 +75,7 @@ export default async function AreaPage({ params }: PageProps<"/area-layanan/[kot
               .
             </p>
           </div>
-          <Asset id={area.assetId as AssetId} sizes="(min-width: 1024px) 560px, 100vw" className="rounded-card" />
+          <Asset id={area.assetId} sizes="(min-width: 1024px) 560px, 100vw" className="rounded-card" />
         </div>
       </Section>
 
@@ -88,7 +87,7 @@ export default async function AreaPage({ params }: PageProps<"/area-layanan/[kot
           <ul className="grid grid-cols-2 gap-x-4 gap-y-7 sm:gap-x-5 sm:gap-y-8 md:grid-cols-3">
             {proyek.map((p) => (
               <li key={p.slug}>
-                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 50vw" className="rounded-card" />
+                <Asset id={p.assetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 50vw" className="rounded-card" />
                 <p className="font-display text-lg font-semibold">{p.judul}</p>
               </li>
             ))}

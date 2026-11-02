@@ -10,7 +10,7 @@ import { waMessages } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Tentang Toko Anugrah Plafon PVC Serang",
-  description: "Kenali Anugrah Plafon PVC, toko dan jasa pasang di Serang, Banten, dengan pilihan plafon PVC, lis dinding, wallboard, WPC OUTDOOR, dan layanan interior.",
+  description: "Kenali Anugrah Plafon PVC, toko dan jasa pasang di Serang dan sekitarnya, dengan pilihan plafon PVC, lis dinding, wallboard, WPC OUTDOOR, dan layanan interior.",
   path: "/tentang-kami",
 });
 
@@ -21,7 +21,7 @@ export default function TentangPage() {
         trail={[{ name: "Tentang Toko", path: "/tentang-kami" }]}
         label="Tentang Toko"
         title="Tentang Toko Anugrah Plafon PVC"
-        lead="Toko dan jasa pasang plafon PVC di Serang, Banten, dengan pilihan bahan dan layanan interior untuk berbagai ruangan."
+        lead="Toko dan jasa pasang plafon PVC di Serang, Banten dan sekitarnya, dengan pilihan bahan dan layanan interior untuk berbagai ruangan."
       />
 
       <Section tone="surface" labelledBy="judul-cerita">

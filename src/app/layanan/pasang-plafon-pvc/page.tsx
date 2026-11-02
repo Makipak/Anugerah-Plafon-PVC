@@ -10,7 +10,6 @@ import { Steps } from "@/components/sections/steps";
 import { Asset } from "@/components/asset";
 import { altProyek } from "@/lib/alt";
 import { proyekList } from "@/content/proyek";
-import type { AssetId } from "@/content/assets";
 import type { Faq as FaqItem } from "@/content/schemas";
 import { faqLd, serviceLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
@@ -20,7 +19,7 @@ const path = "/layanan/pasang-plafon-pvc";
 
 export const metadata: Metadata = buildMetadata({
   title: "Jasa Pasang Plafon PVC Serang",
-  description: "Lihat proses jasa pasang plafon PVC di Serang dan contoh hasil pekerjaan. Siapkan lokasi, ukuran ruangan, dan motif pilihan untuk berkonsultasi.",
+  description: "Lihat proses jasa pasang plafon PVC di Serang dan sekitarnya beserta contoh hasil pekerjaan. Siapkan lokasi, ukuran ruangan, dan motif pilihan untuk berkonsultasi.",
   path,
 });
 
@@ -33,12 +32,12 @@ const faq: FaqItem[] = [
 export default function JasaPasangPage() {
   return (
     <>
-      <JsonLd data={serviceLd("Jasa pasang plafon PVC", "Survei, pengukuran, dan pemasangan plafon PVC di Serang, Banten.", path)} />
+      <JsonLd data={serviceLd("Jasa pasang plafon PVC", "Survei, pengukuran, dan pemasangan plafon PVC di Serang dan sekitarnya.", path)} />
       <JsonLd data={faqLd(faq)} />
       <PageIntro
         trail={[{ name: "Jasa Pasang Plafon PVC", path }]}
         label="Layanan"
-        title="Jasa Pasang Kami Melayani diseluruh Wilayah Banten dan Sekitar nya."
+        title="Jasa Pasang Plafon PVC di Serang dan Sekitarnya"
         lead="Kirim lokasi dan ukuran ruangan melalui WhatsApp untuk membahas kebutuhan pemasangan dan jadwal survei."
       >
         <WhatsAppButton message={waMessages.jasa} location="jasa" label="Konsultasi jasa pasang" />
@@ -58,7 +57,7 @@ export default function JasaPasangPage() {
         <ul className="grid grid-cols-2 gap-x-4 gap-y-7 sm:gap-x-5 sm:gap-y-8 md:grid-cols-3">
           {proyekList.slice(0, 3).map((p) => (
             <li key={p.slug}>
-              <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 50vw" className="rounded-card" />
+              <Asset id={p.assetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 50vw" className="rounded-card" />
               <p className="font-display text-lg font-semibold">{p.judul}</p>
             </li>
           ))}

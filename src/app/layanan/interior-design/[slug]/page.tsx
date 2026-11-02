@@ -9,7 +9,6 @@ import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { CtaBand } from "@/components/sections/cta-band";
 import { Faq } from "@/components/sections/faq";
 import { ProdukFoto } from "@/components/katalog/produk-foto";
-import type { AssetId } from "@/content/assets";
 import { interiorBySlug, interiorLain, interiorList } from "@/content/interior";
 import { proyekList } from "@/content/proyek";
 import { altProyek } from "@/lib/alt";
@@ -122,7 +121,7 @@ export default async function InteriorDetailPage({ params }: PageProps<"/layanan
           <ul className="grid grid-cols-2 gap-x-4 gap-y-7 lg:grid-cols-3">
             {proyek.map((p) => (
               <li key={p.slug}>
-                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 1024px) 384px, 50vw" className="rounded-card" />
+                <Asset id={p.assetId} alt={altProyek(p)} sizes="(min-width: 1024px) 384px, 50vw" className="rounded-card" />
                 <p className="text-label mt-3 text-ink">{keteranganProyek(p)}</p>
                 <p className="mt-1 font-display text-lg font-semibold">{p.judul}</p>
                 <p className="text-sm text-ink-muted">{p.bahan}</p>

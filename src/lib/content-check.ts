@@ -1,5 +1,5 @@
-import { existsSync, statSync } from "node:fs";
-import { isAbsolute, relative, resolve, sep } from "node:path";
+import { existsSync, readdirSync, statSync } from "node:fs";
+import { resolve } from "node:path";
 import { DATA_DUMMY, findPlaceholders, isProduction } from "@/lib/placeholders";
 import { site } from "@/lib/site";
 import { interiorList } from "@/content/interior";
@@ -32,6 +32,25 @@ export function assertProductionReady(): void {
     .map(([id]) => `asset:${id}`);
 
   const publicDir = resolve(process.cwd(), "public");
+  const isPublicFile = (src: string): boolean => {
+    if (!src.startsWith("/") || src.startsWith("//") || src.includes("\\")) return false;
+    const segments = src.slice(1).split("/");
+    if (segments.some((segment) => !segment || segment === "." || segment === "..")) return false;
+
+    let filePath = publicDir;
+    for (const segment of segments) {
+      if (!existsSync(filePath) || !statSync(filePath).isDirectory()) return false;
+      if (!readdirSync(filePath).includes(segment)) return false;
+      filePath = resolve(filePath, segment);
+    }
+    return existsSync(filePath) && statSync(filePath).isFile();
+  };
+  const assetTanpaAlt = Object.entries(assets).flatMap(([id, spec]) =>
+    "src" in spec && !spec.alt?.trim() ? [`asset-alt-kosong:${id}`] : [],
+  );
+  const assetHilang = Object.entries(assets).flatMap(([id, spec]) =>
+    "src" in spec && !isPublicFile(spec.src) ? [`asset-hilang:${id}:${spec.src}`] : [],
+  );
   const fotoBermasalah = produkNyataLengkap.flatMap((p) =>
     p.warna.flatMap((w) => {
       const tidakAdaFoto = w.foto.length === 0;
@@ -41,13 +60,7 @@ export function assertProductionReady(): void {
           : [];
       const fotoHilang = w.foto
         .filter((f) => f.trim().length > 0)
-        .filter((f) => {
-          if (!f.startsWith("/")) return true;
-          const filePath = resolve(publicDir, f.slice(1));
-          const rel = relative(publicDir, filePath);
-          const diPublic = rel !== ".." && !rel.startsWith(`..${sep}`) && !isAbsolute(rel);
-          return !diPublic || !existsSync(filePath) || !statSync(filePath).isFile();
-        })
+        .filter((f) => !isPublicFile(f))
         .map((f) => `foto-hilang:${f}`);
       return [...fotoKosong, ...fotoHilang];
     }),
@@ -55,10 +68,7 @@ export function assertProductionReady(): void {
 
   const thumbnailHilang = [...kategoriData, ...merekData].flatMap(({ nama, thumbnail }) => {
     if (!thumbnail) return [];
-    const filePath = resolve(publicDir, thumbnail.slice(1));
-    const rel = relative(publicDir, filePath);
-    const diPublic = thumbnail.startsWith("/") && rel !== ".." && !rel.startsWith(`..${sep}`) && !isAbsolute(rel);
-    return !diPublic || !existsSync(filePath) || !statSync(filePath).isFile()
+    return !isPublicFile(thumbnail)
       ? [`thumbnail-hilang:${nama}:${thumbnail}`]
       : [];
   });
@@ -66,15 +76,19 @@ export function assertProductionReady(): void {
   const fotoInterior = interiorList.flatMap((item) =>
     (item.foto ?? []).flatMap((foto) => {
       if (foto.trim().length === 0) return [`foto-kosong-interior:${item.slug}`];
-      if (!foto.startsWith("/")) return [`foto-hilang:${foto}`];
-      const filePath = resolve(publicDir, foto.slice(1));
-      const rel = relative(publicDir, filePath);
-      const diPublic = rel !== ".." && !rel.startsWith(`..${sep}`) && !isAbsolute(rel);
-      return !diPublic || !existsSync(filePath) || !statSync(filePath).isFile() ? [`foto-hilang:${foto}`] : [];
+      return !isPublicFile(foto) ? [`foto-hilang:${foto}`] : [];
     }),
   );
 
-  const all = [...pending, ...assetsKosong, ...fotoBermasalah, ...thumbnailHilang, ...fotoInterior];
+  const all = [
+    ...pending,
+    ...assetsKosong,
+    ...assetTanpaAlt,
+    ...assetHilang,
+    ...fotoBermasalah,
+    ...thumbnailHilang,
+    ...fotoInterior,
+  ];
   if (all.length > 0) {
     throw new Error(
       `Build produksi dihentikan: ${all.length} item belum diisi. Contoh: ${all.slice(0, 8).join(", ")}`,

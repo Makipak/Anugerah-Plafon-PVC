@@ -18,7 +18,7 @@ const path = "/layanan/interior-design";
 export const metadata: Metadata = buildMetadata({
   title: "Interior Design Serang",
   description:
-    "Layanan interior di Serang, Banten: plafon, furniture, kitchen set, partisi, dan backdrop TV. Pilih jenis pekerjaan dan konsultasi lewat WhatsApp.",
+    "Layanan interior di Serang dan sekitarnya: plafon, furniture, kitchen set, partisi, dan backdrop TV. Pilih jenis pekerjaan dan konsultasi lewat WhatsApp.",
   path,
 });
 
@@ -30,12 +30,12 @@ const faq: FaqItem[] = [
 export default function InteriorPage() {
   return (
     <>
-      <JsonLd data={serviceLd("Interior design", "Plafon, furniture, kitchen set, partisi, backdrop TV, dan kebutuhan interior lainnya di Serang, Banten.", path)} />
+      <JsonLd data={serviceLd("Interior design", "Plafon, furniture, kitchen set, partisi, backdrop TV, dan kebutuhan interior lainnya di Serang dan sekitarnya.", path)} />
       <JsonLd data={faqLd(faq)} />
       <PageIntro
         trail={[{ name: "Interior Design", path }]}
         label="Layanan"
-        title="Interior design di Serang"
+        title="Interior design di Serang dan sekitarnya"
         lead="Kami menangani plafon, furniture, kitchen set, partisi, dan backdrop TV. Pilih jenis pekerjaan di bawah untuk melihat penjelasannya, atau ceritakan ruangan Anda lewat WhatsApp."
       >
         <WhatsAppButton message={waMessages.interior} location="interior" label="Konsultasi interior" />

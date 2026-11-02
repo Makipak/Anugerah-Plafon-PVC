@@ -23,6 +23,8 @@ Langkah mengganti placeholder:
 3. Isi `src` dan `alt` pada ID terkait di `src/content/assets.ts`.
 4. Jalankan `next build`; tidak ada perubahan tata letak yang diperlukan.
 
+Build produksi memeriksa keberadaan seluruh path aset di `public` dengan kecocokan nama yang peka huruf besar-kecil, termasuk foto katalog dan interior.
+
 ## 2. Spesifikasi umum
 
 | Item | Ketentuan |

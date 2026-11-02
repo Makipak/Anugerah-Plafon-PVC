@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Asset } from "@/components/asset";
-import type { AssetId } from "@/content/assets";
 import type { Proyek } from "@/content/schemas";
 import { altProyek } from "@/lib/alt";
 
@@ -57,7 +56,7 @@ export function Gallery({ items }: { items: readonly Proyek[] }) {
                   setActive(p);
                 }}
               >
-                <Asset id={p.assetId as AssetId} alt={altProyek(p)} sizes="(min-width: 1024px) 384px, 50vw" className="rounded-card" />
+                <Asset id={p.assetId} alt={altProyek(p)} sizes="(min-width: 1024px) 384px, 50vw" className="rounded-card" />
               </button>
             </motion.li>
           ))}
@@ -97,7 +96,7 @@ export function Gallery({ items }: { items: readonly Proyek[] }) {
                   Tutup
                 </button>
               </div>
-              <Asset id={active.assetId as AssetId} alt={altProyek(active)} sizes="(min-width: 1024px) 896px, 100vw" className="rounded-card" />
+              <Asset id={active.assetId} alt={altProyek(active)} sizes="(min-width: 1024px) 896px, 100vw" className="rounded-card" />
             </motion.div>
           </motion.div>
         ) : null}

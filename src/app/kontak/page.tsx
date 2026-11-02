@@ -61,7 +61,7 @@ export default function KontakPage() {
               </div>
               <div>
                 <dt className="font-medium">Wilayah layanan</dt>
-                <dd>Serang, Cilegon, Merak, dan Ciruas</dd>
+                <dd>Serang dan sekitarnya, termasuk Cilegon, Merak, dan Ciruas</dd>
               </div>
               {site.sameAs.length > 0 ? (
                 <div>

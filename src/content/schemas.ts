@@ -98,7 +98,7 @@ export type Interior = z.infer<typeof interiorSchema>;
 export const proyekSchema = z.object({
   slug,
   judul: z.string().min(1),
-  assetId: z.string().min(1),
+  assetId: assetIdSchema,
   lokasi: z.object({ kecamatan: z.string().min(1), kota: z.string().min(1) }).optional(),
   ruang: z.string().min(1),
   // Kategori galeri hanya tiga. Ruko, toko, atau ruang usaha lain dimasukkan ke "kantor".
@@ -117,7 +117,7 @@ export const areaSchema = z.object({
   ringkasan: z.string().min(1),
   fakta: z.array(z.string().min(1)),
   proyekSlugs: z.array(z.string()),
-  assetId: z.string().min(1),
+  assetId: assetIdSchema,
   faq: z.array(faqSchema),
 });
 export type Area = z.infer<typeof areaSchema>;

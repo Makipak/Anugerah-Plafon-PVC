@@ -132,10 +132,7 @@ const produkWpcOutdoor = produkFolder({
   slug: "wpc-outdoor",
   nama: "WPC OUTDOOR",
   kategori: "wpc-outdoor",
-  foto: [
-    ...fotoBerurutan("WPC-Outdoor", "WPC-", 5, () => "jpeg"),
-    ...fotoBerurutan("WPC-Outdoor", "WPC-O-", 5, () => "png"),
-  ],
+  foto: fotoBerurutan("WPC-Outdoor", "WPC-O-", 5, () => "png"),
 });
 
 export const produkNyataLengkap: readonly ProdukKatalog[] = [
@@ -160,6 +157,11 @@ function validasi(): void {
 
   const kategoriSlugs = new Set(kategoriData.map((k) => k.slug));
   if (kategoriSlugs.size !== kategoriData.length) galat.push("slug kategori ganda");
+  for (const m of merekData) {
+    if (m.kategori && !kategoriSlugs.has(m.kategori)) {
+      galat.push(`merek ${m.slug}: kategori ${m.kategori} tidak ada`);
+    }
+  }
 
   const slugPakai = new Set<string>(["plafon-pvc", "kategori"]);
   for (const p of produkNyataLengkap) {
@@ -167,7 +169,11 @@ function validasi(): void {
     slugPakai.add(p.slug);
     if (!kategoriSlugs.has(p.kategori)) galat.push(`produk ${p.slug}: kategori ${p.kategori} tidak ada`);
     if (p.seri && !p.merek) galat.push(`produk ${p.slug}: seri tanpa merek`);
+    const merek = p.merek ? merekData.find((m) => m.slug === p.merek) : undefined;
     if (p.merek && !merekSlugs.has(p.merek)) galat.push(`produk ${p.slug}: merek ${p.merek} tidak ada`);
+    if (merek?.kategori && merek.kategori !== p.kategori) {
+      galat.push(`produk ${p.slug}: kategori tidak cocok dengan merek ${merek.slug}`);
+    }
     if (p.merek && p.seri && !seriKunci.has(`${p.merek}/${p.seri}`)) galat.push(`produk ${p.slug}: seri ${p.seri} tidak ada di merek ${p.merek}`);
     const warnaSlugs = new Set(p.warna.map((w) => w.slug));
     if (warnaSlugs.size !== p.warna.length) galat.push(`produk ${p.slug}: slug warna ganda`);
