@@ -1,7 +1,12 @@
 import { z } from "zod";
+import { assets, type AssetId } from "./assets";
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Format tanggal harus YYYY-MM-DD");
 const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Slug harus huruf kecil dan tanda hubung");
+const assetIdSchema = z.string().refine(
+  (id): id is AssetId => Object.hasOwn(assets, id),
+  "ID aset tidak tersedia di manifest",
+);
 
 export const faqSchema = z.object({ q: z.string().min(1), a: z.string().min(1) });
 export type Faq = z.infer<typeof faqSchema>;
@@ -132,7 +137,7 @@ export const postSchema = z.object({
   updated: isoDate,
   slug,
   keyword: z.string().min(1),
-  coverAssetId: z.string().min(1),
+  coverAssetId: assetIdSchema,
   menautKe: z.array(z.string().startsWith("/")).min(1),
 });
 export type PostMeta = z.infer<typeof postSchema>;

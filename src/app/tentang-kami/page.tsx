@@ -4,12 +4,13 @@ import { Section, SectionHeading } from "@/components/ui/section";
 import { PageIntro } from "@/components/ui/page-intro";
 import { ButtonLink } from "@/components/ui/button";
 import { CtaBand } from "@/components/sections/cta-band";
+import { kategoriData, merekData } from "@/content/katalog";
 import { buildMetadata } from "@/lib/seo";
 import { waMessages } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Tentang Anugrah Plafon PVC Serang",
-  description: "Kenali Anugrah Plafon PVC, toko dan jasa pasang di Serang, Banten, dengan pilihan plafon PVC, WPC, kisi-kisi, panel dinding, dan layanan interior.",
+  description: "Kenali Anugrah Plafon PVC, toko dan jasa pasang di Serang, Banten, dengan pilihan plafon PVC, lis dinding, wallboard, WPC Outdoor, dan layanan interior.",
   path: "/tentang-kami",
 });
 
@@ -35,8 +36,8 @@ export default function TentangPage() {
                 dan motif, serta melayani pemasangannya untuk hunian, perkantoran, dan tempat ibadah.
               </p>
               <p>
-                Selain plafon, kami juga menyediakan WPC, kisi-kisi, panel dinding, dan rangka hollow, serta menangani pekerjaan interior seperti kamar
-                set, kitchen set, partisi, dan backdrop TV.
+                Selain plafon PVC, katalog kami mencakup lis dinding 6CM dan laminate, lis wallboard, wallboard 40CM, serta WPC Outdoor. Kami juga menangani
+                pekerjaan interior seperti kamar set, kitchen set, partisi, dan backdrop TV.
               </p>
               <p>Kami siap membantu menjadikan interior hunian Anda makin cantik dan berwarna, sesuai model dan karakter yang Anda inginkan.</p>
             </div>
@@ -99,7 +100,7 @@ export default function TentangPage() {
         <SectionHeading
           id="judul-layanan"
           label="Layanan"
-          intro="Merek yang tersedia antara lain DANTE, LAMIWOOD, JAVAFON, dan Conwood."
+          intro={`Merek PVC yang tersedia: ${merekData.map((merek) => merek.nama).join(", ")}.`}
         >
           Produk dan layanan kami
         </SectionHeading>
@@ -107,12 +108,9 @@ export default function TentangPage() {
           <div>
             <h3 className="font-display text-xl font-semibold">Produk</h3>
             <ul className="mt-3 list-disc space-y-1 pl-5">
-              <li>Plafon PVC</li>
-              <li>WPC dan WPC outdoor</li>
-              <li>PVC marble granite</li>
-              <li>Kisi-kisi dan kisi-kisi outdoor</li>
-              <li>Hollow rangka</li>
-              <li>Panel dinding Conwood</li>
+              {kategoriData.map((kategori) => (
+                <li key={kategori.slug}>{kategori.nama}</li>
+              ))}
             </ul>
             <div className="mt-5">
               <ButtonLink href="/produk" variant="secondary">

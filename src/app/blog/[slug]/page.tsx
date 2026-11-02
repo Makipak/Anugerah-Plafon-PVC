@@ -6,7 +6,6 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { ReadingProgress } from "@/components/motion/reading-progress";
 import { CtaBand } from "@/components/sections/cta-band";
-import type { AssetId } from "@/content/assets";
 import { getAllPosts, getPost } from "@/lib/blog";
 import { formatTanggal } from "@/lib/format";
 import { articleLd } from "@/lib/schema";
@@ -30,7 +29,7 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): P
     type: "article",
     publishedTime: post.date,
     modifiedTime: post.updated,
-    imageAssetId: post.coverAssetId as AssetId,
+    imageAssetId: post.coverAssetId,
     omitBrand: true,
   });
 }
@@ -58,7 +57,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
           <p className="mt-4 text-sm text-ink-muted">
             Terbit {formatTanggal(post.date)} | Diperbarui {formatTanggal(post.updated)}
           </p>
-          <Asset id={post.coverAssetId as AssetId} sizes="(min-width: 1024px) 768px, 100vw" className="mt-8 rounded-card" />
+          <Asset id={post.coverAssetId} sizes="(min-width: 1024px) 768px, 100vw" className="mt-8 rounded-card" />
           <div className="article mt-10">{post.content}</div>
         </div>
 

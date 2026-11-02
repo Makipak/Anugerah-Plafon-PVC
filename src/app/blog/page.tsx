@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Asset } from "@/components/asset";
 import { Section } from "@/components/ui/section";
 import { PageIntro } from "@/components/ui/page-intro";
-import type { AssetId } from "@/content/assets";
 import { getAllPosts } from "@/lib/blog";
 import { formatTanggal } from "@/lib/format";
 import { buildMetadata } from "@/lib/seo";
@@ -29,7 +28,7 @@ export default async function BlogPage() {
           {posts.map((p) => (
             <li key={p.slug}>
               <Link href={`/blog/${p.slug}`} className="group block">
-                <Asset id={p.coverAssetId as AssetId} sizes="(min-width: 1024px) 384px, (min-width: 768px) 50vw, 100vw" className="rounded-card" />
+                <Asset id={p.coverAssetId} sizes="(min-width: 1024px) 384px, (min-width: 768px) 50vw, 100vw" className="rounded-card" />
                 <p className="text-label mt-4 text-ink">Diperbarui {formatTanggal(p.updated)}</p>
                 <h2 className="text-title mt-1 text-ink group-hover:text-ink-muted">{p.title}</h2>
                 <p className="mt-2 text-ink-muted">{p.description}</p>
