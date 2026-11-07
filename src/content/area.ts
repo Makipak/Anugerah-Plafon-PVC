@@ -12,7 +12,7 @@ export const areaList: readonly Area[] = [
       "Jangkauan jasa pasang di Serang dan sekitarnya bergantung pada lokasi dan jadwal yang tersedia.",
       "Kirim ukuran ruangan dan foto plafon untuk membahas kebutuhan pemasangan.",
     ],
-    proyekSlugs: ["proyek-01", "proyek-02"],
+    proyekSlugs: [],
     assetId: "AREA-serang-01",
     faq: [
       {

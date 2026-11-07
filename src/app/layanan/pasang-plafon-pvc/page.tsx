@@ -7,9 +7,6 @@ import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { CtaBand } from "@/components/sections/cta-band";
 import { Faq } from "@/components/sections/faq";
 import { Steps } from "@/components/sections/steps";
-import { Asset } from "@/components/asset";
-import { altProyek } from "@/lib/alt";
-import { proyekList } from "@/content/proyek";
 import type { Faq as FaqItem } from "@/content/schemas";
 import { faqLd, serviceLd } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
@@ -54,16 +51,8 @@ export default function JasaPasangPage() {
         <SectionHeading id="judul-contoh" label="Contoh pekerjaan">
           Hasil pemasangan
         </SectionHeading>
-        <ul className="grid grid-cols-2 gap-x-4 gap-y-7 sm:gap-x-5 sm:gap-y-8 md:grid-cols-3">
-          {proyekList.slice(0, 3).map((p) => (
-            <li key={p.slug}>
-              <Asset id={p.assetId} alt={altProyek(p)} sizes="(min-width: 768px) 384px, 50vw" className="rounded-card" />
-              <p className="font-display text-lg font-semibold">{p.judul}</p>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-8">
-          Lihat semua proyek di{" "}
+        <p>
+          Foto hasil pekerjaan terbaru tersedia di{" "}
           <Link href="/galeri" className="text-ink underline underline-offset-4">
             galeri
           </Link>
