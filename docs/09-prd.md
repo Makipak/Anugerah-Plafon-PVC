@@ -39,7 +39,7 @@ Mayoritas trafik diasumsikan dari mobile; desain mobile-first.
 
 ### 4.1 Dalam scope (MVP)
 
-1. Halaman: Home, Produk, Detail Produk Plafon PVC, Layanan Pasang, Harga dan Biaya, Galeri, Area Layanan (wilayah yang dilayani), Blog, Tentang Toko, Kontak.
+1. Halaman: Home, Produk, Detail Produk Plafon PVC, Layanan Pasang, Harga dan Biaya, Galeri, Area Layanan (wilayah yang dilayani), Blog, dan Tentang Toko. Informasi lokasi toko tersedia di beranda dan footer.
 2. CTA WhatsApp (header, floating, per produk) dengan pesan prefilled.
 3. SEO teknis: metadata, canonical, sitemap, robots, JSON-LD, breadcrumb.
 4. Performa: SSG, optimasi gambar dan font.

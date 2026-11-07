@@ -52,12 +52,11 @@ Uji minimal di 360, 390, 768, dan 1280 px.
 
 ```mermaid
 flowchart TD
-  A[Header + WA] --> B[Hero: H1 + CTA]
-  B --> C[Keunggulan 3-4 poin berbukti]
-  C --> D[Video]
-  D --> E[Testimoni]
-  E --> F[CTA penutup + Kontak + Peta]
-  F --> G[Footer NAP]
+  A[Header + WA] --> B[Hero: H1 dan informasi lokasi]
+  B --> C[Keunggulan]
+  C --> D[Testimoni]
+  D --> E[Lokasi toko + Peta]
+  E --> F[Footer NAP]
 ```
 
 ## 6. Panduan gambar
@@ -105,7 +104,7 @@ flowchart TD
 | Galeri | Kelompok bentuk pemasangan: Flat, Flat kombinasi, Drop 1, Drop 2, Drop 3 (setelah foto diklasifikasikan klien) |
 | Area | Konten unik, proyek lokal, FAQ wilayah |
 | Tentang | Cerita, tim, pengalaman, legalitas |
-| Kontak | NAP teks, jam, peta, WhatsApp, tautan sosmed |
+| Home dan Footer | NAP teks dan jam; peta lokasi di Home |
 
 ## 10. Checklist desain sebelum implementasi
 

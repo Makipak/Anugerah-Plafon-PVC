@@ -1,4 +1,4 @@
-// Video yang tampil di beranda. Berkas video disimpan di public/assets/video/.
+// Video untuk bagian galeri. Berkas video disimpan di public/assets/video/.
 export type VideoItem = {
   id: string;
   judul: string;

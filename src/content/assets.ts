@@ -1,3 +1,5 @@
+import { galeriAssetId, galeriFotoKategori, galeriFotoRatio, type GaleriAssetId } from "./galeri-aset";
+
 // Manifest aset. Semua gambar dibuat pemilik proyek (AGENTS.md 6b).
 // Mengganti placeholder: simpan berkas di public/assets/<kategori>/, isi src dan alt di sini.
 // ID baru harus dicatat juga di docs/16-daftar-aset-placeholder.md pada commit yang sama.
@@ -12,7 +14,23 @@ export type AssetSpec = {
   optional?: boolean; // true: boleh kosong; slot tidak dirender di produksi dan tidak menggagalkan build
 };
 
-export const assets = {
+const asetGaleri: Record<string, AssetSpec> = Object.fromEntries(
+  galeriFotoKategori.flatMap((kategori) =>
+    kategori.files.map((file, index) => [
+      galeriAssetId(kategori.slug, index),
+      {
+        ratio: galeriFotoRatio(kategori.slug, index),
+        minWidth: 700,
+        minHeight: 900,
+        brief: `${kategori.nama}, foto ${index + 1}`,
+        src: `/${kategori.folder}/${file}`,
+        alt: `${kategori.nama}, foto ${index + 1}`,
+      },
+    ]),
+  ),
+);
+
+const asetTetap = {
   "LOGO-01": { ratio: "4/1", minWidth: 800, minHeight: 200, brief: "Logo horizontal (SVG)", src: "/assets/logo-01.webp", alt: "Logo Anugrah Plafon PVC", bare: true },
   "LOGO-02": { ratio: "1/1", minWidth: 512, minHeight: 512, brief: "Logo ringkas untuk favicon (SVG + PNG)", src: "/assets/pvc-logo.svg", alt: "Logo Anugrah Plafon PVC", bare: true },
   "OG-DEFAULT": { ratio: "1200/630", minWidth: 1200, minHeight: 630, brief: "Gambar berbagi tautan: nama usaha dan produk", optional: true },
@@ -69,4 +87,15 @@ export const assets = {
   "BLOG-05": { ratio: "16/9", minWidth: 960, minHeight: 1280, brief: "Pemasangan plafon PVC motif kayu pada area teras", src: "/assets/blog/blog-1.jpeg", alt: "Pemasangan plafon PVC motif kayu di area teras rumah" },
 } satisfies Record<string, AssetSpec>;
 
-export type AssetId = keyof typeof assets;
+export const assets: typeof asetTetap & Record<string, AssetSpec> = {
+  ...asetTetap,
+  ...asetGaleri,
+};
+
+export type AssetId = keyof typeof asetTetap | GaleriAssetId;
+
+export function getAssetSpec(id: AssetId): AssetSpec {
+  const spec = assets[id];
+  if (!spec) throw new Error(`ID aset tidak tersedia di manifest: ${id}`);
+  return spec;
+}

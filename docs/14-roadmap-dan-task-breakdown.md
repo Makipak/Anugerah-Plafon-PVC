@@ -30,7 +30,7 @@ Tanggal pada diagram hanya ilustrasi; ubah mengikuti tanggal mulai sebenarnya.
 |---|---|---|
 | M0 Kick-off | SOW ditandatangani, scope dikonfirmasi, checklist materi dikirim | Persetujuan tertulis klien |
 | M1 Fondasi | Repo, scaffold Next.js, tema, layout, `site.ts`, SEO helper, sitemap/robots | Build hijau, deploy preview noindex |
-| M2 Halaman inti | Home, Produk, Layanan, Harga, Kontak, Tentang | Konten placeholder terganti data klien |
+| M2 Halaman inti | Home, Produk, Layanan, Harga, Tentang | Konten placeholder terganti data klien |
 | M3 Bukti sosial | Galeri, testimoni, area layanan (yang dilayani) | Min. 15 proyek |
 | M4 Blog | Mesin MDX + 3 artikel awal | Artikel terbit, schema Article |
 | M5 QA | Semua uji dokumen 13 | Kriteria lulus rilis terpenuhi |
@@ -67,7 +67,6 @@ Status: `[ ]` belum, `[~]` berjalan, `[x]` selesai. Ukuran: S (<0,5 hari), M (0,
 - [ ] Layanan pasang plafon PVC (M)
 - [ ] Halaman konsultasi dan permintaan penawaran (M)
 - [ ] Tentang Toko (S)
-- [ ] Kontak: NAP teks, peta, tombol WA/arah (M)
 - [ ] 404 kustom (S)
 - [ ] Schema LocalBusiness, Product/Service, Breadcrumb (M)
 

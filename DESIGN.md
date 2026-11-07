@@ -186,7 +186,7 @@ Aturan:
 | 4 | Cara kerja | Langkah bernomor (survei, ukur, pasang, rapikan), teks konkret |
 | 5 | Testimoni | Kutipan polos dengan nama/inisial dan lokasi; tanpa bintang kecuali ulasan nyata |
 | 6 | Area layanan dan FAQ | Daftar wilayah nyata, accordion pertanyaan umum |
-| 7 | Kontak | Alamat teks, jam, peta, tombol WhatsApp |
+| 7 | Lokasi toko | Alamat teks, jam, dan peta |
 
 ## 8. Komponen
 

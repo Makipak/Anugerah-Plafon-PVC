@@ -1,5 +1,5 @@
-import { existsSync, readdirSync, statSync } from "node:fs";
-import { resolve } from "node:path";
+import { existsSync, statSync } from "node:fs";
+import { join } from "node:path";
 import { DATA_DUMMY, findPlaceholders, isProduction } from "@/lib/placeholders";
 import { site } from "@/lib/site";
 import { interiorList } from "@/content/interior";
@@ -31,25 +31,19 @@ export function assertProductionReady(): void {
     .filter(([, spec]) => (!("src" in spec) || !spec.src) && !("optional" in spec && spec.optional))
     .map(([id]) => `asset:${id}`);
 
-  const publicDir = resolve(process.cwd(), "public");
   const isPublicFile = (src: string): boolean => {
     if (!src.startsWith("/") || src.startsWith("//") || src.includes("\\")) return false;
     const segments = src.slice(1).split("/");
     if (segments.some((segment) => !segment || segment === "." || segment === "..")) return false;
 
-    let filePath = publicDir;
-    for (const segment of segments) {
-      if (!existsSync(filePath) || !statSync(filePath).isDirectory()) return false;
-      if (!readdirSync(filePath).includes(segment)) return false;
-      filePath = resolve(filePath, segment);
-    }
+    const filePath = join(process.cwd(), "public", ...segments);
     return existsSync(filePath) && statSync(filePath).isFile();
   };
   const assetTanpaAlt = Object.entries(assets).flatMap(([id, spec]) =>
     "src" in spec && !spec.alt?.trim() ? [`asset-alt-kosong:${id}`] : [],
   );
   const assetHilang = Object.entries(assets).flatMap(([id, spec]) =>
-    "src" in spec && !isPublicFile(spec.src) ? [`asset-hilang:${id}:${spec.src}`] : [],
+    "src" in spec && spec.src && !isPublicFile(spec.src) ? [`asset-hilang:${id}:${spec.src}`] : [],
   );
   const fotoBermasalah = produkNyataLengkap.flatMap((p) =>
     p.warna.flatMap((w) => {

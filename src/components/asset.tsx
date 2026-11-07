@@ -1,16 +1,16 @@
 import Image from "next/image";
-import { assets, type AssetId, type AssetSpec } from "@/content/assets";
+import { getAssetSpec, type AssetId } from "@/content/assets";
 import { isProduction } from "@/lib/placeholders";
 
 // alt menimpa alt dari manifest, untuk gambar yang deskripsinya bergantung pada data konten (lib/alt.ts).
-type Props = { id: AssetId; sizes: string; priority?: boolean; className?: string; alt?: string };
+type Props = { id: AssetId; sizes: string; priority?: boolean; className?: string; alt?: string; fit?: "cover" | "contain"; frame?: boolean; ratio?: string };
 
 // Semua gambar lewat komponen ini (AGENTS.md 6b). Tanpa src: placeholder berlabel di dev/preview,
 // dan build produksi dihentikan.
-export function Asset({ id, sizes, priority = false, className = "", alt }: Props) {
-  const spec: AssetSpec = assets[id];
-  const box = `relative ${spec.bare ? "" : "overflow-hidden bg-panel"} ${className}`;
-  const style = { aspectRatio: spec.ratio };
+export function Asset({ id, sizes, priority = false, className = "", alt, fit = "cover", frame = true, ratio }: Props) {
+  const spec = getAssetSpec(id);
+  const box = `relative ${frame && !spec.bare ? "overflow-hidden bg-panel" : ""} ${className}`;
+  const style = { aspectRatio: ratio ?? spec.ratio };
 
   if (spec.src) {
     const text = alt ?? spec.alt;
@@ -23,7 +23,7 @@ export function Asset({ id, sizes, priority = false, className = "", alt }: Prop
           fill
           sizes={sizes}
           priority={priority}
-          className={spec.bare ? "object-contain" : "object-cover"}
+          className={spec.bare || fit === "contain" ? "object-contain" : "object-cover"}
         />
       </div>
     );

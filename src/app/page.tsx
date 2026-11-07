@@ -1,16 +1,14 @@
 import { Asset } from "@/components/asset";
 import { JsonLd } from "@/components/seo/json-ld";
-import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { HeroCopy } from "@/components/motion/hero-copy";
 import { Reveal } from "@/components/motion/reveal";
 import { SeamLines } from "@/components/motion/seam-lines";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Droplets, Feather, Flame } from "lucide-react";
 import { ContactBlock } from "@/components/sections/contact-block";
-import { VideoSection } from "@/components/sections/video-section";
 import { testimoniList } from "@/content/testimoni";
 import { localBusinessLd, websiteLd } from "@/lib/schema";
-import { site, waMessages } from "@/lib/site";
+import { site } from "@/lib/site";
 import { TrackedLink } from "@/components/layout/tracked-link";
 
 export default function HomePage() {
@@ -58,9 +56,6 @@ export default function HomePage() {
                   {site.phoneSecondaryDisplay}
                 </TrackedLink>
               </address>
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                <WhatsAppButton message={waMessages.umum} location="hero" />
-              </div>
             </HeroCopy>
           </div>
           {/* Foto hero adalah kandidat LCP: tanpa animasi yang menundanya. Tanpa frame: bentuk asli gambar. */}
@@ -72,8 +67,6 @@ export default function HomePage() {
           />
         </div>
       </section>
-
-      <VideoSection />
 
       <section aria-labelledby="judul-keunggulan" className="relative isolate overflow-hidden py-16 md:py-24">
         <Asset
@@ -125,10 +118,10 @@ export default function HomePage() {
         </Section>
       ) : null}
 
-      <Section tone="surface" labelledBy="judul-kontak">
+      <Section tone="surface" labelledBy="judul-lokasi-toko">
         <Reveal>
-          <SectionHeading id="judul-kontak" label="Kontak">
-            Kunjungi toko atau chat kami
+          <SectionHeading id="judul-lokasi-toko" label="Lokasi toko">
+            Kunjungi toko kami
           </SectionHeading>
           <ContactBlock location="home" />
         </Reveal>

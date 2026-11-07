@@ -67,8 +67,8 @@ Acceptance:
 Sebagai calon pelanggan, saya ingin tahu alamat dan jam, agar bisa datang.
 
 Acceptance:
-- Alamat dan telepon tampil sebagai **teks** (bukan gambar) di Kontak dan footer.
-- Peta tertanam dan tombol "Petunjuk arah" ke Google Maps.
+- Alamat dan telepon tampil sebagai **teks** (bukan gambar) di beranda dan footer.
+- Peta lokasi toko dan tautan ke Google Maps tersedia di beranda.
 - Data identik dengan Google Business Profile.
 
 ## Epic D: Konten edukasi
@@ -142,7 +142,7 @@ Acceptance:
 | US-02 | FR-03 | Produk |
 | US-03 | FR-04 | Harga |
 | US-04 | FR-05 | Galeri |
-| US-07, US-08 | FR-02, FR-06 | Semua, Kontak |
+| US-07, US-08 | FR-02, FR-06 | Semua, Home, Footer |
 | US-09, US-10 | FR-07 | Blog |
 | US-11 | FR-08 | Area layanan |
 | US-14 sampai US-16 | NFR-01, 02, 06 | Seluruh situs |

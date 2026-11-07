@@ -15,7 +15,6 @@ Nilai berikut tampil publik dan **belum diverifikasi** dengan fakta usaha. Verif
 | Daftar proyek, lokasi, tahun | `src/content/proyek.ts`, `src/content/area.ts` |
 | Klaim "berdiri sejak 2020", "puluhan proyek", NIB, deskripsi tim, garansi | `src/app/tentang-kami/page.tsx`, `src/app/layanan/pasang-plafon-pvc/page.tsx` |
 | Jam operasional | `src/lib/site.ts` |
-| Wilayah layanan di halaman Kontak (menyebut Cilegon) berbeda dari `areaServed` (hanya Serang) | `src/app/kontak/page.tsx`, `src/lib/site.ts` |
 
 Email dan koordinat (`geo`) sengaja dikosongkan dan tidak ditampilkan sampai nilai aslinya diisi di `src/lib/site.ts`. Slot gambar `OG-DEFAULT`, `DETAIL-01`, `DETAIL-02`, dan `AREA-serang-01` bertanda `optional: true`: tidak dirender di produksi dan tidak menggagalkan build. Sampul BLOG-01 sampai BLOG-05 sudah tersedia.
 
@@ -33,7 +32,6 @@ Data klien dikumpulkan lewat [04-checklist-materi-klien.md](04-checklist-materi-
 | `src/content/faq.ts` | Jawaban konsultasi dan wilayah layanan | C, D |
 | `src/content/testimoni.ts` | Kosong. Isi hanya testimoni asli dengan izin; bagiannya tampil otomatis | F |
 | `src/app/tentang-kami/page.tsx` | Kalimat pembuka, cerita usaha (tahun berdiri, jumlah proyek, legalitas), deskripsi tim | A |
-| `src/app/kontak/page.tsx` | Daftar wilayah layanan; samakan dengan `areaServed` di `site.ts` | D |
 | `src/app/layanan/pasang-plafon-pvc/page.tsx` | 3 jawaban FAQ: garansi, cara memesan, pekerjaan yang tidak dikerjakan | C |
 
 Klaim yang harus benar dan dapat dibuktikan: tahun berdiri, jumlah proyek, NIB, garansi. Jangan diisi dari perkiraan.

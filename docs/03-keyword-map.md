@@ -17,7 +17,7 @@
 | plafon pvc serang banten | Beli/jasa | `/produk` | [ISI] | - |
 | jasa pasang plafon pvc serang | Jasa | `/layanan/pasang-plafon-pvc` | [ISI] | - |
 | motif plafon pvc serang | Produk | `/produk/plafon-pvc` | [ISI] | - |
-| toko plafon pvc serang | Lokasi toko | `/kontak` | [ISI] | - |
+| toko plafon pvc serang | Lokasi toko | `/` | [ISI] | - |
 | kontraktor plafon pvc serang | Jasa | `/layanan/pasang-plafon-pvc` | [ISI] | - |
 
 ## Tier 2: Produk, layanan, dan wilayah

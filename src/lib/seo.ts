@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { assets, type AssetId, type AssetSpec } from "@/content/assets";
+import { getAssetSpec, type AssetId } from "@/content/assets";
 import { site } from "@/lib/site";
 
 type Input = {
@@ -21,7 +21,7 @@ type Input = {
 export function shareImages(assetId?: AssetId) {
   const candidates: AssetId[] = assetId ? [assetId, "OG-DEFAULT"] : ["OG-DEFAULT"];
   for (const id of candidates) {
-    const spec: AssetSpec = assets[id];
+    const spec = getAssetSpec(id);
     if (!spec.src) continue;
     if (!spec.alt) throw new Error(`Aset ${id} punya src tetapi alt kosong`);
     return [{ url: spec.src, alt: spec.alt }];

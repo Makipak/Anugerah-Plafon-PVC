@@ -15,19 +15,19 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-background/95">
-      <div className="container-page flex h-16 items-center justify-between gap-3 sm:gap-4">
-        <Link href="/" className="flex min-w-0 shrink items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="block w-16 shrink-0 sm:w-28">
-            <Asset id="LOGO-01" sizes="(min-width: 640px) 112px, 64px" />
+      <div className="container-page grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-3 sm:gap-4 sm:px-4 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+        <Link href="/" className="flex min-w-0 items-center gap-2" onClick={() => setOpen(false)}>
+          <span className="block w-16 shrink-0 sm:w-24 lg:w-16 xl:w-24">
+            <Asset id="LOGO-01" sizes="(min-width: 1280px) 96px, (min-width: 640px) 96px, 64px" />
           </span>
           <span
-            className={`${logoFont.className} -ml-1 block min-w-0 -skew-x-12 whitespace-nowrap text-[0.625rem] uppercase tracking-wide text-ink min-[400px]:text-xs sm:text-base`}
+            className={`${logoFont.className} block min-w-0 -skew-x-12 whitespace-nowrap text-[0.625rem] uppercase tracking-wide text-ink min-[400px]:text-xs sm:text-sm lg:text-xs xl:text-sm`}
           >
             Anugrah Plafon PVC
           </span>
         </Link>
 
-        <nav aria-label="Navigasi utama" className="hidden items-center gap-6 lg:flex">
+        <nav aria-label="Navigasi utama" className="hidden items-center justify-center gap-6 lg:flex">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} className="py-2 text-base text-ink hover:text-ink">
               {item.label}
@@ -35,7 +35,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-self-end gap-2">
           <WhatsAppButton message={waMessages.umum} location="header" label="Chat WhatsApp" className="min-h-11 max-sm:hidden" />
           <button
             type="button"

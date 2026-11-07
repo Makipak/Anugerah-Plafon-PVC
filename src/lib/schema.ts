@@ -1,4 +1,4 @@
-import { assets, type AssetId, type AssetSpec } from "@/content/assets";
+import { getAssetSpec, type AssetId } from "@/content/assets";
 import { site } from "@/lib/site";
 import type { Faq } from "@/content/schemas";
 import type { VideoItem } from "@/content/video";
@@ -7,7 +7,7 @@ const abs = (path: string) => `${site.url}${path}`;
 
 // Hanya aset yang sudah diisi pemilik (punya src) yang boleh masuk schema; placeholder tidak.
 const srcOf = (id: AssetId): string | undefined => {
-  const spec: AssetSpec = assets[id];
+  const spec = getAssetSpec(id);
   return spec.src ? abs(spec.src) : undefined;
 };
 const imagesOf = (ids: readonly AssetId[]): string[] =>

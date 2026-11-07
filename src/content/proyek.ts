@@ -5,7 +5,7 @@ import { proyekSchema, type InteriorSlug, type Proyek } from "./schemas";
 // jenisRuang : kategori galeri, hanya "rumah" | "masjid" | "kantor" (ruko/toko/ruang usaha -> "kantor").
 // interior   : jenis pekerjaan, salah satu slug di src/content/interior.ts
 //              ("plafon" | "kamar-set" | "kitchen-set" | "partisi" | "backdrop-tv").
-//              Contoh: rumah + kamar-set tampil di galeri sebagai "Rumah · Furniture".
+//              Contoh: rumah + kamar-set tampil di galeri sebagai "Rumah · Kamar Set".
 // assetId    : ID di src/content/assets.ts (PROJ-xx-SESUDAH). Untuk proyek baru, tambahkan aset di sana juga.
 type DataProyek = {
   judul: string;

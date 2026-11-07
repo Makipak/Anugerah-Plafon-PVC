@@ -103,7 +103,7 @@ export function JsonLd({ data }: { data: object }) {
 }
 ```
 
-### LocalBusiness (Home dan Kontak)
+### LocalBusiness (Home)
 
 ```ts
 export const localBusinessLd = {
@@ -169,7 +169,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticPaths = ["", "/produk", "/layanan/pasang-plafon-pvc", "/galeri", "/tentang-kami", "/kontak", "/blog"];
+  const staticPaths = ["", "/produk", "/layanan/pasang-plafon-pvc", "/galeri", "/tentang-kami", "/blog"];
   const posts = await getAllPosts();
   return [
     ...staticPaths.map((p) => ({ url: `${site.url}${p}`, lastModified: new Date() })),

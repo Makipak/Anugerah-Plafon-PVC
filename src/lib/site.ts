@@ -12,7 +12,7 @@ export const site = {
   phoneSecondary: "+6287860569888",
   phoneSecondaryDisplay: "087860569888",
   whatsapp: "6287887980777",
-  email: undefined as string | undefined, // Tampil di halaman Kontak hanya jika diisi
+  email: undefined as string | undefined, // Tampil hanya jika diisi.
   address: {
     street: "Jl. Ayip Usman Ruko No. 11, Unyur",
     landmark: "Seberang gapura Perum Bumi Agung Permai 1 (BAP 1)",
@@ -50,7 +50,6 @@ export const navItems = [
   { href: "/galeri", label: "Galeri" },
   { href: "/blog", label: "Blog" },
   { href: "/tentang-kami", label: "Tentang Toko" },
-  { href: "/kontak", label: "Kontak" },
 ] as const;
 
 export function waLink(text: string): string {

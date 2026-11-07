@@ -10,7 +10,6 @@ flowchart TD
   H --> A[Area Layanan /area-layanan]
   H --> B[Blog /blog]
   H --> T[Tentang Toko /tentang-kami]
-  H --> K[Kontak /kontak]
   P --> P1[/produk/kategori/plafon-pvc]
   P1 --> P1a[/produk/kategori/plafon-pvc/merek/dante]
   P --> P2[/produk/kategori/lis-dinding-6cm]
@@ -32,7 +31,7 @@ Halaman dengan label "opsional" dibuat hanya jika klien benar-benar menjual atau
 
 | URL | Tujuan | Isi wajib | Keyword utama |
 |---|---|---|---|
-| `/` | Halaman pendaratan utama | Hero + CTA WA, keunggulan, video, testimoni, NAP + peta | plafon pvc serang |
+| `/` | Halaman pendaratan utama | Hero tanpa tombol WA, keunggulan, testimoni, lokasi toko + peta | plafon pvc serang |
 | `/produk` | Daftar folder produk | Kartu kategori berurutan: PVC, WPC OUTDOOR, wallboard, lis dinding 6 cm, lis dinding laminate, dan lis wallboard | produk plafon pvc dan material interior Serang |
 | `/produk/kategori/plafon-pvc` | Daftar folder di dalam PVC | Kartu nama dan foto berurutan: JAVAFON, LAMIWOOD LAMINATE, SAFIR, LAMIWOOD GLOSSY, DANTE | produk plafon pvc Serang |
 | `/produk/kategori/plafon-pvc/merek/[merek]` | Galeri jenis PVC | Semua foto dari folder merek/jenis yang dipilih | nama jenis plafon pvc Serang |
@@ -40,17 +39,17 @@ Halaman dengan label "opsional" dibuat hanya jika klien benar-benar menjual atau
 | `/produk/plafon-pvc` | Halaman produk inti | Varian motif, ukuran, ketebalan, kelebihan, perbandingan dengan gypsum, FAQ, schema Product | plafon pvc serang |
 | `/layanan/pasang-plafon-pvc` | Halaman jasa | Proses kerja, contoh proyek, garansi, cara order, schema Service | jasa pasang plafon pvc serang |
 | `/layanan/harga-dan-biaya-pasang` | Konsultasi | Informasi yang perlu disiapkan dan CTA WhatsApp; nominal tidak ditampilkan | konsultasi plafon pvc serang |
-| `/galeri` | Bukti sosial | Foto dan video proyek; pengelompokan berdasarkan bentuk pemasangan (flat, flat kombinasi, drop 1-3) ditambahkan setelah foto diklasifikasikan | (pendukung) |
+| `/galeri` | Bukti sosial | Foto proyek berkelompok dan berurutan: Kamar Set, Kitchen Set, Drop 3, Drop 2, Drop 1, Plat/Datar Kombinasi, Plat/Datar, Produk WPC, Pemasangan WPC, Pemasangan Wallboard | (pendukung) |
 | `/area-layanan/[kota]` | SEO lokal | Konten unik per wilayah, proyek di wilayah itu, waktu tempuh, FAQ lokal | jasa plafon pvc [kota] |
 | `/blog` dan `/blog/[slug]` | Traffic informasional | Artikel, daftar isi, internal link ke produk/layanan | lihat dokumen 06 |
 | `/tentang-kami` | Tentang Toko dan kepercayaan (E-E-A-T) | Sejarah, tim, pengalaman, legalitas, foto toko | (brand) |
-| `/kontak` | Konversi | NAP teks, jam, tombol WA, peta, formulir singkat (opsional) | toko plafon pvc serang |
 
 ## Elemen global
 
 - Header: logo, menu, tombol WA.
 - Tombol WA floating (pesan prefilled sesuai halaman).
-- Footer: NAP, jam operasional, tautan sosmed, tautan area layanan.
+- Beranda dan footer: NAP serta jam operasional; beranda juga menampilkan peta lokasi toko.
+- Video proyek tampil di galeri, bukan di beranda.
 - Breadcrumb di semua halaman selain Home.
 
 ## Aturan URL

@@ -14,7 +14,7 @@ Tujuan: menjawab pertanyaan nyata calon pelanggan, membangun otoritas topik, dan
 
 | # | Judul kerja | Keyword utama | Menaut ke | Prioritas |
 |---|---|---|---|---|
-| 1 | Cara Meminta Penawaran Plafon PVC di Serang | penawaran plafon pvc serang | `/kontak` | Tinggi |
+| 1 | Cara Meminta Penawaran Plafon PVC di Serang | penawaran plafon pvc serang | `/layanan/harga-dan-biaya-pasang` | Tinggi |
 | 2 | Cara Mengukur Kebutuhan Plafon PVC untuk Ruangan 3x3 m | kebutuhan plafon pvc 3x3 | `/produk/plafon-pvc` | Tinggi |
 | 3 | Plafon PVC vs Gypsum: Mana yang Cocok untuk Rumah Anda? | plafon pvc vs gypsum | `/produk/plafon-pvc` | Tinggi |
 | 4 | Kelebihan dan Kekurangan Plafon PVC (Jujur dan Lengkap) | kelebihan kekurangan plafon pvc | `/` | Sedang |

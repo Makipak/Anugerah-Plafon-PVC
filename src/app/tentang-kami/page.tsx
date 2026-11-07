@@ -37,7 +37,7 @@ export default function TentangPage() {
               </p>
               <p>
                 Selain plafon PVC, katalog kami mencakup lis dinding 6CM dan laminate, lis wallboard, wallboard 40CM, serta WPC OUTDOOR. Kami juga menangani
-                pekerjaan interior seperti furniture, kitchen set, partisi, dan backdrop TV.
+                pekerjaan interior seperti kamar set, kitchen set, partisi, dan backdrop TV.
               </p>
               <p>Kami siap membantu menjadikan interior hunian Anda makin cantik dan berwarna, sesuai model dan karakter yang Anda inginkan.</p>
             </div>
@@ -121,8 +121,8 @@ export default function TentangPage() {
           <div>
             <h3 className="font-display text-xl font-semibold">Interior design</h3>
             <ul className="mt-3 list-disc space-y-1 pl-5">
-              <li>Furniture</li>
-              <li>Kitchen set (dapur set)</li>
+              <li>Kamar Set</li>
+              <li>Kitchen set</li>
               <li>Partisi</li>
               <li>Backdrop TV</li>
               <li>Dan kebutuhan interior lainnya</li>

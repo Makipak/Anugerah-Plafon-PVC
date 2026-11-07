@@ -79,7 +79,7 @@ Status: `[ ]` belum dibuat, `[x]` selesai dan terpasang.
 | ID | Dipakai di | Rasio | Ukuran minimum | Isi yang dibutuhkan | Status |
 |---|---|---|---|---|---|
 | PROSES-01 sampai PROSES-04 | Bagian cara kerja | 3:2 | 1200 x 800 | Survei, pengukuran, pemasangan, finishing | [ ] |
-| TOKO-01 | Tentang dan Kontak | 3:2 | 1600 x 1067 | Tampak depan toko/gudang | [ ] |
+| TOKO-01 | Tentang Toko | 3:2 | 1600 x 1067 | Tampak depan toko/gudang | [ ] |
 | TIM-01 | Tentang | 3:2 | 1600 x 1067 | Tim di lokasi kerja | [ ] |
 | AREA-`<kota>`-01 | Halaman area layanan | 3:2 | 1200 x 800 | Proyek nyata di wilayah itu (hanya untuk wilayah yang dilayani) | [ ] |
 
@@ -88,6 +88,23 @@ Status: `[ ]` belum dibuat, `[x]` selesai dan terpasang.
 | ID | Dipakai di | Rasio | Ukuran minimum | Isi yang dibutuhkan | Status |
 |---|---|---|---|---|---|
 | BLOG-01 sampai BLOG-05 | Sampul artikel | 16:9 | 960 x 960 | Foto plafon/interior yang relevan dengan artikel | [x] |
+
+### Foto kategori galeri
+
+| ID | Kategori | Berkas |
+|---|---|---|
+| `GALERI-KAMAR-SET-01` sampai `GALERI-KAMAR-SET-07` | Kamar Set | `public/assets/proyek/Kamar-Set/` |
+| `GALERI-KITCHEN-SET-01` sampai `GALERI-KITCHEN-SET-16` | Kitchen Set | `public/assets/proyek/Kitchen-Set/` |
+| `GALERI-DROP-3-01` sampai `GALERI-DROP-3-07` | Drop 3 | `public/assets/proyek/Drop 3/` |
+| `GALERI-DROP-2-01` sampai `GALERI-DROP-2-08` | Drop 2 | `public/assets/proyek/Drop 2/` |
+| `GALERI-DROP-1-01` sampai `GALERI-DROP-1-07` | Drop 1 | `public/assets/proyek/Drop 1/` |
+| `GALERI-PLAT-DATAR-KOMBINASI-01` sampai `GALERI-PLAT-DATAR-KOMBINASI-03` | Plat/Datar Kombinasi | `public/assets/proyek/Plat_datar kombinasi/` |
+| `GALERI-PLAT-DATAR-01` sampai `GALERI-PLAT-DATAR-06` | Plat/Datar | `public/assets/proyek/Plate_datar/` |
+| `GALERI-PRODUK-WPC-01` sampai `GALERI-PRODUK-WPC-05` | Produk WPC | `public/produk/WPC-Outdoor/` |
+| `GALERI-PEMASANGAN-WPC-01` sampai `GALERI-PEMASANGAN-WPC-09` | Pemasangan WPC | `public/assets/proyek/pemasangan WPC/` |
+| `GALERI-PEMASANGAN-WALLBOARD-01` sampai `GALERI-PEMASANGAN-WALLBOARD-09` | Pemasangan Wallboard | `public/assets/proyek/pemasangan wallboard/` |
+
+Kategori dan ID galeri terdaftar di `src/content/galeri-aset.ts` dan `src/content/assets.ts`.
 | OG-BLOG-01 sampai 03 | Pratinjau tautan artikel | 1200:630 | 1200 x 630 | Judul artikel dan merek | [ ] |
 
 ### Opsional

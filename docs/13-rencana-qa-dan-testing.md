@@ -20,12 +20,12 @@ Memastikan semua kebutuhan PRD (dokumen 09) dan acceptance criteria (dokumen 10)
 
 | ID | Skenario | Hasil yang diharapkan | Terkait |
 |---|---|---|---|
-| T-01 | Buka Home di 390 px | H1, hero, dan tombol WA terlihat tanpa scroll | US-01 |
-| T-02 | Klik tombol WA di Home | Membuka `wa.me/<nomor>` dengan pesan umum | US-07 |
+| T-01 | Buka Home di 390 px | H1 dan informasi lokasi tampil tanpa tombol WA di bagian hero | US-01 |
+| T-02 | Klik tombol WA di header atau floating pada Home | Membuka `wa.me/<nomor>` dengan pesan umum | US-07 |
 | T-03 | Klik tombol tanya pada varian produk | Pesan memuat nama produk | US-02, US-07 |
 | T-04 | Buka halaman konsultasi | Informasi persiapan dan CTA WhatsApp tampil tanpa nominal harga | US-03 |
-| T-05 | Buka galeri | Minimal 15 proyek, alt text ada, tidak ada layout shift | US-04 |
-| T-06 | Buka Kontak | NAP sebagai teks, peta, tombol arah | US-08 |
+| T-05 | Buka galeri | Sepuluh kategori tampil berurutan, alt text tersedia, dan foto dapat diperbesar | US-04 |
+| T-06 | Buka Home dan footer | NAP sebagai teks; peta dan tautan Google Maps di Home | US-08 |
 | T-07 | Buka artikel blog | Jawaban singkat, tanggal, tautan terkait | US-09, US-10 |
 | T-08 | Buka URL acak tidak ada | Halaman 404 kustom, status 404 | FR-10 |
 | T-09 | Navigasi keyboard di menu dan FAQ | Fokus terlihat, dapat dioperasikan | NFR-03 |

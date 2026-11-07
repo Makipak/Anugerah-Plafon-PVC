@@ -29,6 +29,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: url("/blog") },
     ...posts.map((p) => ({ url: url(`/blog/${p.slug}`), lastModified: p.updated })),
     { url: url("/tentang-kami") },
-    { url: url("/kontak") },
   ];
 }
