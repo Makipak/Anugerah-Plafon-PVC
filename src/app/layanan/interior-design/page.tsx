@@ -35,8 +35,8 @@ export default function InteriorPage() {
       <PageIntro
         trail={[{ name: "Interior Design", path }]}
         label="Layanan"
-        title="Interior design di Serang dan sekitarnya"
-        lead="Kami menangani plafon, kamar set, kitchen set, partisi, dan backdrop TV. Pilih jenis pekerjaan di bawah untuk melihat penjelasannya, atau ceritakan ruangan Anda lewat WhatsApp."
+        title="Layanan Interior di Serang dan Sekitarnya"
+        lead="Butuh plafon, kamar set, kitchen set, partisi, atau backdrop TV? Pilih layanan yang sesuai, lalu ceritakan kebutuhan ruangan Anda lewat WhatsApp."
       />
 
       <Section tone="surface" labelledBy="judul-jenis">

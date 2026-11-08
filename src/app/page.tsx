@@ -40,22 +40,28 @@ export default function HomePage() {
         <div className="container-page relative grid items-center gap-10 py-14 md:py-20 lg:grid-cols-2">
           <div className="space-y-6">
             <HeroCopy>
+              <p className="text-label text-primary">Plafon PVC & interior — Serang, Banten</p>
               <h1 id="judul-hero" className="text-display">
                 Plafon PVC Serang
               </h1>
               <p className="max-w-xl text-lg text-ink-muted">
-                Pusat plafon PVC dan interior di Serang, Banten dan sekitarnya. Kunjungi toko kami di {site.address.street}, Kota Serang, Banten ({site.address.landmark}).
+                Pilihan plafon PVC dan interior untuk hunian maupun ruang usaha di Serang dan sekitarnya.
               </p>
-              <address className="not-italic text-ink-muted">
-                Hubungi{" "}
-                <TrackedLink href={`tel:${site.phone}`} event="phone_click" location="hero" className="text-ink underline underline-offset-4">
-                  {site.phoneDisplay}
-                </TrackedLink>
-                {" / "}
-                <TrackedLink href={`tel:${site.phoneSecondary}`} event="phone_click" location="hero" className="text-ink underline underline-offset-4">
-                  {site.phoneSecondaryDisplay}
-                </TrackedLink>
-              </address>
+              <div className="space-y-2 text-base">
+                <address className="not-italic leading-relaxed text-ink-muted">
+                  {site.address.street}, {site.address.locality}, {site.address.region}
+                </address>
+                <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-ink-muted">
+                  <span className="font-medium text-ink">Hubungi:</span>
+                  <TrackedLink href={`tel:${site.phone}`} event="phone_click" location="hero" className="text-ink underline underline-offset-4">
+                    {site.phoneDisplay}
+                  </TrackedLink>
+                  <span aria-hidden="true">/</span>
+                  <TrackedLink href={`tel:${site.phoneSecondary}`} event="phone_click" location="hero" className="text-ink underline underline-offset-4">
+                    {site.phoneSecondaryDisplay}
+                  </TrackedLink>
+                </p>
+              </div>
             </HeroCopy>
           </div>
           {/* Foto hero adalah kandidat LCP: tanpa animasi yang menundanya. Tanpa frame: bentuk asli gambar. */}

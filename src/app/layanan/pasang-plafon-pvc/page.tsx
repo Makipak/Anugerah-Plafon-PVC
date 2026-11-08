@@ -34,10 +34,10 @@ export default function JasaPasangPage() {
       <PageIntro
         trail={[{ name: "Jasa Pasang Plafon PVC", path }]}
         label="Layanan"
-        title="Jasa Pasang Plafon PVC di Serang dan Sekitarnya"
-        lead="Kirim lokasi dan ukuran ruangan melalui WhatsApp untuk membahas kebutuhan pemasangan dan jadwal survei."
+        title="Pasang Plafon PVC di Serang dan Sekitarnya"
+        lead="Ingin memasang plafon PVC? Ceritakan lokasi dan ukuran ruangan lewat WhatsApp. Kami bantu membahas kebutuhan dan jadwal surveinya."
       >
-        <WhatsAppButton message={waMessages.jasa} location="jasa" label="Konsultasi jasa pasang" />
+        <WhatsAppButton message={waMessages.jasa} location="jasa" label="Konsultasi pemasangan" />
       </PageIntro>
 
       <Section tone="surface" labelledBy="judul-proses">
