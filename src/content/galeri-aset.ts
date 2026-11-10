@@ -75,14 +75,14 @@ export const galeriFotoKategori = [
     ],
     ratios: ["1280/960", "960/1280", "1280/960", "960/1280", "963/1280", "960/1280"],
   },
-  {
-    slug: "produk-wpc",
-    nama: "Produk WPC",
-    folder: "produk/WPC-Outdoor",
-    prefix: "GALERI-PRODUK-WPC",
-    files: ["WPC-O-1.png", "WPC-O-2.png", "WPC-O-3.png", "WPC-O-4.png", "WPC-O-5.png"],
-    ratios: ["1000/1000", "1000/1000", "1000/1000", "1000/1000", "1000/1000"],
-  },
+  // {
+  //   slug: "produk-wpc",
+  //   nama: "Produk WPC",
+  //   folder: "produk/WPC-Outdoor",
+  //   prefix: "GALERI-PRODUK-WPC",
+  //   files: ["WPC-O-1.png", "WPC-O-2.png", "WPC-O-3.png", "WPC-O-4.png", "WPC-O-5.png"],
+  //   ratios: ["1000/1000", "1000/1000", "1000/1000", "1000/1000", "1000/1000"],
+  // },
   {
     slug: "pemasangan-wpc",
     nama: "Pemasangan WPC",
