@@ -22,6 +22,7 @@ export const kategoriData: readonly Kategori[] = [
 
 export const merekData: readonly Merek[] = [
   { slug: "javafon", nama: "JAVAFON", thumbnail: "/produk/JAVAFON-ULTRA/JAVA-1.jpeg", kategori: "plafon-pvc" },
+  { slug: "javapon-laminet", nama: "JAVAPON-LAMINET", thumbnail: "/produk/JAVAPON-LAMINATE/JAVAPON-1.jpeg", kategori: "plafon-pvc" },
   { slug: "lamiwood-laminatedoff-series", nama: "LAMIWOOD LAMINATE", thumbnail: "/produk/PVC/LAMIWOOD-LAMINATEDOFF-SERIES/DOFF-1.png", kategori: "plafon-pvc" },
   { slug: "safir-laminatedoff-series", nama: "SAFIR", thumbnail: "/produk/PVC/SAFIR-LAMINATEDOFF-SERIES/SAFIR-1.png", kategori: "plafon-pvc" },
   { slug: "lamiwood-glossy", nama: "LAMIWOOD GLOSSY", thumbnail: "/produk/PVC/LAMIWOOD-GLOSSY/LAMI-GLOSS-21.jpeg", kategori: "plafon-pvc" },
@@ -60,6 +61,13 @@ const produkPVC: ProdukKatalog[] = [
     kategori: "plafon-pvc",
     merek: "javafon",
     foto: fotoBerurutan("JAVAFON-ULTRA", "JAVA-", 5, () => "jpeg"),
+  }),
+  produkFolder({
+    slug: "javapon-laminet",
+    nama: "JAVAPON-LAMINET",
+    kategori: "plafon-pvc",
+    merek: "javapon-laminet",
+    foto: fotoBerurutan("JAVAPON-LAMINATE", "JAVAPON-", 7, () => "jpeg"),
   }),
   produkFolder({
     slug: "lamiwood-laminatedoff-series",

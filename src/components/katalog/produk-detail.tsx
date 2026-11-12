@@ -90,17 +90,23 @@ function Isi({ produk: p, awalWarna }: { produk: ProdukView; awalWarna: string }
       </div>
 
       <div className="min-w-0">
-        <dl className="grid grid-cols-[6rem_minmax(0,1fr)] gap-x-3 gap-y-2 border-y border-line py-4">
+        <div className="border-b border-line pb-4">
+          <p className="text-label text-ink-muted">Detail {p.kategori.nama}</p>
+          <h2 className="text-title mt-2">Informasi produk</h2>
+          <p className="mt-1 text-sm text-ink-muted">Rincian untuk produk {p.namaLengkap}.</p>
+        </div>
+
+        <dl className="divide-y divide-line border-b border-line">
           {spesifikasi.map(([k, v]) => (
-            <div key={k} className="contents">
-              <dt className="min-w-0 text-ink-muted">{k}</dt>
+            <div key={k} className="grid grid-cols-[7rem_minmax(0,1fr)] gap-3 py-3 sm:grid-cols-[8rem_minmax(0,1fr)]">
+              <dt className="min-w-0 text-sm text-ink-muted">{k}</dt>
               <dd className="min-w-0 break-words font-semibold">{v}</dd>
             </div>
           ))}
         </dl>
 
         {p.warna.length > 1 ? (
-          <div className="mt-6">
+          <div className="mt-5">
             <p id="judul-warna" className="font-display font-semibold">
               Pilih warna: <span aria-live="polite">{warna.nama}</span>
             </p>
@@ -122,7 +128,10 @@ function Isi({ produk: p, awalWarna }: { produk: ProdukView; awalWarna: string }
           </div>
         ) : null}
 
-        <div className="mt-8">
+        <div className="mt-5 border-t border-line pt-5">
+          <p className="mb-3 text-sm text-ink-muted">
+            Tanyakan ketersediaan dan detail produk langsung kepada kami.
+          </p>
           <WhatsAppButton message={pesanProduk(p, warna)} location="produk-detail" label="Tanyakan ketersediaan" />
         </div>
       </div>

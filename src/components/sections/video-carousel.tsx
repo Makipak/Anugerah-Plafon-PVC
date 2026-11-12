@@ -181,6 +181,11 @@ export function VideoCarousel({ items, placeholder = false }: { items: readonly 
               className="basis-[58%] shrink-0 snap-start sm:basis-[calc((100%-40px)/3)] lg:basis-[calc((100%-60px)/4)]"
             >
               <div className="relative aspect-[9/16] overflow-hidden rounded-card bg-panel">
+                {item.terbaru ? (
+                  <span className="absolute left-3 top-3 z-10 rounded-control bg-primary px-3 py-1 text-sm font-semibold text-surface shadow-floating">
+                    Terbaru
+                  </span>
+                ) : null}
                 {placeholder ? (
                   <div
                     aria-hidden="true"

@@ -6,18 +6,21 @@ export type VideoItem = {
   poster?: string;
   diunggah?: string;
   deskripsi?: string;
+  terbaru?: boolean;
 };
 
 export const videoList: readonly VideoItem[] = [
-  {
+ {
     id: "video-1",
     judul: "Video 1",
-    src: "/assets/video/video-1.mp4",
+    src: "/assets/video/Vidio-1.mp4",
+    terbaru: true,
   },
   {
     id: "video-2",
     judul: "Video 2",
-    src: "/assets/video/video-2.mp4",
+    src: "/assets/video/Vidio-2.mp4",
+    terbaru: true,
   },
   {
     id: "video-3",
@@ -43,5 +46,15 @@ export const videoList: readonly VideoItem[] = [
     id: "video-7",
     judul: "Video 7",
     src: "/assets/video/video-7.mp4",
+  },
+  {
+    id: "video-8",
+    judul: "Video 8",
+    src: "/assets/video/video-8.mp4",
+  },
+  {
+    id: "video-9",
+    judul: "Video 9",
+    src: "/assets/video/video-9.mp4",
   },
 ];
