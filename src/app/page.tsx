@@ -45,7 +45,7 @@ export default function HomePage() {
                 Plafon PVC Serang
               </h1>
               <p className="max-w-xl text-lg text-ink-muted">
-                Pilihan plafon PVC dan interior untuk hunian maupun ruang usaha di Serang dan sekitarnya.
+                Pilihan Plafon PVC dan Interior Untuk Hunian maupun Ruang Kantor Anda.
               </p>
               <div className="space-y-2 text-base">
                 <address className="not-italic leading-relaxed text-ink-muted">
