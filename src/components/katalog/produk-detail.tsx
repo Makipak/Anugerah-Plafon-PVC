@@ -57,6 +57,7 @@ function Isi({ produk: p, awalWarna }: { produk: ProdukView; awalWarna: string }
           sizes="(min-width: 1024px) 600px, calc(100vw - 40px)"
           priority
           className="rounded-card"
+          fit="contain"
         />
         {daftarFoto.length > 1 ? (
           <>
@@ -77,7 +78,7 @@ function Isi({ produk: p, awalWarna }: { produk: ProdukView; awalWarna: string }
                     className={`relative block size-16 overflow-hidden rounded-control border bg-panel sm:size-20 ${i === fi ? "border-primary ring-2 ring-primary" : "border-line hover:border-line-strong"}`}
                   >
                     {f.src ? (
-                      <Image src={f.src} alt="" fill sizes="(min-width: 640px) 80px, 64px" className="object-cover" />
+                      <Image src={f.src} alt="" fill sizes="(min-width: 640px) 80px, 64px" className="object-contain" />
                     ) : (
                       <span className="text-label flex size-full items-center justify-center text-ink-muted">{i + 1}</span>
                     )}
