@@ -21,7 +21,7 @@ const ogImages = shareImages();
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Plafon PVC Serang",
+    default: "Anugrah Plafon PVC",
     template: "%s | Anugrah Plafon PVC",
   },
   description:
